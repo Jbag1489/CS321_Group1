@@ -10,18 +10,13 @@ package cs321.other;
  * @author Group 1
  */
 public class AssignmentTemplateParser {
-<<<<<<< HEAD
-    // here is a test comment
-<<<<<<< HEAD
+
     //Dina :)
-=======
-=======
+
     // here is a test comment-Josh
     
     //Test comment by Dina
 
->>>>>>> origin/master
-    
     // testing - jake
 
 }
