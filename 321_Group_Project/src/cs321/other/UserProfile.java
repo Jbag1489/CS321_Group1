@@ -22,58 +22,58 @@ private UserSettings settings;
     
     //Methods:
     
-    getUserName()
+    public String getUserName()
     {
         return userName;
     }
     
-    setUserName()
+    public void setUserName(String userName)
     {
-        
+        this.userName = userName;
     }
     
-    getStudentName()
+    public String getStudentName()
     {
         return studentName;
     }
     
-    setStudentName()
+    public void setStudentName(String studentName)
     {
-        
+        this.studentName = studentName;
     }
     
-    getPassword()
+    public String getPassword()
     {
         return password;
     }
     
-    getAssignmentCounter()
+    public int getAssignmentCounter()
     {
-        
+        return assignmentCounter;
     }
     
-    setAssignmentCounter()
+    public void setAssignmentCounter(int assignmentCounter)
     {
-        
+        this.assignmentCounter = assignmentCounter;
     }
     
-    getAdministratorStatus()
+    public boolean getAdministratorStatus()
     {
-        
+        return adminstratorStatus;
     }
     
-    setAdministratorStatus()
+    public void setAdministratorStatus(boolean administratorStatus)
     {
-        
+        this.adminstratorStatus = administratorStatus;
     }
     
-    getSettings()
+    public UserSettings getSettings()
     {
-        
+        return settings;
     }
     
-    setSettings()
+    public void setSettings(UserSettings settings)
     {
-        
+        this.settings = settings;
     }
 }
