@@ -8,7 +8,7 @@ package cs321.other;
 
 //-------------------------
 /**
- *
+ * This is a test
  * @author jdbrown2005
  */
 public class UserProfile {
