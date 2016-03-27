@@ -8,7 +8,7 @@ package cs321.other;
 
 //-------------------------
 /**
- * This is a test
+ * 
  * @author jdbrown2005
  */
 public class UserProfile {
@@ -22,41 +22,65 @@ private UserSettings settings;
     
     //Methods:
     
+    /**
+     * JavaDoc comment
+    */
     public String getUserName()
     {
         return userName;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public void setUserName(String userName)
     {
         this.userName = userName;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public String getStudentName()
     {
         return studentName;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public void setStudentName(String studentName)
     {
         this.studentName = studentName;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public String getPassword()
     {
         return password;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public int getAssignmentCounter()
     {
         return assignmentCounter;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public void setAssignmentCounter(int assignmentCounter)
     {
         this.assignmentCounter = assignmentCounter;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public boolean getAdministratorStatus()
     {
         return adminstratorStatus;
@@ -67,11 +91,17 @@ private UserSettings settings;
         this.adminstratorStatus = administratorStatus;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public UserSettings getSettings()
     {
         return settings;
     }
     
+    /**
+     * JavaDoc comment
+    */
     public void setSettings(UserSettings settings)
     {
         this.settings = settings;
