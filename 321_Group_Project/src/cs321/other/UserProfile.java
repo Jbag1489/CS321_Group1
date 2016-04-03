@@ -24,6 +24,7 @@ private UserSettings settings;
     
     /**
      * JavaDoc comment
+     * @return 
     */
     public String getUserName()
     {

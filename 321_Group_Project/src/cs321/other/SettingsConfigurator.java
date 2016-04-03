@@ -1,14 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The SettingsConfigurator class will allow the user to have syntax options
+ * such as font displays and sizes. The class will also provide the user with a
+ * save and exit option feature.
+ * This class will be implemented as a Singleton.
  */
 package cs321.other;
 
 /**
  *
- * @author jdbrown2005
+ * @author Group1
  */
 public class SettingsConfigurator {
+    private static SettingsConfigurator singleton = new SettingsConfigurator();
     
+    /*
+    * private Constructor
+    */
+    private SettingsConfigurator(){
+        
+    }
+    
+    /*
+    *
+    */
 }
