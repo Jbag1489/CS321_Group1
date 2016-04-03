@@ -85,7 +85,7 @@ public class SettingsConfigurator extends javax.swing.JPanel {
         jLabel4.setText("Font Color:");
 
         jList4.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Black (Default)", "Red", "Blue", "Green", "Purple" };
+            String[] strings = { "Black", "Red", "Blue", "Green", "Purple" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -95,24 +95,24 @@ public class SettingsConfigurator extends javax.swing.JPanel {
         jLabel5.setText("Text Background Color:");
 
         jList5.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "White (Default)", "Black", "Red", "Blue", "Green", "Purple" };
+            String[] strings = { "White", "Black", "Red", "Blue", "Green", "Purple" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane5.setViewportView(jList5);
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("Tahoma");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("12");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("Black");
 
-        jTextField5.setText("jTextField5");
+        jTextField5.setText("White");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
