@@ -13,6 +13,10 @@ import javax.swing.JOptionPane;
  */
 public class MainMenu extends javax.swing.JFrame {
 
+    
+    // Reference to Settings Configurator
+    SettingsConfigurator settings = SettingsConfigurator.getInstnace();
+    
     /**
      * Creates new form MainMenu
      */
@@ -186,6 +190,7 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Open Settings menu
+        settings.DisplayWindow();
     }//GEN-LAST:event_PreferencesButtonActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
