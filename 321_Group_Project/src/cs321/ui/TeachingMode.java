@@ -27,40 +27,43 @@ public class TeachingMode extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        instructionScrollPane = new javax.swing.JScrollPane();
+        instructionTextArea = new javax.swing.JTextArea();
+        sampleCodeScrollPane = new javax.swing.JScrollPane();
+        sampleCodeTextArea = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         SubmitButton = new javax.swing.JButton();
         ExitMainMenuButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        typedCodeScrollPane = new javax.swing.JScrollPane();
+        typedCodeTextArea = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        fileMenu = new javax.swing.JMenu();
         ExitToMainMenuMenutItem = new javax.swing.JMenuItem();
         ExitMenuItem = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        editMenu = new javax.swing.JMenu();
         SettingsMenuItem = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        helpMenu = new javax.swing.JMenu();
         AboutMenuItem = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        javaDesignMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("In Java you declare a variable by typing a variable type, and then a name for that \nvariable. The primitive data types are bool, int, short, long, float.\nYou would create an int by typing int and then a space and the name of a variable.\nExample:\nint x;");
-        jScrollPane1.setViewportView(jTextArea1);
+        instructionTextArea.setEditable(false);
+        instructionTextArea.setColumns(20);
+        instructionTextArea.setRows(5);
+        instructionTextArea.setText("In Java you declare a variable by typing a variable type, and then a name for that \nvariable. The primitive data types are bool, int, short, long, float.\nYou would create an int by typing int and then a space and the name of a variable.\nExample:\nint x;");
+        instructionScrollPane.setViewportView(instructionTextArea);
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("int x = 4;");
-        jScrollPane2.setViewportView(jTextArea2);
+        sampleCodeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jLabel1.setText("Enter this text:");
+        sampleCodeTextArea.setEditable(false);
+        sampleCodeTextArea.setColumns(20);
+        sampleCodeTextArea.setRows(5);
+        sampleCodeTextArea.setText("1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
+        sampleCodeScrollPane.setViewportView(sampleCodeTextArea);
+
+        jLabel1.setText("Code to enter:");
 
         SubmitButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         SubmitButton.setText("Submit");
@@ -78,11 +81,16 @@ public class TeachingMode extends javax.swing.JFrame {
             }
         });
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        typedCodeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jMenu1.setText("File");
+        typedCodeTextArea.setColumns(20);
+        typedCodeTextArea.setRows(5);
+        typedCodeTextArea.setText("12345678921234567893123456789412345678951234567896\n2        0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
+        typedCodeScrollPane.setViewportView(typedCodeTextArea);
+
+        jLabel2.setText("Enter code here:");
+
+        fileMenu.setText("File");
 
         ExitToMainMenuMenutItem.setText("Exit to Main Menu");
         ExitToMainMenuMenutItem.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +98,7 @@ public class TeachingMode extends javax.swing.JFrame {
                 ExitToMainMenuMenutItemActionPerformed(evt);
             }
         });
-        jMenu1.add(ExitToMainMenuMenutItem);
+        fileMenu.add(ExitToMainMenuMenutItem);
 
         ExitMenuItem.setText("Exit");
         ExitMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -98,11 +106,11 @@ public class TeachingMode extends javax.swing.JFrame {
                 ExitMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(ExitMenuItem);
+        fileMenu.add(ExitMenuItem);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(fileMenu);
 
-        jMenu2.setText("Edit");
+        editMenu.setText("Edit");
 
         SettingsMenuItem.setText("Settings");
         SettingsMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -110,29 +118,29 @@ public class TeachingMode extends javax.swing.JFrame {
                 SettingsMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(SettingsMenuItem);
+        editMenu.add(SettingsMenuItem);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(editMenu);
 
-        jMenu3.setText("Help");
+        helpMenu.setText("Help");
 
-        AboutMenuItem.setText("Java Design Standards");
+        AboutMenuItem.setText("About");
         AboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AboutMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(AboutMenuItem);
+        helpMenu.add(AboutMenuItem);
 
-        jMenuItem4.setText("About");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        javaDesignMenuItem.setText("Java Design Standards");
+        javaDesignMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                javaDesignMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem4);
+        helpMenu.add(javaDesignMenuItem);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(helpMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -143,38 +151,46 @@ public class TeachingMode extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(instructionScrollPane)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ExitMainMenuButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(231, 231, 231)
+                                .addComponent(ExitMainMenuButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(instructionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(ExitMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                    .addComponent(sampleCodeScrollPane))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ExitMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        sampleCodeScrollPane.getVerticalScrollBar().setModel(typedCodeScrollPane.getVerticalScrollBar().getModel());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,31 +203,33 @@ public class TeachingMode extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ExitMainMenuButtonActionPerformed
 
-    private void ExitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExitMenuItemActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-
-        // Show Settings menu
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AboutMenuItemActionPerformed
-
-    private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SettingsMenuItemActionPerformed
-
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
     private void ExitToMainMenuMenutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitToMainMenuMenutItemActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_ExitToMainMenuMenutItemActionPerformed
+
+    private void ExitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuItemActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_ExitMenuItemActionPerformed
+
+    private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SettingsMenuItemActionPerformed
+
+    private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AboutMenuItemActionPerformed
+
+    private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed
+        // TODO add your handling code here:
+
+        // Show Settings menu
+    }//GEN-LAST:event_javaDesignMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,17 +273,18 @@ public class TeachingMode extends javax.swing.JFrame {
     private javax.swing.JMenuItem ExitToMainMenuMenutItem;
     private javax.swing.JMenuItem SettingsMenuItem;
     private javax.swing.JButton SubmitButton;
+    private javax.swing.JMenu editMenu;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu helpMenu;
+    private javax.swing.JScrollPane instructionScrollPane;
+    private javax.swing.JTextArea instructionTextArea;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JMenuItem javaDesignMenuItem;
+    private javax.swing.JScrollPane sampleCodeScrollPane;
+    private javax.swing.JTextArea sampleCodeTextArea;
+    private javax.swing.JScrollPane typedCodeScrollPane;
+    private javax.swing.JTextArea typedCodeTextArea;
     // End of variables declaration//GEN-END:variables
 }

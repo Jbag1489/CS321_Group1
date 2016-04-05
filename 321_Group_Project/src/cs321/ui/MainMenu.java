@@ -40,13 +40,14 @@ public class MainMenu extends javax.swing.JFrame {
         PracticeModeButton = new javax.swing.JButton();
         ArcadeModeButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        fileMenu = new javax.swing.JMenu();
+        ExitToMainMenuMenutItem = new javax.swing.JMenuItem();
+        ExitMenuItem = new javax.swing.JMenuItem();
+        editMenu = new javax.swing.JMenu();
+        SettingsMenuItem = new javax.swing.JMenuItem();
+        helpMenu = new javax.swing.JMenu();
+        AboutMenuItem = new javax.swing.JMenuItem();
+        javaDesignMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,39 +116,57 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
+        fileMenu.setText("File");
 
-        jMenuItem1.setText("Exit");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        ExitToMainMenuMenutItem.setText("Exit to Main Menu");
+        ExitToMainMenuMenutItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ExitToMainMenuMenutItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        fileMenu.add(ExitToMainMenuMenutItem);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-
-        jMenuItem2.setText("Settings");
-        jMenu2.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Help");
-
-        jMenuItem3.setText("Java Design Standards");
-        jMenu3.add(jMenuItem3);
-
-        jMenuItem4.setText("About");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        ExitMenuItem.setText("Exit");
+        ExitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                ExitMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem4);
+        fileMenu.add(ExitMenuItem);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(fileMenu);
+
+        editMenu.setText("Edit");
+
+        SettingsMenuItem.setText("Settings");
+        SettingsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SettingsMenuItemActionPerformed(evt);
+            }
+        });
+        editMenu.add(SettingsMenuItem);
+
+        jMenuBar1.add(editMenu);
+
+        helpMenu.setText("Help");
+
+        AboutMenuItem.setText("About");
+        AboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AboutMenuItemActionPerformed(evt);
+            }
+        });
+        helpMenu.add(AboutMenuItem);
+
+        javaDesignMenuItem.setText("Java Design Standards");
+        javaDesignMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                javaDesignMenuItemActionPerformed(evt);
+            }
+        });
+        helpMenu.add(javaDesignMenuItem);
+
+        jMenuBar1.add(helpMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -193,16 +212,6 @@ public class MainMenu extends javax.swing.JFrame {
         settings.DisplayWindow();
     }//GEN-LAST:event_PreferencesButtonActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        
-        // Show Settings menu
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void TeachingModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeachingModeButtonActionPerformed
         // TODO add your handling code here:
         
@@ -225,6 +234,30 @@ public class MainMenu extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(rootPane, "Arcade mode is coming soon!");
     }//GEN-LAST:event_ArcadeModeButtonActionPerformed
+
+    private void ExitToMainMenuMenutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitToMainMenuMenutItemActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_ExitToMainMenuMenutItemActionPerformed
+
+    private void ExitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuItemActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_ExitMenuItemActionPerformed
+
+    private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SettingsMenuItemActionPerformed
+
+    private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AboutMenuItemActionPerformed
+
+    private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed
+        // TODO add your handling code here:
+
+        // Show Settings menu
+    }//GEN-LAST:event_javaDesignMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,19 +295,20 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AboutMenuItem;
     private javax.swing.JButton ArcadeModeButton;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JMenuItem ExitMenuItem;
+    private javax.swing.JMenuItem ExitToMainMenuMenutItem;
     private javax.swing.JButton PracticeModeButton;
     private javax.swing.JButton PreferencesButton;
+    private javax.swing.JMenuItem SettingsMenuItem;
     private javax.swing.JButton TeachingModeButton;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu editMenu;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenuItem javaDesignMenuItem;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,17 @@ public class UserSettings {
     private String windowColor;
 
     /**
+     * Default constructor for UserSettings.
+     */
+    public UserSettings(){
+        font = "Tahoma";
+        fontColor = "Black";
+        fontSize = 12;
+        windowColor = "White";
+    }
+    
+    
+    /**
      * @return the font
      */
     public String getFont() {
