@@ -10,5 +10,8 @@ package cs321.other;
  * @author jdbrown2005
  */
 public class MainTester {
-    
+    public static void main (String[] args)
+    {
+ 
+    }
 }

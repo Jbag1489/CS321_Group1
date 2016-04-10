@@ -15,30 +15,39 @@ import java.util.ArrayList;
 public class Assignment {
     //Fields:
     
-    private ArrayList<String> instructions = new ArrayList<String>();
+    private ArrayList<String> instruction = new ArrayList<String>();
     private ArrayList<String> masterCode = new ArrayList<String>();
     private ArrayList<String> userEnteredCode = new ArrayList<String>();
     AssignmentTemplateParser parser = new AssignmentTemplateParser.getInstance();
     
+    public Assignment(ArrayList<String> instructionOne,
+                      ArrayList<String> masterCodeOne)
+                      
+    {
+     instruction = instructionOne;
+     masterCode = masterCodeOne;
+    }
     
+
     //Methods:
     
     /**
      * JavaDoc comment
      * @return instructions of type ArrayList string
     */
-    public ArrayList<String> getInstructions()
+    public ArrayList<String> getInstruction()
     {
-        return instructions;
+        return instruction;
     }
+    
     
     /**
      * JavaDoc comment
      * @param instructions to set instructions
     */
-    public void setInstruction(ArrayList<String> instructions)
+    public void setInstruction(ArrayList<String> instruction)
     {
-        this.instructions = instructions;
+        this.instruction = instruction;
     }
     
     /**

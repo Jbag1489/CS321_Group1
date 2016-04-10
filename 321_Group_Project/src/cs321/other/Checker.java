@@ -30,17 +30,28 @@ public class Checker {
         return accuracy;
     }
     
+<<<<<<< Updated upstream
     public void setLine(String line)
     {
         this.line=line;
     }
+=======
+    public setLine(string ){
+    }
+            
+>>>>>>> Stashed changes
     
     public boolean checkline()
     {
         
         return true;
     }
+<<<<<<< Updated upstream
             
    
     
 }
+=======
+}
+            
+>>>>>>> Stashed changes
