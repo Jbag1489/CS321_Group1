@@ -31,6 +31,10 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     public void DisplayWindow(){
         this.setVisible(true);
     }
+    
+    public void HideWindow(){
+        this.setVisible(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -200,6 +204,11 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
         saveExitButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         saveExitButton.setText("Save and Exit");
+        saveExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveExitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,6 +257,15 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_fontFieldActionPerformed
+
+    private void saveExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveExitButtonActionPerformed
+        // TODO add your handling code here:
+        
+        //Save all font options
+        
+        
+        this.HideWindow();
+    }//GEN-LAST:event_saveExitButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -247,6 +247,9 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
         // TODO add your handling code here:
+        
+        // Open settings page
+        settings.DisplayWindow();
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed

@@ -201,6 +201,7 @@ public class TeachingMode extends javax.swing.JFrame {
         this.setVisible(false);
         
         
+        
     }//GEN-LAST:event_ExitMainMenuButtonActionPerformed
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
