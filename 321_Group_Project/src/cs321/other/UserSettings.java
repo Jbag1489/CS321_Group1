@@ -7,7 +7,7 @@ package cs321.other;
 
 /**
  *
- * @author Joshua
+ * @author Group1
  */
 public class UserSettings {
     private String font;
@@ -16,6 +16,7 @@ public class UserSettings {
     private String windowColor;
 
     /**
+     * JavaDoc comment
      * @return the font
      */
     public String getFont() {
@@ -23,6 +24,7 @@ public class UserSettings {
     }
 
     /**
+     * JavaDoc comment
      * @param font the font to set
      */
     public void setFont(String font) {
@@ -30,6 +32,7 @@ public class UserSettings {
     }
 
     /**
+     * JavaDoc comment
      * @return the fontColor
      */
     public String getFontColor() {
@@ -37,6 +40,7 @@ public class UserSettings {
     }
 
     /**
+     * JavaDoc comment
      * @param fontColor the fontColor to set
      */
     public void setFontColor(String fontColor) {

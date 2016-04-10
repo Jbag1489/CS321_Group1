@@ -30,7 +30,7 @@ public class Assignment {
     
     /**
      * JavaDoc comment
-     * @param
+     * @param instructions to set instructions
     */
     public void setInstruction(String[] instructions) 
     {
@@ -48,7 +48,7 @@ public class Assignment {
     
     /**
      * JavaDoc comment
-     * @param 
+     * @param masterCode the masterCode to set
      * 
     */
     public void setMasterCode(String[] masterCode)
@@ -67,7 +67,7 @@ public class Assignment {
     
     /**
      * JavaDoc comment
-     * @param
+     * @param userEnteredCode the userEnteredCode to set
     */
     public void setUserEnteredCode(String[] userEnteredCode) 
     {
