@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package cs321.other;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.awt.Color;
 import javax.swing.*;
@@ -30,28 +31,22 @@ public class Checker {
         return accuracy;
     }
     
-<<<<<<< Updated upstream
-    public void setLine(String line)
+    public void checkline(Assignment a)
     {
-        this.line=line;
+      ArrayList errorIndex = new ArrayList();
+      ArrayList user = a.getUserEnteredCode();
+      
+      for(int i=0; i<user.size(); i++)
+      {
+          if(user.get(i)!= null)
+          {
+              user.get(i)
+          }
+      }
+       
     }
-=======
-    public setLine(string ){
-    }
-            
->>>>>>> Stashed changes
-    
-    public boolean checkline()
-    {
-        
-        return true;
-    }
-<<<<<<< Updated upstream
-            
+
    
     
 }
-=======
-}
             
->>>>>>> Stashed changes
