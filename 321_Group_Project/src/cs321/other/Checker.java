@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package cs321.other;
-import cs321.other.Assignment;
 import java.util.Timer;
-import cs321.ui.TeachingMode;
 import java.awt.Color;
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
@@ -32,13 +30,16 @@ public class Checker {
         return accuracy;
     }
     
-    public setLine(string )
-    
-    public boolean check(int){
-        
-
+    public void setLine(String line)
+    {
+        this.line=line;
     }
-}
+    
+    public boolean checkline()
+    {
+        
+        return true;
+    }
             
    
     
