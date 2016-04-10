@@ -27,42 +27,42 @@ public class AssignmentSelector extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        assignment1Button = new javax.swing.JButton();
+        assignment2Button = new javax.swing.JButton();
+        assignment3Button = new javax.swing.JButton();
+        assignment4Button = new javax.swing.JButton();
+        assignment5Button = new javax.swing.JButton();
+        exitMainMenuButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        fileMenu = new javax.swing.JMenu();
         ExitToMainMenuMenutItem = new javax.swing.JMenuItem();
         ExitMenuItem = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        editMenu = new javax.swing.JMenu();
         SettingsMenuItem = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        helpMenu = new javax.swing.JMenu();
         AboutMenuItem = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        javaDesignMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Assignment 1");
+        assignment1Button.setText("Assignment 1");
 
-        jButton2.setText("Assignment 2");
+        assignment2Button.setText("Assignment 2");
 
-        jButton3.setText("Assignment 3");
+        assignment3Button.setText("Assignment 3");
 
-        jButton4.setText("Assignment 4");
+        assignment4Button.setText("Assignment 4");
 
-        jButton5.setText("Assignment 5");
+        assignment5Button.setText("Assignment 5");
 
-        jButton6.setText("Exit to Main Menu");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        exitMainMenuButton.setText("Exit to Main Menu");
+        exitMainMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                exitMainMenuButtonActionPerformed(evt);
             }
         });
 
-        jMenu1.setText("File");
+        fileMenu.setText("File");
 
         ExitToMainMenuMenutItem.setText("Exit to Main Menu");
         ExitToMainMenuMenutItem.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 ExitToMainMenuMenutItemActionPerformed(evt);
             }
         });
-        jMenu1.add(ExitToMainMenuMenutItem);
+        fileMenu.add(ExitToMainMenuMenutItem);
 
         ExitMenuItem.setText("Exit");
         ExitMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -78,11 +78,11 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 ExitMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(ExitMenuItem);
+        fileMenu.add(ExitMenuItem);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(fileMenu);
 
-        jMenu2.setText("Edit");
+        editMenu.setText("Edit");
 
         SettingsMenuItem.setText("Settings");
         SettingsMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -90,29 +90,29 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 SettingsMenuItemActionPerformed(evt);
             }
         });
-        jMenu2.add(SettingsMenuItem);
+        editMenu.add(SettingsMenuItem);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(editMenu);
 
-        jMenu3.setText("Help");
+        helpMenu.setText("Help");
 
-        AboutMenuItem.setText("Java Design Standards");
+        AboutMenuItem.setText("About");
         AboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AboutMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(AboutMenuItem);
+        helpMenu.add(AboutMenuItem);
 
-        jMenuItem4.setText("About");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        javaDesignMenuItem.setText("Java Design Standards");
+        javaDesignMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                javaDesignMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem4);
+        helpMenu.add(javaDesignMenuItem);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(helpMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -125,31 +125,31 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addComponent(jButton4)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1))
+                            .addComponent(assignment5Button)
+                            .addComponent(assignment4Button)
+                            .addComponent(assignment3Button)
+                            .addComponent(assignment2Button)
+                            .addComponent(assignment1Button))
                         .addGap(163, 163, 163))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(exitMainMenuButton)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(jButton1)
+                .addComponent(assignment1Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(assignment2Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(assignment3Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(assignment4Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(assignment5Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exitMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -174,15 +174,15 @@ public class AssignmentSelector extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed
         // TODO add your handling code here:
 
         // Show Settings menu
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_javaDesignMenuItemActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void exitMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMainMenuButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_exitMainMenuButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,16 +224,16 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private javax.swing.JMenuItem ExitMenuItem;
     private javax.swing.JMenuItem ExitToMainMenuMenutItem;
     private javax.swing.JMenuItem SettingsMenuItem;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JButton assignment1Button;
+    private javax.swing.JButton assignment2Button;
+    private javax.swing.JButton assignment3Button;
+    private javax.swing.JButton assignment4Button;
+    private javax.swing.JButton assignment5Button;
+    private javax.swing.JMenu editMenu;
+    private javax.swing.JButton exitMainMenuButton;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem javaDesignMenuItem;
     // End of variables declaration//GEN-END:variables
 }
