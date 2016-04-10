@@ -62,7 +62,7 @@ public class AssignmentTemplateParser {
         return masterCode;
     }
     
-    public Assignment getInstance()
+    public Assignment getAssignment()
     {
         Assignment template = new Assignment(Instruction, masterCode);
         return template;
