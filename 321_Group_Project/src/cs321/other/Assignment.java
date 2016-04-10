@@ -21,6 +21,7 @@ public class Assignment {
     
     /**
      * JavaDoc comment
+     * @return instructions of type ArrayList string
     */
     public String[] getInstructions()
     {
@@ -29,14 +30,16 @@ public class Assignment {
     
     /**
      * JavaDoc comment
+     * @param
     */
-    public String[] setInstruction()
+    public void setInstruction(String[] instructions) 
     {
-        
+        this.instructions = instructions;
     }
     
     /**
      * JavaDoc comment
+     * @return master code of type ArrayList string
     */
     public String[] getMasterCode()
     {
@@ -45,14 +48,17 @@ public class Assignment {
     
     /**
      * JavaDoc comment
+     * @param 
+     * 
     */
-    public String[] setMasterCode()
+    public void setMasterCode(String[] masterCode)
     {
-        //??
+        this.masterCode = masterCode;
     }
     
     /**
      * JavaDoc comment
+     * @return userEnteredCode of type ArrayList string
     */
     public String[] getUserEnteredCode()
     {
@@ -61,9 +67,10 @@ public class Assignment {
     
     /**
      * JavaDoc comment
+     * @param
     */
-    public String[] setUserEnteredCode()
+    public void setUserEnteredCode(String[] userEnteredCode) 
     {
-        //??
+        this.userEnteredCode = userEnteredCode;
     }
 }

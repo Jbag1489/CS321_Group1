@@ -9,7 +9,7 @@ package cs321.other;
 //-------------------------
 /**
  * 
- * @author jdbrown2005
+ * @author GRoup1
  */
 public class UserProfile {
  //Fields:
