@@ -6,6 +6,7 @@
  * code by the user.
  */
 package cs321.other;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,9 +14,9 @@ package cs321.other;
  */
 public class Assignment {
     //Fields:
-    private String[] instructions = new String[0];
-    private String[] masterCode = new String[0];
-    private String[] userEnteredCode = new String[0];
+    private ArrayList<String> instructions = new ArrayList<String>();
+    private ArrayList<String> masterCode = new ArrayList<String>();
+    private ArrayList<String> userEnteredCode = new ArrayList<String>();
     AssignmentTemplateParser parser = new AssignmentTemplateParser.getInstance();
     
     //Methods:
@@ -24,7 +25,7 @@ public class Assignment {
      * JavaDoc comment
      * @return instructions of type ArrayList string
     */
-    public String[] getInstructions()
+    public ArrayList<String> getInstructions()
     {
         return instructions;
     }
@@ -33,7 +34,7 @@ public class Assignment {
      * JavaDoc comment
      * @param instructions to set instructions
     */
-    public void setInstruction(String[] instructions) 
+    public void setInstruction(ArrayList<String> instructions)
     {
         this.instructions = instructions;
     }
@@ -42,7 +43,7 @@ public class Assignment {
      * JavaDoc comment
      * @return master code of type ArrayList string
     */
-    public String[] getMasterCode()
+    public ArrayList<String> getMasterCode()
     {
         return masterCode;
     }
@@ -52,7 +53,7 @@ public class Assignment {
      * @param masterCode the masterCode to set
      * 
     */
-    public void setMasterCode(String[] masterCode)
+    public void setMasterCode(ArrayList<String> masterCode)
     {
         this.masterCode = masterCode;
     }
@@ -61,7 +62,7 @@ public class Assignment {
      * JavaDoc comment
      * @return userEnteredCode of type ArrayList string
     */
-    public String[] getUserEnteredCode()
+    public ArrayList<String> getUserEnteredCode()
     {
         return userEnteredCode;
     }
@@ -70,7 +71,7 @@ public class Assignment {
      * JavaDoc comment
      * @param userEnteredCode the userEnteredCode to set
     */
-    public void setUserEnteredCode(String[] userEnteredCode) 
+    public void setUserEnteredCode(ArrayList<String> userEnteredCode) 
     {
         this.userEnteredCode = userEnteredCode;
     }
