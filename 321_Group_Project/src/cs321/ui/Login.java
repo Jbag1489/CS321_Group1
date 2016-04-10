@@ -37,13 +37,10 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        userNameField.setText("User Name");
-
         userNameLabel.setText("User Name:");
 
         passwordLabel.setText("Password:");
 
-        passwordField.setText("password");
         passwordField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         loginButton.setText("Login");

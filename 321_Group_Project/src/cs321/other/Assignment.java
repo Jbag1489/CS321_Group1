@@ -14,10 +14,12 @@ import java.util.ArrayList;
  */
 public class Assignment {
     //Fields:
+    
     private ArrayList<String> instructions = new ArrayList<String>();
     private ArrayList<String> masterCode = new ArrayList<String>();
     private ArrayList<String> userEnteredCode = new ArrayList<String>();
     AssignmentTemplateParser parser = new AssignmentTemplateParser.getInstance();
+    
     
     //Methods:
     
