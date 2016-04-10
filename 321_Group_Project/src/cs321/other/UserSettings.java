@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cs321.other;
-
-/**
- *
+/*
+ * UserSettings class will allow the user to have options to modify profile... 
+ * (example: background, font size, and color can be changed).
  * @author Group1
  */
 public class UserSettings {

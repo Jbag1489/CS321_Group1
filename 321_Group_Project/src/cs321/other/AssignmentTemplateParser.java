@@ -67,7 +67,5 @@ public class AssignmentTemplateParser {
         Assignment template = new Assignment(Instruction, masterCode);
         return template;
     }
-        
-          
-    
+       
 }

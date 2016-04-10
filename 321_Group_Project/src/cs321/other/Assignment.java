@@ -1,49 +1,49 @@
-
 /*
  * The Assignment class will implement the interface of the assignment using 
  * GUI component. This class will also display instructions and the assignment 
  * that the user will be working on, as well as accept submitted 
  * code by the user.
+ * 
  */
 package cs321.other;
 import java.util.ArrayList;
 
 /**
- *
+ * 
  * @author Group1
  */
 public class Assignment {
     //Fields:
     
-    private ArrayList<String> instruction = new ArrayList<String>();
-    private ArrayList<String> masterCode = new ArrayList<String>();
-    private ArrayList<String> userEnteredCode = new ArrayList<String>();
-    AssignmentTemplateParser parser = new AssignmentTemplateParser.getInstance();
-    
-    public Assignment(ArrayList<String> instructionOne,
-                      ArrayList<String> masterCodeOne)
+    private ArrayList<String> instruction;
+    private ArrayList<String> masterCode;
+    private ArrayList<String> userEnteredCode;
+    /*
+    * Javadoc comments needed
+    * @param instruction
+    * @param masterCode
+    */
+    public Assignment(ArrayList<String> instruction, ArrayList<String> masterCode)
                       
     {
-     instruction = instructionOne;
-     masterCode = masterCodeOne;
+        this.instruction = instruction;
+        this.masterCode = masterCode;
     }
-    
 
     //Methods:
     
     /**
      * JavaDoc comment
-     * @return instructions of type ArrayList string
+     * @return instruction of type ArrayList string
     */
     public ArrayList<String> getInstruction()
     {
         return instruction;
     }
     
-    
     /**
      * JavaDoc comment
-     * @param instructions to set instructions
+     * @param instruction to set instructions
     */
     public void setInstruction(ArrayList<String> instruction)
     {
