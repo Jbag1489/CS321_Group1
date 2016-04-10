@@ -5,7 +5,6 @@
  */
 package cs321.other;
 import java.util.ArrayList;
-import java.util.Timer;
 import java.awt.Color;
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
@@ -31,19 +30,26 @@ public class Checker {
         return accuracy;
     }
     
+    //add index of wrong line to ArrayList
     public void checkline(Assignment a)
     {
       ArrayList errorIndex = new ArrayList();
       ArrayList user = a.getUserEnteredCode();
+      ArrayList master = a.getMasterCode();
+      int check=0;
       
       for(int i=0; i<user.size(); i++)
       {
-          if(user.get(i)!= null)
+          if(user.get(i) != null)
           {
-              user.get(i)
+              if(user.get( i ) != master.get( check ))
+              {
+                  errorIndex.add(i); //add wrong line to the array
+              }
+              check++;
           }
       }
-       
+       errors = errorIndex.size();
     }
 
    
