@@ -15,10 +15,9 @@ import java.util.ArrayList;
 public class AssignmentTemplateParser {
     private String line;
     private Scanner s;
-    private ArrayList<String> Instruction = new ArrayList<String>();
-    private ArrayList<String> Assignment = new ArrayList<String>();
-    private ArrayList<String> masterCode = new ArrayList<String>();
-    
+    private ArrayList <String> Instruction = new ArrayList <String>();
+    private ArrayList <String> masterCode = new ArrayList <String>();
+
     
      /**
      * JavaDoc comment
@@ -33,14 +32,6 @@ public class AssignmentTemplateParser {
         while(s.hasNext() && !line.equals("@InstructionEnd@"))
         {
            Instruction.add(line);
-           line = s.nextLine();
-        }
-        
-        s.findInLine("@Assignment@");
-        line = s.nextLine();
-        while(s.hasNext() && !line.equals("@AssignmentEnd@"))
-        {
-           Assignment.add(line);
            line = s.nextLine();
         }
         
@@ -64,19 +55,19 @@ public class AssignmentTemplateParser {
     
     /**
      * JavaDoc comment
-     * @return Assignment of type ArrayList string
-    */    
-     public ArrayList<String> getAssignment()
-    {
-        return Assignment;
-    }
-    /**
-     * JavaDoc comment
      * @return masterCode of type ArrayList string
     */    
     public ArrayList<String> getMasterCode()
     {
         return masterCode;
     }
+    
+    public Assignment getInstance()
+    {
+        Assignment template = new Assignment(Instruction, masterCode);
+        return template;
+    }
+        
+          
     
 }
