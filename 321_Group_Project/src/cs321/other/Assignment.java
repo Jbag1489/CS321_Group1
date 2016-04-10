@@ -1,23 +1,21 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The Assignment class will implement the interface of the assignment using 
+ * GUI component. This class will also display instructions and the assignment 
+ * that the user will be working on, as well as accept submitted 
+ * code by the user.
  */
 package cs321.other;
 
 /**
  *
- * @author jdbrown2005
+ * @author Group1
  */
 public class Assignment {
     //Fields:
-    //Can go back and change the types when meet as a group
-    //Not sure about *assignmentParser ??
     private String[] instructions = new String[0];
     private String[] masterCode = new String[0];
     private String[] userEnteredCode = new String[0];
-    //assignmentParser?
-    
+    AssignmentTemplateParser parser = new AssignmentTemplateParser.getInstance();
     
     //Methods:
     
@@ -34,7 +32,7 @@ public class Assignment {
     */
     public String[] setInstruction()
     {
-        //??
+        
     }
     
     /**
