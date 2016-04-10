@@ -289,6 +289,7 @@ public class TeachingMode extends javax.swing.JFrame {
                 out.println(line);
             }
             
+            out.close();
             
         } catch (IOException e1) {
             System.out.println("Error during file writing.");
