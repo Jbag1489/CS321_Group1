@@ -5,12 +5,21 @@
  */
 package cs321.ui;
 
+import java.io.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Joshua
  */
 public class TeachingMode extends javax.swing.JFrame {
 
+    // Class Variables
+    private ArrayList<String> instructions;
+    private ArrayList<String> typedCode;
+    private ArrayList<String> masterCode;
+    
+    
     /**
      * Creates new form TeachingMode
      */
@@ -197,15 +206,16 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void ExitMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMainMenuButtonActionPerformed
         // TODO add your handling code here:
-        
+
         this.setVisible(false);
-        
-        
-        
+
+
     }//GEN-LAST:event_ExitMainMenuButtonActionPerformed
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
+
+        // LAST THING: Export Code to .java file
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
     private void ExitToMainMenuMenutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitToMainMenuMenutItemActionPerformed
@@ -265,6 +275,25 @@ public class TeachingMode extends javax.swing.JFrame {
                 new TeachingMode().setVisible(true);
             }
         });
+    }
+
+    private void exportCode() {
+        // Export the code
+
+        // Create a print writer for writing to the file
+        try {
+            PrintWriter out = new PrintWriter(new FileWriter("theAssignment.java"));
+            
+            // output tpyed code to file
+            for(String line : typedCode){
+                out.println(line);
+            }
+            
+            
+        } catch (IOException e1) {
+            System.out.println("Error during file writing.");
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

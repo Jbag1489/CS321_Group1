@@ -80,9 +80,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="userNameField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="User Name"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="userNameLabel">
       <Properties>
@@ -96,7 +93,6 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="passwordField">
       <Properties>
-        <Property name="text" type="java.lang.String" value="password"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Text Cursor"/>
         </Property>
