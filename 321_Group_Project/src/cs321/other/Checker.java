@@ -35,13 +35,6 @@ public class Checker {
     {
         this.line=line;
     }
-
-    public setLine(string ){
-        
-    }
-    }
-            
-
     
     public boolean checkline()
     {
@@ -49,3 +42,4 @@ public class Checker {
         return true;
     }
 
+} // End class Checker
