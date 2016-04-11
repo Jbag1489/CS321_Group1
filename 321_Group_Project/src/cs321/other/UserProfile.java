@@ -21,6 +21,15 @@ private boolean adminstratorStatus;
 private UserSettings settings;
     
     //Methods:
+
+public UserProfile(String userName, String studentName, 
+                   String password, boolean adminstratorStatus)
+    {
+        this.userName = userName;
+        this.studentName = studentName;
+        this.password = password;
+        this.adminstratorStatus = adminstratorStatus;
+    }
     
     /**
      * JavaDoc comment
