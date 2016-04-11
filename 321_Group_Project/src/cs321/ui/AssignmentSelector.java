@@ -11,6 +11,10 @@ package cs321.ui;
  */
 public class AssignmentSelector extends javax.swing.JFrame {
 
+    // Class Variables
+    // Reference to Settings Configurator
+    private SettingsConfigurator settings = SettingsConfigurator.getInstance();
+    
     /**
      * Creates new form AssignmentSelector
      */
@@ -168,6 +172,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
         // TODO add your handling code here:
+        settings.DisplayWindow();
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed

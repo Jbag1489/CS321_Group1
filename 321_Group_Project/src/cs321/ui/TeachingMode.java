@@ -15,6 +15,10 @@ import java.util.ArrayList;
 public class TeachingMode extends javax.swing.JFrame {
 
     // Class Variables
+    // Reference to Settings Configurator
+    private SettingsConfigurator settings = SettingsConfigurator.getInstance();
+    private About about = About.getInstance();
+    
     private ArrayList<String> instructions;
     private ArrayList<String> typedCode;
     private ArrayList<String> masterCode;
@@ -68,6 +72,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
         sampleCodeTextArea.setEditable(false);
         sampleCodeTextArea.setColumns(20);
+        sampleCodeTextArea.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
         sampleCodeTextArea.setRows(5);
         sampleCodeTextArea.setText("1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
         sampleCodeScrollPane.setViewportView(sampleCodeTextArea);
@@ -93,6 +98,7 @@ public class TeachingMode extends javax.swing.JFrame {
         typedCodeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         typedCodeTextArea.setColumns(20);
+        typedCodeTextArea.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
         typedCodeTextArea.setRows(5);
         typedCodeTextArea.setText("12345678921234567893123456789412345678951234567896\n2        0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
         typedCodeScrollPane.setViewportView(typedCodeTextArea);
@@ -167,16 +173,14 @@ public class TeachingMode extends javax.swing.JFrame {
                             .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(231, 231, 231)
-                                .addComponent(ExitMainMenuButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 54, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(289, 289, 289)
+                        .addComponent(ExitMainMenuButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -230,10 +234,12 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
         // TODO add your handling code here:
+        settings.DisplayWindow();
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
+        about.DisplayWindow();
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
     private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed

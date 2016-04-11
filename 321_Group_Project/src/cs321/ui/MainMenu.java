@@ -14,8 +14,10 @@ import javax.swing.JOptionPane;
 public class MainMenu extends javax.swing.JFrame {
 
     
+    // Class Variables
     // Reference to Settings Configurator
-    SettingsConfigurator settings = SettingsConfigurator.getInstnace();
+    private SettingsConfigurator settings = SettingsConfigurator.getInstance();
+    private About about = About.getInstance();
     
     /**
      * Creates new form MainMenu
@@ -48,8 +50,6 @@ public class MainMenu extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         AboutMenuItem = new javax.swing.JMenuItem();
         javaDesignMenuItem = new javax.swing.JMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ExitButton.setText("Exit");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -254,6 +254,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
+        about.DisplayWindow();
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
     private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed

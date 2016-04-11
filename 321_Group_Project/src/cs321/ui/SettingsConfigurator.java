@@ -6,6 +6,9 @@
 package cs321.ui;
 
 import cs321.other.*;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -21,7 +24,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         initComponents();
     }
     
-    public static SettingsConfigurator getInstnace() {
+    public static SettingsConfigurator getInstance() {
         if(instance == null) {
             instance = new SettingsConfigurator();
         }
@@ -46,6 +49,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -72,6 +76,8 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
+        jTextField1.setText("jTextField1");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Font Options"));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -82,6 +88,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        fontSizeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane3.setViewportView(fontSizeList);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -92,6 +99,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        fontList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(fontList);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -102,6 +110,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        fontColorList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(fontColorList);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -112,8 +121,10 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        backgroundColorList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(backgroundColorList);
 
+        fontField.setEditable(false);
         fontField.setText("Tahoma");
         fontField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,13 +132,21 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             }
         });
 
+        fontSizeField.setEditable(false);
         fontSizeField.setText("12");
+        fontSizeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fontSizeFieldActionPerformed(evt);
+            }
+        });
 
+        fontColorField.setEditable(false);
         fontColorField.setText("Black");
 
+        backgroundField.setEditable(false);
         backgroundField.setText("White");
 
-        jLabel6.setText("*Font will remain in a monospace font in code windows.");
+        jLabel6.setText("*Font will remain in a monospace font in code windows. Other options will still apply.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,7 +154,8 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,8 +175,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(backgroundField)))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(backgroundField))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -253,11 +272,6 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fontFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontFieldActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_fontFieldActionPerformed
-
     private void saveExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveExitButtonActionPerformed
         // TODO add your handling code here:
         
@@ -266,6 +280,16 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         
         this.HideWindow();
     }//GEN-LAST:event_saveExitButtonActionPerformed
+
+    private void fontFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_fontFieldActionPerformed
+
+    private void fontSizeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontSizeFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_fontSizeFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +325,8 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> backgroundColorList;
@@ -324,6 +350,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton resetToDefaultButton;
     private javax.swing.JButton saveExitButton;
     private javax.swing.JLabel textPreviewLabel;
