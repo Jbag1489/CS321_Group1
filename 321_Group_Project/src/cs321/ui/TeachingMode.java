@@ -68,8 +68,9 @@ public class TeachingMode extends javax.swing.JFrame {
 
         sampleCodeTextArea.setEditable(false);
         sampleCodeTextArea.setColumns(20);
+        sampleCodeTextArea.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         sampleCodeTextArea.setRows(5);
-        sampleCodeTextArea.setText("1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
+        sampleCodeTextArea.setText("1234567892123456789312345678941234567895123456789612345678971234567898\n2        0         0         0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
         sampleCodeScrollPane.setViewportView(sampleCodeTextArea);
 
         jLabel1.setText("Code to enter:");
@@ -93,8 +94,9 @@ public class TeachingMode extends javax.swing.JFrame {
         typedCodeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         typedCodeTextArea.setColumns(20);
+        typedCodeTextArea.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         typedCodeTextArea.setRows(5);
-        typedCodeTextArea.setText("12345678921234567893123456789412345678951234567896\n2        0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
+        typedCodeTextArea.setText("1234567892123456789312345678941234567895123456789612345678971234567898\n2        0         0         0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
         typedCodeScrollPane.setViewportView(typedCodeTextArea);
 
         jLabel2.setText("Enter code here:");
@@ -200,6 +202,7 @@ public class TeachingMode extends javax.swing.JFrame {
         );
 
         sampleCodeScrollPane.getVerticalScrollBar().setModel(typedCodeScrollPane.getVerticalScrollBar().getModel());
+        sampleCodeScrollPane.getHorizontalScrollBar().setModel(typedCodeScrollPane.getHorizontalScrollBar().getModel());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

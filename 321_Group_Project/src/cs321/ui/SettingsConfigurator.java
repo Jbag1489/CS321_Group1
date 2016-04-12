@@ -6,6 +6,12 @@
 package cs321.ui;
 
 import cs321.other.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.lang.reflect.Field;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.event.*;
 
 /**
  *
@@ -17,22 +23,23 @@ public class SettingsConfigurator extends javax.swing.JFrame {
      * Creates new form SettingsConfigurator
      */
     private static SettingsConfigurator instance = null;
+
     protected SettingsConfigurator() {
         initComponents();
     }
-    
+
     public static SettingsConfigurator getInstnace() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new SettingsConfigurator();
         }
         return instance;
     }
-    
-    public void DisplayWindow(){
+
+    public void DisplayWindow() {
         this.setVisible(true);
     }
-    
-    public void HideWindow(){
+
+    public void HideWindow() {
         this.setVisible(false);
     }
 
@@ -62,7 +69,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         fontField = new javax.swing.JTextField();
         fontSizeField = new javax.swing.JTextField();
         fontColorField = new javax.swing.JTextField();
-        backgroundField = new javax.swing.JTextField();
+        backgroundColorField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         fontPreviewField = new javax.swing.JTextField();
         textPreviewLabel = new javax.swing.JLabel();
@@ -72,48 +79,71 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Font Options"));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Font Size:");
 
+        fontSizeList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         fontSizeList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "10", "12", "14", "16", "18", "20", "22", "24", "26" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        fontSizeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane3.setViewportView(fontSizeList);
+        fontSizeList.setSelectedIndex(1);
+        ListenerClass listenerFontSize = new ListenerClass();
+        fontSizeList.addListSelectionListener(listenerFontSize);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Font*:");
 
+        fontList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         fontList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Arial", "Impact", "SansSerif", "Symbol", "Tahoma", "Times New Roman" };
+            String[] strings = { "Arial", "Impact", "SansSerif", "Tahoma", "Times New Roman" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        fontList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(fontList);
+        fontList.setSelectedIndex(4);
+        ListenerClass listenerFont = new ListenerClass();
+        fontList.addListSelectionListener(listenerFont);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Font Color:");
 
+        fontColorList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         fontColorList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Black", "Red", "Blue", "Green", "Purple" };
+            String[] strings = { "White", "Black", "Red", "Blue", "Green", "Purple" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        fontColorList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(fontColorList);
+        fontColorList.setSelectedIndex(1);
+        ListenerClass listenerFontColor = new ListenerClass();
+        fontColorList.addListSelectionListener(listenerFontColor);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Text Background Color:");
 
+        backgroundColorList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         backgroundColorList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "White", "Black", "Red", "Blue", "Green", "Purple" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        backgroundColorList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(backgroundColorList);
+        backgroundColorList.setSelectedIndex(0);
+        ListenerClass listenerBackgroundColor = new ListenerClass();
+        backgroundColorList.addListSelectionListener(listenerBackgroundColor);
 
+        fontField.setEditable(false);
         fontField.setText("Tahoma");
         fontField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,11 +151,14 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             }
         });
 
+        fontSizeField.setEditable(false);
         fontSizeField.setText("12");
 
+        fontColorField.setEditable(false);
         fontColorField.setText("Black");
 
-        backgroundField.setText("White");
+        backgroundColorField.setEditable(false);
+        backgroundColorField.setText("White");
 
         jLabel6.setText("*Font will remain in a monospace font in code windows.");
 
@@ -155,7 +188,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(backgroundField)))
+                            .addComponent(backgroundColorField)))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
@@ -180,7 +213,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fontSizeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fontColorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(backgroundField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(backgroundColorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fontField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,6 +283,8 @@ public class SettingsConfigurator extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        fontPreviewField.setFont(Font.decode(fontDecode));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -260,10 +295,8 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
     private void saveExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveExitButtonActionPerformed
         // TODO add your handling code here:
-        
+
         //Save all font options
-        
-        
         this.HideWindow();
     }//GEN-LAST:event_saveExitButtonActionPerformed
 
@@ -303,8 +336,8 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField backgroundColorField;
     private javax.swing.JList<String> backgroundColorList;
-    private javax.swing.JTextField backgroundField;
     private javax.swing.JButton discardChangesButton;
     private javax.swing.JTextField fontColorField;
     private javax.swing.JList<String> fontColorList;
@@ -328,4 +361,76 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private javax.swing.JButton saveExitButton;
     private javax.swing.JLabel textPreviewLabel;
     // End of variables declaration//GEN-END:variables
+
+    // More variable declaration
+    private String fontDecode = "";
+    private Color fontColor;
+    private Color backgroundColor;
+
+    private void setFontColorFromList() {
+        switch (fontColorField.getText()) {
+            case "White":
+                fontColor = Color.WHITE;
+                break;
+            case "Black":
+                fontColor = Color.BLACK;
+                break;
+            case "Red":
+                fontColor = Color.RED;
+                break;
+            case "Blue":
+                fontColor = Color.BLUE;
+                break;
+            case "Green":
+                fontColor = Color.GREEN;
+                break;
+            case "Purple":
+                fontColor = Color.MAGENTA;
+                break;
+        }
+    }
+
+    private void setBackgroundColorFromList() {
+        switch (backgroundColorField.getText()) {
+            case "White":
+                backgroundColor = Color.WHITE;
+                break;
+            case "Black":
+                backgroundColor = Color.BLACK;
+                break;
+            case "Red":
+                backgroundColor = Color.RED;
+                break;
+            case "Blue":
+                backgroundColor = Color.BLUE;
+                break;
+            case "Green":
+                backgroundColor = Color.GREEN;
+                break;
+            case "Purple":
+                backgroundColor = Color.MAGENTA;
+                break;
+        }
+    }
+
+    private class ListenerClass implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            fontField.setText(fontList.getSelectedValue());
+            fontSizeField.setText(fontSizeList.getSelectedValue());
+            fontColorField.setText(fontColorList.getSelectedValue());
+            backgroundColorField.setText(backgroundColorList.getSelectedValue());
+            fontDecode = fontField.getText() + '-' + fontSizeField.getText();
+
+            setFontColorFromList();
+            setBackgroundColorFromList();
+
+            fontPreviewField.setFont(Font.decode(fontDecode));
+            fontPreviewField.setForeground(fontColor);
+            fontPreviewField.setBackground(backgroundColor);
+
+        }
+    }
+
 }
