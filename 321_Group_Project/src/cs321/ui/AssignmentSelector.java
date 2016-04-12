@@ -44,16 +44,22 @@ public class AssignmentSelector extends javax.swing.JFrame {
         AboutMenuItem = new javax.swing.JMenuItem();
         javaDesignMenuItem = new javax.swing.JMenuItem();
 
+        assignment1Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment1Button.setText("Assignment 1");
 
+        assignment2Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment2Button.setText("Assignment 2");
 
+        assignment3Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment3Button.setText("Assignment 3");
 
+        assignment4Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment4Button.setText("Assignment 4");
 
+        assignment5Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment5Button.setText("Assignment 5");
 
+        exitMainMenuButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         exitMainMenuButton.setText("Exit to Main Menu");
         exitMainMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +67,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
             }
         });
 
+        importAssignmentButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         importAssignmentButton.setText("Import Assignment");
 
         fileMenu.setText("File");

@@ -51,6 +51,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        ExitButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ExitButton.setText("Exit");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +59,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        PreferencesButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         PreferencesButton.setText("Preferences");
         PreferencesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +180,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 286, Short.MAX_VALUE)
+                        .addGap(0, 278, Short.MAX_VALUE)
                         .addComponent(PreferencesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ExitButton))

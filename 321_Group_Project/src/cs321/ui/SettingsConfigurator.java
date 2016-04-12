@@ -231,9 +231,19 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
         resetToDefaultButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         resetToDefaultButton.setText("Reset to Default");
+        resetToDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetToDefaultButtonActionPerformed(evt);
+            }
+        });
 
         discardChangesButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         discardChangesButton.setText("Discard Changes");
+        discardChangesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardChangesButtonActionPerformed(evt);
+            }
+        });
 
         saveExitButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         saveExitButton.setText("Save and Exit");
@@ -297,8 +307,31 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         //Save all font options
+        currentFontIndex = previewFontIndex;
+        currentFontSizeIndex = previewFontSizeIndex;
+        currentFontColorIndex = previewFontColorIndex;
+        currentBackgroundColorIndex = previewBackgroundColorIndex;
+        
         this.HideWindow();
     }//GEN-LAST:event_saveExitButtonActionPerformed
+
+    private void resetToDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToDefaultButtonActionPerformed
+        // TODO add your handling code here:
+        fontList.setSelectedIndex(currentFontIndex);
+        fontSizeList.setSelectedIndex(currentFontSizeIndex);
+        fontColorList.setSelectedIndex(currentFontColorIndex);
+        backgroundColorList.setSelectedIndex(currentBackgroundColorIndex);
+    }//GEN-LAST:event_resetToDefaultButtonActionPerformed
+
+    private void discardChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardChangesButtonActionPerformed
+        // TODO add your handling code here:
+        fontList.setSelectedIndex(currentFontIndex);
+        fontSizeList.setSelectedIndex(currentFontSizeIndex);
+        fontColorList.setSelectedIndex(currentFontColorIndex);
+        backgroundColorList.setSelectedIndex(currentBackgroundColorIndex);
+        
+        this.HideWindow();
+    }//GEN-LAST:event_discardChangesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,6 +399,16 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private String fontDecode = "";
     private Color fontColor;
     private Color backgroundColor;
+    
+    private int currentFontIndex = 3;
+    private int currentFontSizeIndex = 1;
+    private int currentFontColorIndex = 1;
+    private int currentBackgroundColorIndex = 0;
+    
+    private int previewFontIndex;
+    private int previewFontSizeIndex;
+    private int previewFontColorIndex;
+    private int previewBackgroundColorIndex;
 
     private void setFontColorFromList() {
         switch (fontColorField.getText()) {
@@ -418,9 +461,17 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         @Override
         public void valueChanged(ListSelectionEvent e) {
             fontField.setText(fontList.getSelectedValue());
+            previewFontIndex = fontList.getSelectedIndex();
+            
             fontSizeField.setText(fontSizeList.getSelectedValue());
+            previewFontSizeIndex = fontSizeList.getSelectedIndex();
+            
             fontColorField.setText(fontColorList.getSelectedValue());
+            previewFontColorIndex = fontColorList.getSelectedIndex();
+            
             backgroundColorField.setText(backgroundColorList.getSelectedValue());
+            previewBackgroundColorIndex = backgroundColorList.getSelectedIndex();
+            
             fontDecode = fontField.getText() + '-' + fontSizeField.getText();
 
             setFontColorFromList();

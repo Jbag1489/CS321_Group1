@@ -383,6 +383,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Reset to Default"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetToDefaultButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="discardChangesButton">
       <Properties>
@@ -391,6 +394,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Discard Changes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardChangesButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="saveExitButton">
       <Properties>
