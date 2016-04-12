@@ -8,9 +8,6 @@ package cs321.ui;
 import cs321.other.*;
 import java.awt.Color;
 import java.awt.Font;
-import java.lang.reflect.Field;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.event.*;
 
 /**
@@ -24,11 +21,11 @@ public class SettingsConfigurator extends javax.swing.JFrame {
      */
     private static SettingsConfigurator instance = null;
 
-    protected SettingsConfigurator() {
+    private SettingsConfigurator() {
         initComponents();
     }
 
-    public static SettingsConfigurator getInstnace() {
+    public static SettingsConfigurator getInstance() {
         if (instance == null) {
             instance = new SettingsConfigurator();
         }
@@ -312,15 +309,18 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         currentFontColorIndex = previewFontColorIndex;
         currentBackgroundColorIndex = previewBackgroundColorIndex;
         
+        teachingMode.setFontOptions(fontList.getSelectedValue(), 
+                fontSizeList.getSelectedValue(), fontColor, backgroundColor);
+        
         this.HideWindow();
     }//GEN-LAST:event_saveExitButtonActionPerformed
 
     private void resetToDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToDefaultButtonActionPerformed
         // TODO add your handling code here:
-        fontList.setSelectedIndex(currentFontIndex);
-        fontSizeList.setSelectedIndex(currentFontSizeIndex);
-        fontColorList.setSelectedIndex(currentFontColorIndex);
-        backgroundColorList.setSelectedIndex(currentBackgroundColorIndex);
+        fontList.setSelectedIndex(3);
+        fontSizeList.setSelectedIndex(1);
+        fontColorList.setSelectedIndex(1);
+        backgroundColorList.setSelectedIndex(0);
     }//GEN-LAST:event_resetToDefaultButtonActionPerformed
 
     private void discardChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardChangesButtonActionPerformed
@@ -363,7 +363,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SettingsConfigurator().setVisible(true);
+                new SettingsConfigurator().setVisible(false);
             }
         });
     }
@@ -409,6 +409,8 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private int previewFontSizeIndex;
     private int previewFontColorIndex;
     private int previewBackgroundColorIndex;
+    
+    private TeachingMode teachingMode = TeachingMode.getInstance();
 
     private void setFontColorFromList() {
         switch (fontColorField.getText()) {

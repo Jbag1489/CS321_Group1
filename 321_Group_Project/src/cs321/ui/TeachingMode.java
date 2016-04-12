@@ -5,6 +5,8 @@
  */
 package cs321.ui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -18,13 +20,21 @@ public class TeachingMode extends javax.swing.JFrame {
     private ArrayList<String> instructions;
     private ArrayList<String> typedCode;
     private ArrayList<String> masterCode;
-    
-    
+    private static TeachingMode instance = null;
+    private static SettingsConfigurator settings = SettingsConfigurator.getInstance();
+
     /**
      * Creates new form TeachingMode
      */
-    public TeachingMode() {
+    private TeachingMode() {
         initComponents();
+    }
+    
+    public static TeachingMode getInstance() {
+        if (instance == null) {
+            instance = new TeachingMode();
+        }
+        return instance;
     }
 
     /**
@@ -159,26 +169,24 @@ public class TeachingMode extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(instructionScrollPane)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                            .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(231, 231, 231)
-                                .addComponent(ExitMainMenuButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(366, 366, 366)
+                        .addComponent(ExitMainMenuButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -187,13 +195,15 @@ public class TeachingMode extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(instructionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
-                    .addComponent(sampleCodeScrollPane))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ExitMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,6 +211,7 @@ public class TeachingMode extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        instructionScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         sampleCodeScrollPane.getVerticalScrollBar().setModel(typedCodeScrollPane.getVerticalScrollBar().getModel());
         sampleCodeScrollPane.getHorizontalScrollBar().setModel(typedCodeScrollPane.getHorizontalScrollBar().getModel());
 
@@ -233,6 +244,9 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
         // TODO add your handling code here:
+        
+        //Open Settings Menu
+        settings.DisplayWindow();
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
@@ -286,19 +300,42 @@ public class TeachingMode extends javax.swing.JFrame {
         // Create a print writer for writing to the file
         try {
             PrintWriter out = new PrintWriter(new FileWriter("theAssignment.java"));
-            
+
             // output tpyed code to file
-            for(String line : typedCode){
+            for (String line : typedCode) {
                 out.println(line);
             }
-            
+
             out.close();
-            
+
         } catch (IOException e1) {
             System.out.println("Error during file writing.");
+            e1.printStackTrace();
         }
 
     }
+
+    protected void setFontOptions(String font, String fontSize, Color textColor,
+            Color backgroundColor) {
+        String fontDecode = font + '-' + fontSize;
+        String fontDecodeCode = "Courier New-" + fontSize;
+        
+        // Set font properties of instructionTextArea
+        instructionTextArea.setFont(Font.decode(fontDecode));
+        instructionTextArea.setForeground(textColor);
+        instructionTextArea.setBackground(backgroundColor);
+        
+        // Set font propterties of sampleCodeTextArea and typedCodeTextArea
+            // Font will stay as Courier New
+        sampleCodeTextArea.setFont(Font.decode(fontDecodeCode));
+        typedCodeTextArea.setFont(Font.decode(fontDecodeCode));
+        sampleCodeTextArea.setForeground(textColor);
+        sampleCodeTextArea.setBackground(backgroundColor);
+        typedCodeTextArea.setForeground(textColor);
+        typedCodeTextArea.setBackground(backgroundColor);
+     
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutMenuItem;
