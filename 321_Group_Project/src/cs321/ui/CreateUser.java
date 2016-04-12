@@ -166,7 +166,8 @@ public class CreateUser extends javax.swing.JFrame {
         // Create a new UserProfile instance with the values stored in 
             //nameField, passwordField, userNameField, and the selection from
             //buttonGroup
-        UserProfile newUser = new UserProfile();
+        UserProfile newUser = new UserProfile(userNameField.getText(), nameField.getText(),
+                jPasswordField1.getSelectedText(), teacherButton.isSelected());
         
         // Create MainMenu using newUser
         
