@@ -33,6 +33,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
         assignment4Button = new javax.swing.JButton();
         assignment5Button = new javax.swing.JButton();
         exitMainMenuButton = new javax.swing.JButton();
+        importAssignmentButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         ExitToMainMenuMenutItem = new javax.swing.JMenuItem();
@@ -42,8 +43,6 @@ public class AssignmentSelector extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         AboutMenuItem = new javax.swing.JMenuItem();
         javaDesignMenuItem = new javax.swing.JMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         assignment1Button.setText("Assignment 1");
 
@@ -61,6 +60,8 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 exitMainMenuButtonActionPerformed(evt);
             }
         });
+
+        importAssignmentButton.setText("Import Assignment");
 
         fileMenu.setText("File");
 
@@ -124,12 +125,13 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 .addGap(163, 163, 163)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(assignment5Button)
-                            .addComponent(assignment4Button)
-                            .addComponent(assignment3Button)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(importAssignmentButton)
+                            .addComponent(assignment1Button)
                             .addComponent(assignment2Button)
-                            .addComponent(assignment1Button))
+                            .addComponent(assignment3Button)
+                            .addComponent(assignment4Button)
+                            .addComponent(assignment5Button))
                         .addGap(163, 163, 163))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(exitMainMenuButton)
@@ -138,7 +140,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(38, 38, 38)
                 .addComponent(assignment1Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(assignment2Button)
@@ -148,7 +150,9 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 .addComponent(assignment4Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(assignment5Button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(importAssignmentButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(exitMainMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -233,6 +237,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private javax.swing.JButton exitMainMenuButton;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JButton importAssignmentButton;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem javaDesignMenuItem;
     // End of variables declaration//GEN-END:variables
