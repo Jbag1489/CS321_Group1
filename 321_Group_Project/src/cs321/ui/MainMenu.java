@@ -17,6 +17,7 @@ public class MainMenu extends javax.swing.JFrame {
     // Reference to Settings Configurator
     private SettingsConfigurator settings = SettingsConfigurator.getInstance();
     private TeachingMode teachingMode = TeachingMode.getInstance();
+    private About aboutMenu = About.getInstance();
     
     /**
      * Creates new form MainMenu
@@ -219,9 +220,14 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Run Teaching Mode
+        teachingMode.setSettingsInstance(settings);
         teachingMode.setVisible(true);
     }//GEN-LAST:event_TeachingModeButtonActionPerformed
 
+    protected SettingsConfigurator getSettingsInstance() {
+            return settings;
+        }
+    
     private void PracticeModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PracticeModeButtonActionPerformed
         // TODO add your handling code here:
         
@@ -253,6 +259,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
+        aboutMenu.DisplayWindow();
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
     private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed

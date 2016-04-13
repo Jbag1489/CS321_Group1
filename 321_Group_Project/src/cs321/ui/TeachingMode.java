@@ -21,8 +21,13 @@ public class TeachingMode extends javax.swing.JFrame {
     private ArrayList<String> typedCode;
     private ArrayList<String> masterCode;
     private static TeachingMode instance = null;
-    private static SettingsConfigurator settings = SettingsConfigurator.getInstance();
+    private SettingsConfigurator settings;
+    private About aboutMenu = About.getInstance();
 
+    protected void setSettingsInstance(SettingsConfigurator s) {
+        settings = s;
+    }
+    
     /**
      * Creates new form TeachingMode
      */
@@ -251,6 +256,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
+        aboutMenu.DisplayWindow();
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
     private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed
