@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * 
  * @author Group1
  */
-public class Assignment {
+public class Assignment implements Cloneable {
     //Fields:
     
     private ArrayList<String> instruction;
@@ -49,6 +49,7 @@ public class Assignment {
     {
         this.instruction = instruction;
     }
+    
     
     /**
      * JavaDoc comment

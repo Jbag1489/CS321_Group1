@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class AssignmentTemplateParser {
     private String line;
-    private Scanner s;
+    private Scanner read;
     private ArrayList <String> Instruction = new ArrayList <String>();
     private ArrayList <String> masterCode = new ArrayList <String>();
 
@@ -26,21 +26,21 @@ public class AssignmentTemplateParser {
     */
     public void readFile(File f)
     {
-        s = new Scanner(f.getPath());
-        s.findInLine("@Instruction@");
-        line = s.nextLine();
-        while(s.hasNext() && !line.equals("@InstructionEnd@"))
+        read = new Scanner(f.getPath());
+        read.findInLine("@Instruction@");
+        line = read.nextLine();
+        while(read.hasNext() && !line.equals("@InstructionEnd@"))
         {
            Instruction.add(line);
-           line = s.nextLine();
+           line = read.nextLine();
         }
         
-        s.findInLine("@Master@");
-        line = s.nextLine();
-        while(s.hasNext() && !line.equals("@MasterEnd@"))
+        read.findInLine("@Master@");
+        line = read.nextLine();
+        while(read.hasNext() && !line.equals("@MasterEnd@"))
         {
            masterCode.add(line);
-           line = s.nextLine();
+           line = read.nextLine();
         }
     }
     
@@ -62,9 +62,13 @@ public class AssignmentTemplateParser {
         return masterCode;
     }
     
+    /**
+     * JavaDoc comment
+     * @return template the Assignment Object
+    */   
     public Assignment getAssignment()
     {
-        Assignment template = new Assignment(Instruction, masterCode);
+        Assignment template = new Assignment(this.getInstruction(), this.getMasterCode());
         return template;
     }
        
