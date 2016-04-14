@@ -71,8 +71,6 @@ public class TeachingMode extends javax.swing.JFrame {
         AboutMenuItem = new javax.swing.JMenuItem();
         javaDesignMenuItem = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         instructionTextArea.setEditable(false);
         instructionTextArea.setColumns(20);
         instructionTextArea.setRows(5);
