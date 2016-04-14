@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
 import cs321.other.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -244,6 +245,12 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
+        if(typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
+        }
+        else {
+            JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect.");
+        }
 
         //Send typed code to ArrayList
         //Use checker to check ArrayLists
