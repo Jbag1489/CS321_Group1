@@ -24,6 +24,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        teachingMode.setSettingsInstance(settings);
     }
 
     /**
@@ -211,7 +212,6 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Run Teaching Mode
-        teachingMode.setSettingsInstance(settings);
         teachingMode.setVisible(true);
     }//GEN-LAST:event_TeachingModeButtonActionPerformed
 
