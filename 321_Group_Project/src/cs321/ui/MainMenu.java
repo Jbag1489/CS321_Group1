@@ -18,6 +18,7 @@ public class MainMenu extends javax.swing.JFrame {
     private SettingsConfigurator settings = SettingsConfigurator.getInstance();
     private TeachingMode teachingMode = TeachingMode.getInstance();
     private About aboutMenu = About.getInstance();
+    private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
     
     /**
      * Creates new form MainMenu
@@ -212,7 +213,9 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Run Teaching Mode
-        teachingMode.setVisible(true);
+        //teachingMode.setVisible(true);
+        
+        assignmentSelector.setVisible(true);
     }//GEN-LAST:event_TeachingModeButtonActionPerformed
 
     protected SettingsConfigurator getSettingsInstance() {

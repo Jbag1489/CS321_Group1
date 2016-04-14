@@ -5,6 +5,9 @@
  */
 package cs321.ui;
 
+import cs321.other.*;
+import java.io.File;
+
 /**
  *
  * @author Joshua
@@ -14,9 +17,25 @@ public class AssignmentSelector extends javax.swing.JFrame {
     /**
      * Creates new form AssignmentSelector
      */
-    public AssignmentSelector() {
+    private AssignmentSelector() {
         initComponents();
     }
+    
+    public static AssignmentSelector instance = null;
+    
+    public static AssignmentSelector getInstance() {
+        if(instance == null) {
+            instance = new AssignmentSelector();
+        }
+        return instance;
+    }
+    
+    private TeachingMode teachingMode = TeachingMode.getInstance();
+    
+    private AssignmentTemplateParser atp = new AssignmentTemplateParser();
+    private File myFile = new File("c:\\temp2\\data.txt");
+    private Assignment theAssignment = null;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +64,11 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
         assignment1Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment1Button.setText("Assignment 1");
+        assignment1Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignment1ButtonActionPerformed(evt);
+            }
+        });
 
         assignment2Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment2Button.setText("Assignment 2");
@@ -178,7 +202,17 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void exitMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMainMenuButtonActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_exitMainMenuButtonActionPerformed
+
+    private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
+        // TODO add your handling code here:
+        atp.readFile(myFile);
+        theAssignment = atp.getAssignment();
+        
+        teachingMode.setAssignment(theAssignment);
+        teachingMode.setVisible(true);
+    }//GEN-LAST:event_assignment1ButtonActionPerformed
 
     /**
      * @param args the command line arguments

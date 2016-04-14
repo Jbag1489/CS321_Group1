@@ -132,6 +132,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Assignment 1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assignment1ButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="assignment2Button">
       <Properties>
