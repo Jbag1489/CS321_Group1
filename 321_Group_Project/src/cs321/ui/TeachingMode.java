@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
+import cs321.other.*;
 
 /**
  *
@@ -24,22 +25,43 @@ public class TeachingMode extends javax.swing.JFrame {
     private SettingsConfigurator settings;
     private About aboutMenu = About.getInstance();
 
+    private Assignment currentAssignment;
+
     protected void setSettingsInstance(SettingsConfigurator s) {
         settings = s;
     }
-    
+
     /**
      * Creates new form TeachingMode
      */
     private TeachingMode() {
         initComponents();
     }
-    
+
     public static TeachingMode getInstance() {
         if (instance == null) {
             instance = new TeachingMode();
         }
         return instance;
+    }
+
+    /**
+     * setAssignment will configure teachingMode with the passed in assignment.
+     *
+     * @param a is an Assignment object that will be used for teachingMode.
+     */
+    public void setAssignment(Assignment a) {
+        currentAssignment = a;
+        instructionTextArea.setText("");
+        for (String tempLine : currentAssignment.getInstruction()) {
+            instructionTextArea.append(tempLine);
+        }
+
+        sampleCodeTextArea.setText("");
+        for (String tempLine : currentAssignment.getMasterCode()) {
+            sampleCodeTextArea.append(tempLine);
+        }
+
     }
 
     /**
@@ -69,7 +91,6 @@ public class TeachingMode extends javax.swing.JFrame {
         SettingsMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         AboutMenuItem = new javax.swing.JMenuItem();
-        javaDesignMenuItem = new javax.swing.JMenuItem();
 
         instructionTextArea.setEditable(false);
         instructionTextArea.setColumns(20);
@@ -156,14 +177,6 @@ public class TeachingMode extends javax.swing.JFrame {
         });
         helpMenu.add(AboutMenuItem);
 
-        javaDesignMenuItem.setText("Java Design Standards");
-        javaDesignMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                javaDesignMenuItemActionPerformed(evt);
-            }
-        });
-        helpMenu.add(javaDesignMenuItem);
-
         jMenuBar1.add(helpMenu);
 
         setJMenuBar(jMenuBar1);
@@ -232,6 +245,8 @@ public class TeachingMode extends javax.swing.JFrame {
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
 
+        //Send typed code to ArrayList
+        //Use checker to check ArrayLists
         // LAST THING: Export Code to .java file
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
@@ -247,7 +262,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
         // TODO add your handling code here:
-        
+
         //Open Settings Menu
         settings.DisplayWindow();
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
@@ -256,12 +271,6 @@ public class TeachingMode extends javax.swing.JFrame {
         // TODO add your handling code here:
         aboutMenu.DisplayWindow();
     }//GEN-LAST:event_AboutMenuItemActionPerformed
-
-    private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed
-        // TODO add your handling code here:
-
-        // Show Settings menu
-    }//GEN-LAST:event_javaDesignMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,21 +332,21 @@ public class TeachingMode extends javax.swing.JFrame {
             Color backgroundColor) {
         String fontDecode = font + '-' + fontSize;
         String fontDecodeCode = "Courier New-" + fontSize;
-        
+
         // Set font properties of instructionTextArea
         instructionTextArea.setFont(Font.decode(fontDecode));
         instructionTextArea.setForeground(textColor);
         instructionTextArea.setBackground(backgroundColor);
-        
+
         // Set font propterties of sampleCodeTextArea and typedCodeTextArea
-            // Font will stay as Courier New
+        // Font will stay as Courier New
         sampleCodeTextArea.setFont(Font.decode(fontDecodeCode));
         typedCodeTextArea.setFont(Font.decode(fontDecodeCode));
         sampleCodeTextArea.setForeground(textColor);
         sampleCodeTextArea.setBackground(backgroundColor);
         typedCodeTextArea.setForeground(textColor);
         typedCodeTextArea.setBackground(backgroundColor);
-     
+
     }
 
 
@@ -356,7 +365,6 @@ public class TeachingMode extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem javaDesignMenuItem;
     private javax.swing.JScrollPane sampleCodeScrollPane;
     private javax.swing.JTextArea sampleCodeTextArea;
     private javax.swing.JScrollPane typedCodeScrollPane;

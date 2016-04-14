@@ -16,9 +16,7 @@ public class UserSettings {
     private String windowColor;
 
     /**
-<<<<<<< HEAD
      * JavaDoc comment
-=======
      * Default constructor for UserSettings.
      */
     public UserSettings(){
@@ -30,7 +28,6 @@ public class UserSettings {
     
     
     /**
->>>>>>> origin/master
      * @return the font
      */
     public String getFont() {

@@ -42,7 +42,6 @@ public class AssignmentSelector extends javax.swing.JFrame {
         SettingsMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         AboutMenuItem = new javax.swing.JMenuItem();
-        javaDesignMenuItem = new javax.swing.JMenuItem();
 
         assignment1Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment1Button.setText("Assignment 1");
@@ -112,14 +111,6 @@ public class AssignmentSelector extends javax.swing.JFrame {
         });
         helpMenu.add(AboutMenuItem);
 
-        javaDesignMenuItem.setText("Java Design Standards");
-        javaDesignMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                javaDesignMenuItemActionPerformed(evt);
-            }
-        });
-        helpMenu.add(javaDesignMenuItem);
-
         jMenuBar1.add(helpMenu);
 
         setJMenuBar(jMenuBar1);
@@ -185,12 +176,6 @@ public class AssignmentSelector extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
-    private void javaDesignMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaDesignMenuItemActionPerformed
-        // TODO add your handling code here:
-
-        // Show Settings menu
-    }//GEN-LAST:event_javaDesignMenuItemActionPerformed
-
     private void exitMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMainMenuButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_exitMainMenuButtonActionPerformed
@@ -246,6 +231,5 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JButton importAssignmentButton;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem javaDesignMenuItem;
     // End of variables declaration//GEN-END:variables
 }

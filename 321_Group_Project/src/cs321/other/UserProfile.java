@@ -33,7 +33,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
-     * @return 
+     * @return the user name
     */
     public String getUserName()
     {
@@ -42,6 +42,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @param userName The username that will be set to this userProfile
     */
     public void setUserName(String userName)
     {
@@ -50,6 +51,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @return The student's name
     */
     public String getStudentName()
     {
@@ -58,6 +60,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @param studentName The student's name to be set.
     */
     public void setStudentName(String studentName)
     {
@@ -66,6 +69,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @return The userProfile's password.
     */
     public String getPassword()
     {
@@ -74,6 +78,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @return The number of assignments completed.
     */
     public int getAssignmentCounter()
     {
@@ -82,6 +87,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @param assignmentCounter The number of assignments the user has completed.
     */
     public void setAssignmentCounter(int assignmentCounter)
     {
@@ -90,6 +96,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @return The administrator status, true if is an administrator.
     */
     public boolean getAdministratorStatus()
     {
@@ -103,6 +110,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @return The userProfile's settings.
     */
     public UserSettings getSettings()
     {
@@ -111,6 +119,7 @@ public UserProfile(String userName, String studentName,
     
     /**
      * JavaDoc comment
+     * @param settings The userProfile's settings.
     */
     public void setSettings(UserSettings settings)
     {
