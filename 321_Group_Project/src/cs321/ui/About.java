@@ -5,6 +5,15 @@
  */
 package cs321.ui;
 
+import java.awt.Desktop;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Josh
@@ -15,8 +24,33 @@ public class About extends javax.swing.JFrame {
      * Creates new form About
      */
     private About() {
+        
         initComponents();
+        
     }
+
+    
+    class OpenUrlAction implements ActionListener {
+      @Override public void actionPerformed(ActionEvent e) {
+          URI uri = null;
+          try {
+              uri = new URI("https://google.github.io/styleguide/javaguide.html");
+          } catch (URISyntaxException ex) {
+              Logger.getLogger(About.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        open(uri);
+      }
+    }
+    
+    private void open(URI uri) {
+    if (Desktop.isDesktopSupported()) {
+      try {
+        Desktop.getDesktop().browse(uri);
+      } catch (IOException e) { /* TODO: error handling */ }
+    } else { /* TODO: error handling */ }
+  }
+    
+    
     
     private static About instance = null;
     public static About getInstance(){
@@ -52,8 +86,7 @@ public class About extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        javaGuidelinesButton = new javax.swing.JButton();
 
         OKButton.setText("OK");
         OKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +117,13 @@ public class About extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Leon Xue");
 
+        javaGuidelinesButton.setText("View Java Style Guidelines");
+        javaGuidelinesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                javaGuidelinesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,7 +138,8 @@ public class About extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(javaGuidelinesButton))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,18 +159,28 @@ public class About extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(javaGuidelinesButton, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(OKButton)
                 .addGap(32, 32, 32))
         );
 
+        javaGuidelinesButton.addActionListener(new OpenUrlAction());
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
         // TODO add your handling code here:
         this.HideWindow();
     }//GEN-LAST:event_OKButtonActionPerformed
+
+    private void javaGuidelinesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaGuidelinesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_javaGuidelinesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,5 +226,6 @@ public class About extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton javaGuidelinesButton;
     // End of variables declaration//GEN-END:variables
 }
