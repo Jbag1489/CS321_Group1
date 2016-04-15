@@ -323,16 +323,20 @@ public class TeachingMode extends javax.swing.JFrame {
     private void exportCode() {
         // Export the code
 
+        // Get String containing the Class name of the code typed in.
+        String filename = new String(JOptionPane.showInputDialog(
+                "Enter the name of your classe. This is case sensitive!")
+                + ".java");
+        
         // Create a print writer for writing to the file
         try {
-            PrintWriter out = new PrintWriter(new FileWriter("TheAssignment.java"));
+            PrintWriter out = new PrintWriter(new FileWriter(filename));
 
             // output tpyed code to file
 //            for (String line : typedCode) {
 //                out.println(line);
 //            }
             out.println(typedCodeTextArea.getText());
-            
 
             out.close();
 
