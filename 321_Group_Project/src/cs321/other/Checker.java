@@ -22,7 +22,7 @@ public class Checker{
     Assignment checker;
     ArrayList <Integer> errorIndex;
     
-    Checker(Assignment assignmentOne)
+    public Checker(Assignment assignmentOne)
     {
          checker.setInstruction(assignmentOne.getInstruction());
          checker.setUserEnteredCode(assignmentOne.getUserEnteredCode());
