@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package cs321.ui;
+
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joshua
@@ -18,7 +20,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        mainMenu = MainMenu.getInstance();
     }
+
+    private MainMenu mainMenu = null;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,30 +121,32 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String user = userNameField.getText();
         String pwd = passwordField.getText();
-        
+
         // Check to see if username exists
-        if(pwd.contains("admin16") && user.contains("admin")){
+        if (pwd.contains("admin16") && user.contains("admin")) {
             userNameField.setText("");
             passwordField.setText("");
-            close();
-            jPanel2 mainMenu = new jPanel2();
+            this.setVisible(false);
+
             mainMenu.setVisible(true);
         } else { // If so, does password match?
-        JOptionPane.showMessageDialog(null, "Incorrect password! \nPlease try again!", JOptionPane.ERROR_MESSAGE);
-        passwordField.setText("");
-        userNameField.setText("");
-        
-        
+
+            JOptionPane.showMessageDialog(rootPane, "Incorrect Password\nPlease try again!", "Incorrect Password", JOptionPane.ERROR_MESSAGE);
+            passwordField.setText("");
+            userNameField.setText("");
+        }
+
+
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        
+
         // Open CreateUser UI
         CreateUser newUserScreen = new CreateUser();
         this.setVisible(false);
         newUserScreen.setVisible(true);
-    }//GEN-LAST:event_createUserButtonActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -187,8 +194,7 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void close() {
-        WindowEvent winClosing = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        WindowEvent winClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosing);
     }
 }
-
