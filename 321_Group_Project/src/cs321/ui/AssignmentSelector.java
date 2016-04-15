@@ -223,7 +223,6 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
 
-
         // Temporary **************************************
         instruction.add("Sample Instructions.\n"
                 + "Here is second line.\n"
@@ -239,28 +238,38 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 + "}");
         theAssignment = new Assignment(instruction, masterCode);
 
+        teachingMode.setAssignment(theAssignment);
+        teachingMode.setVisible(true);
+        this.setVisible(false);
 
- 
+
     }//GEN-LAST:event_assignment1ButtonActionPerformed
 
     private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
         // TODO add your handling code here:
-          
+
         String pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
-        myFile = new File(pathname);
-        atp = new AssignmentTemplateParser(myFile);
-        atp.readFile();
-        theAssignment = atp.getAssignment();
-        
-        teachingMode.setAssignment(theAssignment);
-        teachingMode.setVisible(true);
-        this.setVisible(false);
+        if (pathname == null) {
+            JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
+        } else if (pathname.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
+        } else {
+            myFile = new File(pathname);
+            atp = new AssignmentTemplateParser(myFile);
+            atp.readFile();
+            theAssignment = atp.getAssignment();
+
+            teachingMode.setAssignment(theAssignment);
+            teachingMode.setVisible(true);
+            this.setVisible(false);
+        }
+
     }//GEN-LAST:event_importAssignmentButtonActionPerformed
 
     private void assignment2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment2ButtonActionPerformed
         // TODO add your handling code here:
 
-        
+
     }//GEN-LAST:event_assignment2ButtonActionPerformed
 
     /**
