@@ -51,10 +51,9 @@ public class AssignmentSelector extends javax.swing.JFrame {
     }
     
     private TeachingMode teachingMode = TeachingMode.getInstance();
-    
-    private AssignmentTemplateParser atp = new AssignmentTemplateParser();
     private File myFile = new File("c:\\temp2\\data.txt");
-    private Assignment theAssignment = null;
+    private AssignmentTemplateParser atp = new AssignmentTemplateParser(myFile);
+    private Assignment theAssignment;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,6 +110,11 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
         importAssignmentButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         importAssignmentButton.setText("Import Assignment");
+        importAssignmentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importAssignmentButtonActionPerformed(evt);
+            }
+        });
 
         fileMenu.setText("File");
 
@@ -226,13 +230,18 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
-//        atp.readFile(myFile);
-//        theAssignment = atp.getAssignment();
+ 
+    }//GEN-LAST:event_assignment1ButtonActionPerformed
+
+    private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
+        // TODO add your handling code here:
+          atp.readFile();
+          theAssignment = atp.getAssignment();
         
         teachingMode.setAssignment(theAssignment);
         teachingMode.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_assignment1ButtonActionPerformed
+    }//GEN-LAST:event_importAssignmentButtonActionPerformed
 
     /**
      * @param args the command line arguments
