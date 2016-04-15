@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package cs321.other;
-import java.io.File;
+import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -14,39 +14,38 @@ import java.util.ArrayList;
  */
 public class AssignmentTemplateParser {
     private String line;
-    private Scanner read;
+    private FileInputStream read;
     private ArrayList <String> Instruction;
     private ArrayList <String> masterCode;
 
-    public AssignmentTemplateParser(File f){
-            Instruction = new ArrayList <String>();
-            masterCode = new ArrayList <String>();
-            read = new Scanner(f.getPath());
-            line = null;
-    }
+ 
      /**
      * JavaDoc comment
      * @
      * 
      */
-    public void readFile()
+    public void readFile(File f) throws IOException
     {
-        
-        read.findInLine("@Instruction@");
-        line = read.nextLine();
+        Instruction = new ArrayList <String>();
+        masterCode = new ArrayList <String>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(read));
+        line = null;
+        while (!line.equals("@Instruction@"))
+            line = reader.readLine();
+        line = reader.readLine();
         while(!line.equals("@InstructionEnd@"))
         {
            Instruction.add(line);
-           line = read.nextLine();
+           line = reader.readLine();
         }
-        
-        read.findInLine("@Master@");
-        line = read.nextLine();
+        while (!line.equals("@Master@"))
+            line = reader.readLine();
         while(!line.equals("@MasterEnd@"))
         {
            masterCode.add(line);
-           line = read.nextLine();
+           line = reader.readLine();
         }
+        reader.close();
     }
     
     /**
