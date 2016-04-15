@@ -39,7 +39,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private TeachingMode teachingMode = TeachingMode.getInstance();
 
     private File myFile = new File("c:\\temp2\\data.txt");
-    private AssignmentTemplateParser atp = new AssignmentTemplateParser(myFile);
+    private AssignmentTemplateParser atp = new AssignmentTemplateParser();
     private Assignment theAssignment;
 
     /**
@@ -255,8 +255,8 @@ public class AssignmentSelector extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
         } else {
             myFile = new File(pathname);
-            atp = new AssignmentTemplateParser(myFile);
-            atp.readFile();
+            atp = new AssignmentTemplateParser();
+            atp.readFile(myFile);
             theAssignment = atp.getAssignment();
 
             teachingMode.setAssignment(theAssignment);

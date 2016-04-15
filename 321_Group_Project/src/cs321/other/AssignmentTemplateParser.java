@@ -5,7 +5,6 @@
  */
 package cs321.other;
 import java.io.*;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
@@ -13,8 +12,7 @@ import java.util.ArrayList;
  * @author Group 1
  */
 public class AssignmentTemplateParser {
-    private String line;
-    private FileInputStream read;
+    
     private ArrayList <String> Instruction;
     private ArrayList <String> masterCode;
 
@@ -28,16 +26,18 @@ public class AssignmentTemplateParser {
     {
         Instruction = new ArrayList <String>();
         masterCode = new ArrayList <String>();
+        FileInputStream read = new FileInputStream(f);
         BufferedReader reader = new BufferedReader(new InputStreamReader(read));
-        line = null;
+        String line = reader.readLine();
         while (!line.equals("@Instruction@"))
-            line = reader.readLine();
+            line = reader.readLine(); //until it reads @Instruction@
         line = reader.readLine();
-        while(!line.equals("@InstructionEnd@"))
+        while(!line.equals("@InstructionEnd@")) //until it reaches @InstructionEnd@
         {
            Instruction.add(line);
            line = reader.readLine();
         }
+        
         while (!line.equals("@Master@"))
             line = reader.readLine();
         while(!line.equals("@MasterEnd@"))
