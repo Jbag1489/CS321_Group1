@@ -6,13 +6,12 @@
 package cs321.other;
 import java.util.ArrayList;
 import java.awt.Color;
-import java.util.HashSet;
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
-import java.lang.Cloneable;
+
 
 /**
  *
@@ -70,7 +69,20 @@ public class Checker{
       }
     }
 
-   
+   public void highlighter() throws BadLocationException
+   {
+       JTextArea textArea = new JTextArea(600, 30);//where the Highlight area size
+       int size = errorIndex.size();
+       for(int i=0; i < size; i++)// loop of the number of bad lines
+       {
+           textArea.setText(checker.getUserEnteredCode().get(errorIndex.get(i))); // set bad text line
+              Highlighter highlighter = textArea.getHighlighter(); // set highlighter
+             HighlightPainter painter = 
+             new DefaultHighlighter.DefaultHighlightPainter(Color.yellow);
+             int p1 = checker.getUserEnteredCode().get(errorIndex.get(i)).length();//length of the bad line
+            highlighter.addHighlight(0, p1, painter ); //highlight from index 0 to length? or length -1;
+       }
+   }
     
 }
             

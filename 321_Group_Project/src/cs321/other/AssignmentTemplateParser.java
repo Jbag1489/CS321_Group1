@@ -18,14 +18,16 @@ public class AssignmentTemplateParser {
     private ArrayList<String> masterCode;
 
     /**
-     * JavaDoc comment
-     *
-     * @
-     *
+     * Read a file in to create an Assignment object.
+     * @param f File that will be parsed to create Assignment object.
+     * @throws IOException
      */
     public void readFile(File f) throws IOException {
         Instruction = new ArrayList<String>();
         masterCode = new ArrayList<String>();
+
+        try{
+
         FileInputStream read = new FileInputStream(f);
         BufferedReader reader = new BufferedReader(new InputStreamReader(read));
         String line = reader.readLine();
@@ -89,6 +91,13 @@ public class AssignmentTemplateParser {
         reader.close();
     }
 
+
+    catch (IOException e){
+        System.err.println("Unable to read from file");
+    }
+
+    }
+ 
     /**
      * JavaDoc comment
      *
