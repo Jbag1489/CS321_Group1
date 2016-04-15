@@ -37,11 +37,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
     }
 
     private TeachingMode teachingMode = TeachingMode.getInstance();
-<<<<<<< HEAD
 
-    private AssignmentTemplateParser atp = new AssignmentTemplateParser();
-=======
->>>>>>> origin/master
     private File myFile = new File("c:\\temp2\\data.txt");
     private AssignmentTemplateParser atp = new AssignmentTemplateParser(myFile);
     private Assignment theAssignment;
@@ -80,7 +76,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
         });
 
         assignment2Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        assignment2Button.setText("Read from file");
+        assignment2Button.setText("Assignment 2");
         assignment2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignment2ButtonActionPerformed(evt);
@@ -226,7 +222,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
+
 
         // Temporary **************************************
         instruction.add("Sample Instructions.\n"
@@ -243,16 +239,19 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 + "}");
         theAssignment = new Assignment(instruction, masterCode);
 
-=======
+
  
     }//GEN-LAST:event_assignment1ButtonActionPerformed
 
     private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
         // TODO add your handling code here:
-          atp.readFile();
-          theAssignment = atp.getAssignment();
+          
+        String pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
+        myFile = new File(pathname);
+        atp = new AssignmentTemplateParser(myFile);
+        atp.readFile();
+        theAssignment = atp.getAssignment();
         
->>>>>>> origin/master
         teachingMode.setAssignment(theAssignment);
         teachingMode.setVisible(true);
         this.setVisible(false);
@@ -261,14 +260,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private void assignment2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment2ButtonActionPerformed
         // TODO add your handling code here:
 
-        String pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
-        myFile = new File(pathname);
-        atp.readFile(myFile);
-        theAssignment = atp.getAssignment();
         
-        teachingMode.setAssignment(theAssignment);
-        teachingMode.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_assignment2ButtonActionPerformed
 
     /**
