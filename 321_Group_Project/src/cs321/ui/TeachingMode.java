@@ -53,15 +53,21 @@ public class TeachingMode extends javax.swing.JFrame {
      */
     public void setAssignment(Assignment a) {
         currentAssignment = a;
+
+        // Clear the instructions textArea
         instructionTextArea.setText("");
         for (String tempLine : currentAssignment.getInstruction()) {
             instructionTextArea.append(tempLine);
         }
 
+        // Clear the sampleCode textArea
         sampleCodeTextArea.setText("");
         for (String tempLine : currentAssignment.getMasterCode()) {
             sampleCodeTextArea.append(tempLine);
         }
+
+        // Clear the tpyedCode textArea
+        typedCodeTextArea.setText("");
 
     }
 
@@ -245,11 +251,11 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
-        if(typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
+        if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
             JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
-        }
-        else {
-            JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect.");
+            exportCode();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
         }
 
         //Send typed code to ArrayList
@@ -319,12 +325,14 @@ public class TeachingMode extends javax.swing.JFrame {
 
         // Create a print writer for writing to the file
         try {
-            PrintWriter out = new PrintWriter(new FileWriter("theAssignment.java"));
+            PrintWriter out = new PrintWriter(new FileWriter("TheAssignment.java"));
 
             // output tpyed code to file
-            for (String line : typedCode) {
-                out.println(line);
-            }
+//            for (String line : typedCode) {
+//                out.println(line);
+//            }
+            out.println(typedCodeTextArea.getText());
+            
 
             out.close();
 

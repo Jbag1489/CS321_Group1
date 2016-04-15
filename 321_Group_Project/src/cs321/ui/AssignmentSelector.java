@@ -7,6 +7,7 @@ package cs321.ui;
 
 import cs321.other.*;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,12 +20,31 @@ public class AssignmentSelector extends javax.swing.JFrame {
      */
     private AssignmentSelector() {
         initComponents();
+
+        // Temporary **************************************
+        instruction.add("Sample Instructions.\n"
+                + "Here is second line.\n"
+                + "What about a third?\n"
+                + "\n"
+                + "Can it handle a 5th line with line 4 blank?");
+        
+        masterCode.add("public class TheAssignment {\n"
+                + "	// There was a tab.\n"
+                + "	public static void main (String[] args) {\n"
+                + "		System.out.println(\"To infinity and beyond!\");\n"
+                + "	}\n"
+                + "}");
+        theAssignment = new Assignment(instruction, masterCode);
     }
+
+    //Temporary ArrayLists
+    private ArrayList<String> instruction = new ArrayList<String>();
+    private ArrayList<String> masterCode = new ArrayList<String>();
     
     public static AssignmentSelector instance = null;
     
     public static AssignmentSelector getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new AssignmentSelector();
         }
         return instance;
@@ -35,7 +55,6 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private AssignmentTemplateParser atp = new AssignmentTemplateParser();
     private File myFile = new File("c:\\temp2\\data.txt");
     private Assignment theAssignment = null;
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,11 +226,12 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
-        atp.readFile(myFile);
-        theAssignment = atp.getAssignment();
+//        atp.readFile(myFile);
+//        theAssignment = atp.getAssignment();
         
         teachingMode.setAssignment(theAssignment);
         teachingMode.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_assignment1ButtonActionPerformed
 
     /**
