@@ -20,10 +20,19 @@ public class MainMenu extends javax.swing.JFrame {
     private About aboutMenu = About.getInstance();
     private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
     
+    private static MainMenu instance = null;
+    
+    public static MainMenu getInstance() {
+        if (instance == null) {
+            instance = new MainMenu();
+        }
+        return instance;
+    }
+    
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
+    private MainMenu() {
         initComponents();
         teachingMode.setSettingsInstance(settings);
     }
