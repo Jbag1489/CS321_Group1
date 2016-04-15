@@ -22,10 +22,11 @@ public class AssignmentTemplateParser {
      * @
      * 
      */
-    public void readFile(File f) throws IOException
+    public void readFile(File f)
     {
         Instruction = new ArrayList <String>();
         masterCode = new ArrayList <String>();
+        try{
         FileInputStream read = new FileInputStream(f);
         BufferedReader reader = new BufferedReader(new InputStreamReader(read));
         String line = reader.readLine();
@@ -46,6 +47,11 @@ public class AssignmentTemplateParser {
            line = reader.readLine();
         }
         reader.close();
+    }
+    catch (IOException e){
+        System.err.println("Unable to read from file");
+    }
+
     }
     
     /**
