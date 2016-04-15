@@ -7,7 +7,11 @@ package cs321.ui;
 
 import cs321.other.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -256,12 +260,21 @@ public class AssignmentSelector extends javax.swing.JFrame {
         } else {
             myFile = new File(pathname);
             atp = new AssignmentTemplateParser();
-            atp.readFile(myFile);
-            theAssignment = atp.getAssignment();
+            try {
+                atp.readFile(myFile);
+                theAssignment = atp.getAssignment();
 
-            teachingMode.setAssignment(theAssignment);
-            teachingMode.setVisible(true);
-            this.setVisible(false);
+                teachingMode.setAssignment(theAssignment);
+                teachingMode.setVisible(true);
+                this.setVisible(false);
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(rootPane, 
+                        "Warning: File not found. Assignment will not be opened.");
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                Logger.getLogger(AssignmentSelector.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
 
     }//GEN-LAST:event_importAssignmentButtonActionPerformed
