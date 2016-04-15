@@ -37,10 +37,14 @@ public class AssignmentSelector extends javax.swing.JFrame {
     }
 
     private TeachingMode teachingMode = TeachingMode.getInstance();
+<<<<<<< HEAD
 
     private AssignmentTemplateParser atp = new AssignmentTemplateParser();
+=======
+>>>>>>> origin/master
     private File myFile = new File("c:\\temp2\\data.txt");
-    private Assignment theAssignment = null;
+    private AssignmentTemplateParser atp = new AssignmentTemplateParser(myFile);
+    private Assignment theAssignment;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,6 +106,11 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
         importAssignmentButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         importAssignmentButton.setText("Import Assignment");
+        importAssignmentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importAssignmentButtonActionPerformed(evt);
+            }
+        });
 
         fileMenu.setText("File");
 
@@ -217,6 +226,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
 
         // Temporary **************************************
         instruction.add("Sample Instructions.\n"
@@ -233,10 +243,20 @@ public class AssignmentSelector extends javax.swing.JFrame {
                 + "}");
         theAssignment = new Assignment(instruction, masterCode);
 
+=======
+ 
+    }//GEN-LAST:event_assignment1ButtonActionPerformed
+
+    private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
+        // TODO add your handling code here:
+          atp.readFile();
+          theAssignment = atp.getAssignment();
+        
+>>>>>>> origin/master
         teachingMode.setAssignment(theAssignment);
         teachingMode.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_assignment1ButtonActionPerformed
+    }//GEN-LAST:event_importAssignmentButtonActionPerformed
 
     private void assignment2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment2ButtonActionPerformed
         // TODO add your handling code here:

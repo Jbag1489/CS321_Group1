@@ -15,21 +15,26 @@ import java.util.ArrayList;
 public class AssignmentTemplateParser {
     private String line;
     private Scanner read;
-    private ArrayList <String> Instruction = new ArrayList <String>();
-    private ArrayList <String> masterCode = new ArrayList <String>();
+    private ArrayList <String> Instruction;
+    private ArrayList <String> masterCode;
 
-    
+    public AssignmentTemplateParser(File f){
+            Instruction = new ArrayList <String>();
+            masterCode = new ArrayList <String>();
+            read = new Scanner(f.getPath());
+            line = null;
+    }
      /**
      * JavaDoc comment
-     * @param f the file to read
+     * @
      * 
-    */
-    public void readFile(File f)
+     */
+    public void readFile()
     {
-        read = new Scanner(f.getPath());
+        
         read.findInLine("@Instruction@");
         line = read.nextLine();
-        while(read.hasNext() && !line.equals("@InstructionEnd@"))
+        while(!line.equals("@InstructionEnd@"))
         {
            Instruction.add(line);
            line = read.nextLine();
@@ -37,7 +42,7 @@ public class AssignmentTemplateParser {
         
         read.findInLine("@Master@");
         line = read.nextLine();
-        while(read.hasNext() && !line.equals("@MasterEnd@"))
+        while(!line.equals("@MasterEnd@"))
         {
            masterCode.add(line);
            line = read.nextLine();
