@@ -129,6 +129,7 @@ public class Login extends javax.swing.JFrame {
         passwordField.setText("");
         userNameField.setText("");
         
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
