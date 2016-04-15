@@ -29,7 +29,7 @@ public class AssignmentTemplateParser {
         read = new Scanner(f.getPath());
         read.findInLine("@Instruction@");
         line = read.nextLine();
-        while(read.hasNext() && !line.equals("@InstructionEnd@"))
+        while(!line.equals("@InstructionEnd@"))
         {
            Instruction.add(line);
            line = read.nextLine();
@@ -37,7 +37,7 @@ public class AssignmentTemplateParser {
         
         read.findInLine("@Master@");
         line = read.nextLine();
-        while(read.hasNext() && !line.equals("@MasterEnd@"))
+        while(!line.equals("@MasterEnd@"))
         {
            masterCode.add(line);
            line = read.nextLine();
