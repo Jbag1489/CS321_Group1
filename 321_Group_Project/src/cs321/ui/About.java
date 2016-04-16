@@ -24,9 +24,7 @@ public class About extends javax.swing.JFrame {
      * Creates new form About
      */
     private About() {
-        
         initComponents();
-        
     }
 
     
@@ -52,21 +50,17 @@ public class About extends javax.swing.JFrame {
     
     
     
-    private static About instance = null;
+    
+    /**
+     * Get a reference to the instance of About.
+     * @return A reference to the instance of About.
+     */
     public static About getInstance(){
         if(instance == null) {
             instance = new About();
         }
         return instance;
         
-    }
-    
-    public void DisplayWindow(){
-        this.setVisible(true);
-    }
-    
-    public void HideWindow(){
-        this.setVisible(false);
     }
 
     /**
@@ -175,7 +169,7 @@ public class About extends javax.swing.JFrame {
     
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
         // TODO add your handling code here:
-        this.HideWindow();
+        this.setVisible(false);
     }//GEN-LAST:event_OKButtonActionPerformed
 
     private void javaGuidelinesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaGuidelinesButtonActionPerformed
@@ -183,6 +177,7 @@ public class About extends javax.swing.JFrame {
     }//GEN-LAST:event_javaGuidelinesButtonActionPerformed
 
     /**
+     * The main method of the About class.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -228,4 +223,7 @@ public class About extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JButton javaGuidelinesButton;
     // End of variables declaration//GEN-END:variables
+
+    // User variable definitions
+    private static About instance = null;
 }
