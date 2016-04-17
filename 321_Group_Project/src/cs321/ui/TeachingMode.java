@@ -264,7 +264,10 @@ public class TeachingMode extends javax.swing.JFrame {
         
         // Check assignment with checker
         Checker aChecker = new Checker(currentAssignment);
-        aChecker.checkline();
+       // aChecker.checkline();
+        aChecker.checkAndHighlight(sampleCodeTextArea);
+        this.repaint();
+        
 
         
     }//GEN-LAST:event_SubmitButtonActionPerformed

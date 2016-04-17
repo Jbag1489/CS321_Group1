@@ -188,11 +188,7 @@ public class CreateUser extends javax.swing.JFrame {
     private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed
         // TODO add your handling code here:
         jPasswordField1.setEditable(true);
-<<<<<<< Updated upstream
-        jPasswordField1.setBackground(Color.GRAY);
-=======
         jPasswordField1.setBackground(Color.WHITE);
->>>>>>> Stashed changes
     }//GEN-LAST:event_teacherButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
