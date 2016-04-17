@@ -50,18 +50,16 @@ public class Checker{
     */
     public void checkline()
     {
-      
-      ArrayList<String> user = checker.getUserEnteredCode();
-      ArrayList<String> master = checker.getMasterCode();
       int check=0;
       
-      for(int i=0; i<user.size(); i++)
+      for(int i=0; i<checker.getUserEnteredCode().size(); i++)
       {
-          if(user.get(i) != null)
+          if(checker.getMasterCode().get(i) != null)
           {
-               if (! ( user.get( i ).trim().equals( master.get( check ).trim() )))
-                errorIndex.add(i); //add wrong line to the array
-              check++;
+               if (! ( checker.getUserEnteredCode().get( i ).trim().equals( checker.getMasterCode().get( check ).trim() )))
+               {  errorIndex.add(i); //add wrong line to the array
+                  check++;
+               }
           }
       }
     }
