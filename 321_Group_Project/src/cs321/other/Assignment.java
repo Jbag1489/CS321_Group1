@@ -38,6 +38,7 @@ public class Assignment implements Cloneable {
     * of instructions, masterCode, and typedCode
     * @param instruction
     * @param masterCode
+    * @param typedCode 
     */
     public Assignment(ArrayList<String> instruction, ArrayList<String> masterCode, ArrayList<String> typedCode)                   
     {

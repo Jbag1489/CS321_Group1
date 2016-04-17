@@ -1,42 +1,30 @@
 @Instruction@
-There are several common datatypes in Java.
-A datatype is a set of data with unique characteristics.
+In many programming languages, it is customary to first create a Hello World program.
+In Java, the command to print to the console is print("String you wish to print."). 
+If you want you want to print and then follow  with a new line, you would use println("String to print.").
 
-The most commonly used datatypes are:
+The print function is in the java System.out class. 
 
-Integer -   Integer vaues are whole numbers. In Java, integers can be negative or positive between
-            the range -2,147,483,648 and 2,147,483,647.
-			
-            Integere values are declared in Java by using the keyword "int" followed by the name
-            of the integer.
-			
-Double  -   Double values are decimal numbers, but also include whole numbers. They are useful for 
-            finding precise calculations.
-			
-            Double values are declared in Java by using the keyword "double" followed by the name
-            of the double value.
-			
-String  -   String values are "strings" of characters. They can be sentences or just one letter.
-            An example of a String would be "The sky is blue".
-			
-            Strings are declared in Java by using the keyword "String" (the 'S' MUST be uppcase)
-            followed the name of the String.
-			
-This assignment will explain the different datatypes and how they are used.
+A full command to print Hello World would be:
+	System.out.println("Hello World");
+	
+Notice that the command ended with a semicolon. 
+The semicolon is a directive to the compiler that that is the end of the command.
+
+There are two ways to put a comment in Java, the first way is two forward slashes (//).
+	This will create a comment to the end of the line.
+The second way to create a comment is a forward slash and then an asterisk (/*).
+	This will create a comment until a asterisk and a forward slash (*/).
 @InstructionEnd@
 
 @Master@
-public class Datatypes {
+public class Printing {
 	
-	/* Define a variable for each of the 3 common datatypes */
-	int     number = 4;           // Integer with a value of 4
-	double  decimalNumber = 8.24; // Double with a value of 8.24
-	String  name = "Bob";         // String holding the word "Bob"
+	/* Print out a few lines of text. */
+	System.out.println("Han shot first.");
+	System.out.println("Kirk cheated!");
 	
-	
-	/* Print the the int, double, and String values declared above */
-	System.out.println("Integer number = " + number);         // Prints "4"
-	System.out.println("Double decimal = " + decimalNumber);  // Prints "8.24" 
-	System.out.println("String name = " + name);              // Prints "Bob"	
+	// I guess we should say Hello World, just for tradition.
+	System.out.println("Hello World!");
 }
 @MasterEnd@
