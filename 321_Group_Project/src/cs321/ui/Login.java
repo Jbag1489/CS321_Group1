@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         createUserButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         userNameLabel.setText("User Name:");
 
@@ -122,30 +122,32 @@ public class Login extends javax.swing.JFrame {
             userNameField.setText("");
             passwordField.setText("");
             close();
-            jPanel2 mainMenu = new jPanel2();
-            mainMenu.setVisible(true);
+            MainMenu menu = new MainMenu();
+            menu.setVisible(true);
         } else { // If so, does password match?
-        JOptionPane.showMessageDialog(null, "Incorrect password! \nPlease try again!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Incorrect password!", "\nPlease try again!", JOptionPane.ERROR_MESSAGE);
         passwordField.setText("");
         userNameField.setText("");
-        
-        
+        }  
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
         // TODO add your handling code here:
-        
+        String profile;
         // Open CreateUser UI
         CreateUser newUserScreen = new CreateUser();
         this.setVisible(false);
         newUserScreen.setVisible(true);
     }//GEN-LAST:event_createUserButtonActionPerformed
 
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        /* 
+         *Set the Nimbus look and feel 
+         */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
