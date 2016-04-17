@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
 import cs321.other.*;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
     /**
      * Set's this instances reference to a SettingsConfigurator instance.
+     *
      * @param s Reference to a SettingsConfigurator instance.
      */
     protected void setSettingsInstance(SettingsConfigurator s) {
@@ -35,6 +37,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
     /**
      * Get a reference to the instance of TeachingMode.
+     *
      * @return Reverence to the instance of TeachingMode.
      */
     public static TeachingMode getInstance() {
@@ -46,6 +49,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
     /**
      * setAssignment will configure teachingMode with the passed in assignment.
+     *
      * @param a is an Assignment object that will be used for teachingMode.
      */
     public void setAssignment(Assignment a) {
@@ -256,6 +260,8 @@ public class TeachingMode extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
         }
+        
+        moveTypedCodeBackToArrayList();
 
         //Send typed code to ArrayList
         //Use checker to check ArrayLists
@@ -286,6 +292,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
     /**
      * The main method of the class TeachingMode.
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -320,6 +327,16 @@ public class TeachingMode extends javax.swing.JFrame {
         });
     }
 
+    private void moveTypedCodeBackToArrayList() {
+        String s[] = typedCodeTextArea.getText().split("\\r?\\n");
+        for(int i = 0; i < s.length-1; i++) {
+            s[i] = s[i] + "\n";
+        }
+        ArrayList<String> arrList = new ArrayList<>(Arrays.asList(s));
+        System.out.println(arrList);
+        System.out.println(currentAssignment.getMasterCode());
+    }
+
     private void exportCode() {
         // Export the code
 
@@ -327,7 +344,7 @@ public class TeachingMode extends javax.swing.JFrame {
         String filename = new String(JOptionPane.showInputDialog(
                 "Enter the name of your classe. This is case sensitive!")
                 + ".java");
-        
+
         // Create a print writer for writing to the file
         try {
             PrintWriter out = new PrintWriter(new FileWriter(filename));
@@ -348,14 +365,20 @@ public class TeachingMode extends javax.swing.JFrame {
     }
 
     /**
-     * setFontOptions allows the fonts to be customized in the TeachingMode window.
+     * setFontOptions allows the fonts to be customized in the TeachingMode
+     * window.
+     *
      * @param font String containing the name of the font.
-     * @param fontSize String containing the value of the size to display the font.
-     * @param textColor Color object that will set the color of the text. 
-     *   <br>&nbsp;&nbsp;&nbsp;&nbsp;Possible colors are: White, Black, Red, Blue, Green, and Purple
-     * @param backgroundColor Color object that will set the color of the background.
-     *   <br>&nbsp;&nbsp;&nbsp;&nbsp;Possible colors are: White, Black, Red, Blue, Green, and Purple
-    */
+     * @param fontSize String containing the value of the size to display the
+     * font.
+     * @param textColor Color object that will set the color of the text.
+     * <br>&nbsp;&nbsp;&nbsp;&nbsp;Possible colors are: White, Black, Red, Blue,
+     * Green, and Purple
+     * @param backgroundColor Color object that will set the color of the
+     * background.
+     * <br>&nbsp;&nbsp;&nbsp;&nbsp;Possible colors are: White, Black, Red, Blue,
+     * Green, and Purple
+     */
     protected void setFontOptions(String font, String fontSize, Color textColor,
             Color backgroundColor) {
         String fontDecode = font + '-' + fontSize;
