@@ -55,7 +55,7 @@ public class MainMenu extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         AboutMenuItem = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         ExitButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ExitButton.setText("Exit");

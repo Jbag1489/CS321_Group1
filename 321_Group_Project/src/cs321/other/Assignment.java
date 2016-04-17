@@ -1,39 +1,40 @@
-/*
+package cs321.other;
+import java.util.ArrayList;
+/**
  * The Assignment class will implement the interface of the assignment using 
  * GUI component. This class will also display instructions and the assignment 
  * that the user will be working on, as well as accept submitted 
  * code by the user.
  * 
- */
-package cs321.other;
-import java.util.ArrayList;
-
-/**
- * 
  * @author Group1
+ * @version 04/18/16
  */
+
 public class Assignment implements Cloneable {
-    //Fields:
+    /**
+     * Declared field variables that represent
+     * instructions, masterCode and userEnteredCode
+     * in the form of arrayLists.
+     * 
+    */
     
     private ArrayList<String> instruction;
     private ArrayList<String> masterCode;
     private ArrayList<String> userEnteredCode;
-    /*
-    * Javadoc comments needed
+    /**
+    * Creates an assignment that contains arrayLists 
+    * of instructions and masterCode.
     * @param instruction
     * @param masterCode
     */
-    public Assignment(ArrayList<String> instruction, ArrayList<String> masterCode)
-                      
+    public Assignment(ArrayList<String> instruction, ArrayList<String> masterCode)                   
     {
         this.instruction = instruction;
         this.masterCode = masterCode;
     }
-
-    //Methods:
     
     /**
-     * JavaDoc comment
+     * Returns instructions
      * @return instruction of type ArrayList string
     */
     public ArrayList<String> getInstruction()
@@ -42,7 +43,7 @@ public class Assignment implements Cloneable {
     }
     
     /**
-     * JavaDoc comment
+     * Passes in the changed instructions.
      * @param instruction to set instructions
     */
     public void setInstruction(ArrayList<String> instruction)
@@ -50,9 +51,8 @@ public class Assignment implements Cloneable {
         this.instruction = instruction;
     }
     
-    
     /**
-     * JavaDoc comment
+     * Returns master code.
      * @return master code of type ArrayList string
     */
     public ArrayList<String> getMasterCode()
@@ -61,7 +61,7 @@ public class Assignment implements Cloneable {
     }
     
     /**
-     * JavaDoc comment
+     * Passes in the newly set master code.
      * @param masterCode the masterCode to set
      * 
     */
@@ -71,7 +71,7 @@ public class Assignment implements Cloneable {
     }
     
     /**
-     * JavaDoc comment
+     * Returns the code entered by the user.
      * @return userEnteredCode of type ArrayList string
     */
     public ArrayList<String> getUserEnteredCode()
@@ -80,7 +80,7 @@ public class Assignment implements Cloneable {
     }
     
     /**
-     * JavaDoc comment
+     * Sets or updates the entered code by the user.
      * @param userEnteredCode the userEnteredCode to set
     */
     public void setUserEnteredCode(ArrayList<String> userEnteredCode) 
