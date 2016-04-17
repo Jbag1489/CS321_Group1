@@ -60,10 +60,8 @@ public class Checker{
       {
           if(user.get(i) != null)
           {
-              if(!(user.get( i ) .equals( master.get( check ))))
-              {
-                  errorIndex.add(i); //add wrong line to the array
-              }
+               if (! ( user.get( i ).trim().equals( master.get( check ).trim() )))
+                errorIndex.add(i); //add wrong line to the array
               check++;
           }
       }
