@@ -103,6 +103,7 @@ public class TeachingMode extends javax.swing.JFrame {
         instructionTextArea.setEditable(false);
         instructionTextArea.setColumns(20);
         instructionTextArea.setRows(5);
+        instructionTextArea.setTabSize(4);
         instructionTextArea.setText("In Java you declare a variable by typing a variable type, and then a name for that \nvariable. The primitive data types are bool, int, short, long, float.\nYou would create an int by typing int and then a space and the name of a variable.\nExample:\nint x;");
         instructionScrollPane.setViewportView(instructionTextArea);
 
@@ -113,6 +114,7 @@ public class TeachingMode extends javax.swing.JFrame {
         sampleCodeTextArea.setColumns(20);
         sampleCodeTextArea.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         sampleCodeTextArea.setRows(5);
+        sampleCodeTextArea.setTabSize(4);
         sampleCodeTextArea.setText("1234567892123456789312345678941234567895123456789612345678971234567898000000000000000000000000000000000000000000000000000\n2        0         0         0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
         sampleCodeScrollPane.setViewportView(sampleCodeTextArea);
 
@@ -140,6 +142,7 @@ public class TeachingMode extends javax.swing.JFrame {
         typedCodeTextArea.setColumns(20);
         typedCodeTextArea.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         typedCodeTextArea.setRows(5);
+        typedCodeTextArea.setTabSize(4);
         typedCodeTextArea.setText("1234567892123456789312345678941234567895123456789612345678971234567898\n2        0         0         0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
         typedCodeScrollPane.setViewportView(typedCodeTextArea);
 
@@ -258,14 +261,17 @@ public class TeachingMode extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
             exportCode();
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
+            // JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
         }
         
+        // Send typed code back to ArrayList for typedCode
         moveTypedCodeBackToArrayList();
+        
+        // Check assignment with checker
+//        Checker aChecker = new Checker(currentAssignment);
+//        typedCodeTextArea = aChecker.checkAssignment();
 
-        //Send typed code to ArrayList
-        //Use checker to check ArrayLists
-        // LAST THING: Export Code to .java file
+        
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
     private void ExitToMainMenuMenutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitToMainMenuMenutItemActionPerformed
@@ -333,8 +339,8 @@ public class TeachingMode extends javax.swing.JFrame {
             s[i] = s[i] + "\n";
         }
         ArrayList<String> arrList = new ArrayList<>(Arrays.asList(s));
-        System.out.println(arrList);
-        System.out.println(currentAssignment.getMasterCode());
+//        System.out.println(arrList);
+//        System.out.println(currentAssignment.getMasterCode());
     }
 
     private void exportCode() {

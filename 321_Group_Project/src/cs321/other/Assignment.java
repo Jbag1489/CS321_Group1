@@ -34,6 +34,19 @@ public class Assignment implements Cloneable {
     }
     
     /**
+    * Creates an assignment that contains arrayLists 
+    * of instructions, masterCode, and typedCode
+    * @param instruction
+    * @param masterCode
+    */
+    public Assignment(ArrayList<String> instruction, ArrayList<String> masterCode, ArrayList<String> typedCode)                   
+    {
+        this.instruction = instruction;
+        this.masterCode = masterCode;
+        this.userEnteredCode = typedCode;
+    }
+    
+    /**
      * Returns instructions
      * @return instruction of type ArrayList string
     */
