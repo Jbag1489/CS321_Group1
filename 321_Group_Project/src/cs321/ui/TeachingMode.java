@@ -268,8 +268,8 @@ public class TeachingMode extends javax.swing.JFrame {
         moveTypedCodeBackToArrayList();
         
         // Check assignment with checker
-//        Checker aChecker = new Checker(currentAssignment);
-//        typedCodeTextArea = aChecker.checkAssignment();
+        Checker aChecker = new Checker(currentAssignment);
+        aChecker.checkline();
 
         
     }//GEN-LAST:event_SubmitButtonActionPerformed
