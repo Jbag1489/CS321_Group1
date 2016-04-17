@@ -129,7 +129,7 @@ public class Login extends javax.swing.JFrame {
             passwordField.setText("");
 
             close();
-            MainMenu menu = new MainMenu();
+            MainMenu menu = MainMenu.getInstance();
             menu.setVisible(true);
         } else
            { // If so, does password match?
@@ -140,13 +140,6 @@ public class Login extends javax.swing.JFrame {
            }  
            this.setVisible(false);
            mainMenu.setVisible(true);
-        else { // If so, does password match?
-
-            JOptionPane.showMessageDialog(rootPane, "Incorrect Password\nPlease try again!", 
-                                            "Incorrect Password", JOptionPane.ERROR_MESSAGE);
-            passwordField.setText("");
-            userNameField.setText("");
-            }
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
