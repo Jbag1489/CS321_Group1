@@ -336,7 +336,7 @@ public class TeachingMode extends javax.swing.JFrame {
         for(int i = 0; i < s.length-1; i++) {
             s[i] = s[i] + "\n";
         }
-        ArrayList<String> arrList = new ArrayList<>(Arrays.asList(s));
+        currentAssignment.setUserEnteredCode(new ArrayList<>(Arrays.asList(s)));
 //        System.out.println(arrList);
 //        System.out.println(currentAssignment.getMasterCode());
     }
@@ -346,7 +346,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
         // Get String containing the Class name of the code typed in.
         String filename = new String(JOptionPane.showInputDialog(
-                "Enter the name of your classe. This is case sensitive!")
+                "Enter the name of your class. This is case sensitive!")
                 + ".java");
 
         // Create a print writer for writing to the file

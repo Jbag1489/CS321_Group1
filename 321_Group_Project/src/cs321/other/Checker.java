@@ -16,8 +16,8 @@ import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
 
 /**
- * The Checker class will implement a theAssignment with high-lighter component to
- check the correctness of selected assignment. This class will also display
+ * The Checker class will implement a theAssignment with high-lighter component
+ * to check the correctness of selected assignment. This class will also display
  * error lines to user through GUI that the user can go back to fix errors.
  *
  * @author Group1
@@ -77,25 +77,28 @@ public class Checker {
             }
         }
     }
-    
+
     public void checkAndHighlight(JTextArea masterCode) {
         masterCode.setText("");
         Highlighter h = masterCode.getHighlighter();
+        
         int prevLength = 0;
-        for(int i=0; i < theAssignment.getMasterCode().size(); i++) {
-            if(theAssignment.getUserEnteredCode().get(i).equals(theAssignment.getMasterCode().get(i))) {
-                masterCode.append(theAssignment.getMasterCode().get(i) + "\n");
-                prevLength += theAssignment.getMasterCode().get(i).length() + 1;
+        for (int i = 0; i < theAssignment.getMasterCode().size(); i++) {
+            if (theAssignment.getUserEnteredCode().get(i).equals(theAssignment.getMasterCode().get(i))) {
+                masterCode.append(theAssignment.getMasterCode().get(i));
             } else {
-                masterCode.append(theAssignment.getMasterCode().get(i) + "\n");
+               
                 try {
-                    h.addHighlight(prevLength, prevLength + theAssignment.getMasterCode().get(i).length(), DefaultHighlighter.DefaultPainter);
-                            } catch (BadLocationException ex) {
-                    Logger.getLogger(Checker.class.getName()).log(Level.SEVERE, null, ex);
+                    // h.addHighlight(prevLength, prevLength + theAssignment.getMasterCode().get(i).length(), DefaultHighlighter.DefaultPainter);
+                    h.addHighlight(0, 10, DefaultHighlighter.DefaultPainter);
+                    masterCode.append(theAssignment.getMasterCode().get(i));
+                    
+                } catch (BadLocationException ex) {
+                    ex.printStackTrace();
                 }
             }
-            prevLength += theAssignment.getMasterCode().get(i).length() + 1;
-            
+            prevLength += theAssignment.getMasterCode().get(i).length();
+
         }
     }
 

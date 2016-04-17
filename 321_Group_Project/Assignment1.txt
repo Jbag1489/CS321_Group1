@@ -19,7 +19,7 @@ The second way to create a comment is a forward slash and then an asterisk (/*).
 
 @Master@
 public class Printing {
-	
+
 	/* Print out a few lines of text. */
 	System.out.println("Han shot first.");
 	System.out.println("Kirk cheated!");
