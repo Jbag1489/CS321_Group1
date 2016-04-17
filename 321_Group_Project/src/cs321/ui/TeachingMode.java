@@ -102,13 +102,14 @@ public class TeachingMode extends javax.swing.JFrame {
         instructionTextArea.setText("In Java you declare a variable by typing a variable type, and then a name for that \nvariable. The primitive data types are bool, int, short, long, float.\nYou would create an int by typing int and then a space and the name of a variable.\nExample:\nint x;");
         instructionScrollPane.setViewportView(instructionTextArea);
 
+        sampleCodeScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         sampleCodeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         sampleCodeTextArea.setEditable(false);
         sampleCodeTextArea.setColumns(20);
         sampleCodeTextArea.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         sampleCodeTextArea.setRows(5);
-        sampleCodeTextArea.setText("1234567892123456789312345678941234567895123456789612345678971234567898\n2        0         0         0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
+        sampleCodeTextArea.setText("1234567892123456789312345678941234567895123456789612345678971234567898000000000000000000000000000000000000000000000000000\n2        0         0         0         0         0         0         0\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n20\n1\n2\n3\n4\n5\n6\n7\n8\n9\n30");
         sampleCodeScrollPane.setViewportView(sampleCodeTextArea);
 
         jLabel1.setText("Code to enter:");
@@ -129,6 +130,7 @@ public class TeachingMode extends javax.swing.JFrame {
             }
         });
 
+        typedCodeScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         typedCodeScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         typedCodeTextArea.setColumns(20);
@@ -195,17 +197,18 @@ public class TeachingMode extends javax.swing.JFrame {
                     .addComponent(instructionScrollPane)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(typedCodeScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(sampleCodeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(366, 366, 366)
+                        .addGap(484, 484, 484)
                         .addComponent(ExitMainMenuButton)))
                 .addContainerGap())
         );
@@ -233,7 +236,6 @@ public class TeachingMode extends javax.swing.JFrame {
 
         instructionScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         sampleCodeScrollPane.getVerticalScrollBar().setModel(typedCodeScrollPane.getVerticalScrollBar().getModel());
-        sampleCodeScrollPane.getHorizontalScrollBar().setModel(typedCodeScrollPane.getHorizontalScrollBar().getModel());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

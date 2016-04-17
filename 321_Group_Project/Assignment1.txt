@@ -1,0 +1,42 @@
+@Instruction@
+There are several common datatypes in Java.
+A datatype is a set of data with unique characteristics.
+
+The most commonly used datatypes are:
+
+Integer -   Integer vaues are whole numbers. In Java, integers can be negative or positive between
+            the range -2,147,483,648 and 2,147,483,647.
+			
+            Integere values are declared in Java by using the keyword "int" followed by the name
+            of the integer.
+			
+Double  -   Double values are decimal numbers, but also include whole numbers. They are useful for 
+            finding precise calculations.
+			
+            Double values are declared in Java by using the keyword "double" followed by the name
+            of the double value.
+			
+String  -   String values are "strings" of characters. They can be sentences or just one letter.
+            An example of a String would be "The sky is blue".
+			
+            Strings are declared in Java by using the keyword "String" (the 'S' MUST be uppcase)
+            followed the name of the String.
+			
+This assignment will explain the different datatypes and how they are used.
+@InstructionEnd@
+
+@Master@
+public class Datatypes {
+	
+	/* Define a variable for each of the 3 common datatypes */
+	int     number = 4;           // Integer with a value of 4
+	double  decimalNumber = 8.24; // Double with a value of 8.24
+	String  name = "Bob";         // String holding the word "Bob"
+	
+	
+	/* Print the the int, double, and String values declared above */
+	System.out.println("Integer number = " + number);         // Prints "4"
+	System.out.println("Double decimal = " + decimalNumber);  // Prints "8.24" 
+	System.out.println("String name = " + name);              // Prints "Bob"	
+}
+@MasterEnd@

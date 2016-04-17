@@ -26,9 +26,10 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private AssignmentSelector() {
         initComponents();
     }
-    
+
     /**
      * Get a reference to the instance of AssignmentSelector.
+     *
      * @return A reference to the instance of AssignmentSelector.
      */
     public static AssignmentSelector getInstance() {
@@ -36,7 +37,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
             instance = new AssignmentSelector();
         }
         return instance;
-    }    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,7 +65,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
         AboutMenuItem = new javax.swing.JMenuItem();
 
         assignment1Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        assignment1Button.setText("Hard Coded Assignment");
+        assignment1Button.setText("Assignment 1");
         assignment1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignment1ButtonActionPerformed(evt);
@@ -81,12 +82,27 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
         assignment3Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment3Button.setText("Assignment 3");
+        assignment3Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignment3ButtonActionPerformed(evt);
+            }
+        });
 
         assignment4Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment4Button.setText("Assignment 4");
+        assignment4Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignment4ButtonActionPerformed(evt);
+            }
+        });
 
         assignment5Button.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         assignment5Button.setText("Assignment 5");
+        assignment5Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignment5ButtonActionPerformed(evt);
+            }
+        });
 
         exitMainMenuButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         exitMainMenuButton.setText("Exit to Main Menu");
@@ -220,25 +236,9 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
-
-        // Temporary **************************************
-        instruction.add("Sample Instructions.\n"
-                + "Here is second line.\n"
-                + "What about a third?\n"
-                + "\n"
-                + "Can it handle a 5th line with line 4 blank?");
-
-        masterCode.add("public class TheAssignment {\n"
-                + "	// There was a tab.\n"
-                + "	public static void main (String[] args) {\n"
-                + "		System.out.println(\"To infinity and beyond!\");\n"
-                + "	}\n"
-                + "}");
-        theAssignment = new Assignment(instruction, masterCode);
-
-        teachingMode.setAssignment(theAssignment);
-        teachingMode.setVisible(true);
-        this.setVisible(false);
+        pathname = "Assignment1.txt";
+        loadAssignment(pathname);
+        startAssignment();
 
 
     }//GEN-LAST:event_assignment1ButtonActionPerformed
@@ -246,28 +246,14 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
         // TODO add your handling code here:
 
-        String pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
+        pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
         if (pathname == null) {
             JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
         } else if (pathname.isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
         } else {
-            myFile = new File(pathname);
-            atp = new AssignmentTemplateParser();
-            try {
-                atp.readFile(myFile);
-                theAssignment = atp.getAssignment();
 
-                teachingMode.setAssignment(theAssignment);
-                teachingMode.setVisible(true);
-                this.setVisible(false);
-            } catch (FileNotFoundException ex) {
-                JOptionPane.showMessageDialog(rootPane, 
-                        "Warning: File not found. Assignment will not be opened.");
-                ex.printStackTrace();
-            } catch (IOException ex) {
-                Logger.getLogger(AssignmentSelector.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            loadAssignment(pathname);
 
         }
 
@@ -275,12 +261,41 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment2ButtonActionPerformed
         // TODO add your handling code here:
+        pathname = "Assignment2.txt";
+        loadAssignment(pathname);
+        startAssignment();
 
 
     }//GEN-LAST:event_assignment2ButtonActionPerformed
 
+    private void assignment5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment5ButtonActionPerformed
+        // TODO add your handling code here:
+//        pathname = "Assignment5.txt";
+//        loadAssignment(pathname);
+//        startAssignment();
+
+        JOptionPane.showMessageDialog(rootPane, "This assignment is not yet available.");
+    }//GEN-LAST:event_assignment5ButtonActionPerformed
+
+    private void assignment3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment3ButtonActionPerformed
+        // TODO add your handling code here:
+//        pathname = "Assignment3.txt";
+//        loadAssignment(pathname);
+//        startAssignment();
+        JOptionPane.showMessageDialog(rootPane, "This assignment is not yet available.");
+    }//GEN-LAST:event_assignment3ButtonActionPerformed
+
+    private void assignment4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment4ButtonActionPerformed
+        // TODO add your handling code here:
+//        pathname = "Assignment4.txt";
+//        loadAssignment(pathname);
+//        startAssignment();
+        JOptionPane.showMessageDialog(rootPane, "This assignment is not yet available.");
+    }//GEN-LAST:event_assignment4ButtonActionPerformed
+
     /**
      * Main method of the AssignmentSelector class.
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -315,6 +330,30 @@ public class AssignmentSelector extends javax.swing.JFrame {
         });
     }
 
+    private void loadAssignment(String filename) {
+        myFile = new File(filename);
+        atp = new AssignmentTemplateParser();
+        try {
+            atp.readFile(myFile);
+            theAssignment = atp.getAssignment();
+
+            startAssignment();
+
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(rootPane,
+                    "Warning: File not found. Assignment will not be opened.");
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(AssignmentSelector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void startAssignment() {
+        teachingMode.setAssignment(theAssignment);
+        teachingMode.setVisible(true);
+        this.setVisible(false);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutMenuItem;
     private javax.swing.JMenuItem ExitMenuItem;
@@ -342,8 +381,9 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private File myFile = new File("c:\\temp2\\data.txt");
     private AssignmentTemplateParser atp = new AssignmentTemplateParser();
     private Assignment theAssignment;
-    
-    
+
+    String pathname = null;
+
     //Temporary ArrayLists for testing Assignment buttons
     private ArrayList<String> instruction = new ArrayList<String>();
     private ArrayList<String> masterCode = new ArrayList<String>();
