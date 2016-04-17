@@ -260,7 +260,7 @@ public class TeachingMode extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
             exportCode();
         } else {
-            // JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
+             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
         }
         
         // Send typed code back to ArrayList for typedCode
