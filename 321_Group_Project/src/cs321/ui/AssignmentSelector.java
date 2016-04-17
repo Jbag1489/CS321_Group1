@@ -270,19 +270,16 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment5ButtonActionPerformed
         // TODO add your handling code here:
-//        pathname = "Assignment5.txt";
-//        loadAssignment(pathname);
-//        startAssignment();
-
-        JOptionPane.showMessageDialog(rootPane, "This assignment is not yet available.");
+        pathname = "Assignment5.txt";
+        loadAssignment(pathname);
+        startAssignment();
     }//GEN-LAST:event_assignment5ButtonActionPerformed
 
     private void assignment3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment3ButtonActionPerformed
         // TODO add your handling code here:
-//        pathname = "Assignment3.txt";
-//        loadAssignment(pathname);
-//        startAssignment();
-        JOptionPane.showMessageDialog(rootPane, "This assignment is not yet available.");
+        pathname = "Assignment3.txt";
+        loadAssignment(pathname);
+        startAssignment();
     }//GEN-LAST:event_assignment3ButtonActionPerformed
 
     private void assignment4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment4ButtonActionPerformed

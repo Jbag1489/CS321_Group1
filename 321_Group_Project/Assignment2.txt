@@ -1,45 +1,42 @@
 @Instruction@
-You can perform math operations on variables in Java.
+There are several common datatypes in Java.
+A datatype is a set of data with unique characteristics.
 
-Some simple operations in Java are:
+The most commonly used datatypes are:
 
-Addition (+)       -   Adds two values together.
-
-Subtraction (-)    -   Subtracts one value from another.
-
-Multiplication (*) -   Multiplies two values together.
-
-Division (/)       -   Divides one value into another.
+Integer -   Integer vaues are whole numbers. In Java, integers can be negative or positive between
+            the range -2,147,483,648 and 2,147,483,647.
 			
-This assignment will demonstrate how to use the 4 simple operations.
+            Integere values are declared in Java by using the keyword "int" followed by the name
+            of the integer.
+			
+Double  -   Double values are decimal numbers, but also include whole numbers. They are useful for 
+            finding precise calculations.
+			
+            Double values are declared in Java by using the keyword "double" followed by the name
+            of the double value.
+			
+String  -   String values are "strings" of characters. They can be sentences or just one letter.
+            An example of a String would be "The sky is blue".
+			
+            Strings are declared in Java by using the keyword "String" (the 'S' MUST be uppcase)
+            followed the name of the String.
+			
+This assignment will explain the different datatypes and how they are used.
 @InstructionEnd@
 
 @Master@
-public class OperationsDemonstration {
-	public static void main(String[] args) {
-		/* Define some basic integer and double variables */
-		int number = 16;
-		int number2 = 8;
-		double decimal1 = 9.94;
-		double decimal2 = 2.45;
-		
-		/* Define variables to hold results of operations */
-		int sum;        // Will hold the result of an addition (+) operation
-		int difference; // Will hold the result of a suctraction (-) operation
-		int product;    // Will hold the result of a multiplication (*) operation
-		int quotient;   // Will hold the result of a division (/) operation
-		
-		/* Perform the 4 operations and store the result in the variables above */
-		sum = number1 + number2;          // Add 16 and 8 and store in variable sum     
-		difference = decimal1 - decimal2; // Subtract 9.94 from 2.45 and store in variable difference
-		product = decimal1 * decimal2;    // Multiply 9.94 and 2.45 and store in variable product
-		quotient = number1 / number2;     // Divide 8 into 16 and store in variable quotient
-		
-		/* Print the variables to show that the operations worked correctly */
-		System.out.println("Sum of number1 and number2: " + sum);                      // Prints "24"
-		System.out.println("Difference between decimal1 and decimal2: " + difference); // Prints "-7.49"
-		System.out.println("Product of decimal1 and decimal2: " + product);            // Prints "24.353"
-		System.out.println("Quotient of number2 into number1: " + quotient);           // Prints "2"
-	}
+public class Datatypes {
+	
+	/* Define a variable for each of the 3 common datatypes */
+	int     number = 4;           // Integer with a value of 4
+	double  decimalNumber = 8.24; // Double with a value of 8.24
+	String  name = "Bob";         // String holding the word "Bob"
+	
+	
+	/* Print the the int, double, and String values declared above */
+	System.out.println("Integer number = " + number);         // Prints "4"
+	System.out.println("Double decimal = " + decimalNumber);  // Prints "8.24" 
+	System.out.println("String name = " + name);              // Prints "Bob"	
 }
 @MasterEnd@

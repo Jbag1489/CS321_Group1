@@ -1,0 +1,34 @@
+@Instruction@
+There is a datatype in Java programming called the "boolean".
+
+The boolean datatype can have two different values: false of true.
+
+Boolean values are used to control certain events in Java programming.
+
+This assignment will demonstrate how boolean values are used.
+@InstructionEnd@
+
+@Master@
+public class BooleanDemonstration {
+	public static void main(String[] args) {
+		/* Define some boolean variables */
+		boolean javaIsFun = true; // Isn't Java fun?
+		boolean isEqual;
+		
+		/* Define some simple integer values */
+		int x = 5;
+		int y = 5;
+		
+		/* Demonstrate how booleans values work */
+		if (javaIsFun == true) {
+			System.out.println("Correct! Java is fun.");
+		}
+		
+		isEqual = (x == y); // This compares x to y and assigns "true" if they are equal and "false" if they are not
+		
+		if (isEqual == true) {
+			System.out.println("x and y are equal"); // If isEqual has the value "true", this will be printed
+		}
+	}
+}
+@MasterEnd@
