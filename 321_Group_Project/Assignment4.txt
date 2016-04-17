@@ -1,0 +1,31 @@
+@Instruction@
+There is a structure in Java programming known as an "if statement".
+
+If statements are used to determine if certain blocks of code should be executed.
+
+If statements are strucutred like so:
+if (condition IS TRUE)
+{
+	// Code to be executed is written here
+}
+@InstructionEnd@
+
+@Master@
+public class IfStatementDemonstration {
+	public static void main(String[] args) {
+		/* Define some simple variables */
+		int x = 8;
+		int y = 2;
+		int z = 6
+		
+		/* Construct simple if statements to demonstrate how they work */
+		if (x + y == 10) {
+			System.out.println("8 + 2 = 10!"); // Prints "8 + 2 = 10!" if the condition "x + y == 10" is true
+		}
+		
+		if (x == 4) {
+			System.out.println("8 is equal to 4"); // Prints "8 is equal to 4" if the condition "x == 4" is true
+		}
+	}
+}
+@MasterEnd@

@@ -284,10 +284,9 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment4ButtonActionPerformed
         // TODO add your handling code here:
-//        pathname = "Assignment4.txt";
-//        loadAssignment(pathname);
-//        startAssignment();
-        JOptionPane.showMessageDialog(rootPane, "This assignment is not yet available.");
+        pathname = "Assignment4.txt";
+        loadAssignment(pathname);
+        startAssignment();
     }//GEN-LAST:event_assignment4ButtonActionPerformed
 
     /**
