@@ -10,10 +10,9 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.ButtonModel;
 
-
 /**
  *
- * @author Joshua
+ * @author Group1
  */
 public class CreateUser extends javax.swing.JFrame {
 
@@ -74,8 +73,18 @@ public class CreateUser extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Account Type"));
 
         studentButton.setText("Student");
+        studentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentButtonActionPerformed(evt);
+            }
+        });
 
         teacherButton.setText("Teacher");
+        teacherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teacherButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Teacher Code:");
 
@@ -174,6 +183,16 @@ public class CreateUser extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed
+        // TODO add your handling code here:
+        jPasswordField1.setEditable(true);
+    }//GEN-LAST:event_teacherButtonActionPerformed
+
+    private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
+        // TODO add your handling code here:
+        jPasswordField1.setEditable(false);
+    }//GEN-LAST:event_studentButtonActionPerformed
 
     /**
      * Main method of the CreateUser class.
