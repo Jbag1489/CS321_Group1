@@ -51,14 +51,13 @@ public class Checker{
     public void checkline()
     {
       int check=0;
-      
       for(int i=0; i<checker.getUserEnteredCode().size(); i++)
       {
-               if (! ( checker.getUserEnteredCode().get( i ).trim().equals( checker.getMasterCode().get( check ).trim() )))
-               {  
-                   errorIndex.add(i); //add wrong line to the array
-                  check++;
-               }
+          String user = checker.getUserEnteredCode().get( i ).trim();
+          String master = checker.getMasterCode().get( check ).trim();
+          if (! user.equals(master))
+                  errorIndex.add(i); //add wrong line to the array
+          check++;
       }
     }
 
