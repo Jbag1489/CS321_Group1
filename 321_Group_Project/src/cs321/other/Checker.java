@@ -23,9 +23,8 @@ public class Checker{
     
     public Checker(Assignment assignmentOne)
     {
-         checker.setInstruction(assignmentOne.getInstruction());
+         checker = new Assignment(assignmentOne.getInstruction(), assignmentOne.getMasterCode());
          checker.setUserEnteredCode(assignmentOne.getUserEnteredCode());
-         checker.setMasterCode(assignmentOne.getMasterCode());
          errorIndex = new ArrayList();
     }
 
