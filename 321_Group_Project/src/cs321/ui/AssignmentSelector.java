@@ -7,7 +7,11 @@ package cs321.ui;
 
 import cs321.other.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,25 +26,17 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private AssignmentSelector() {
         initComponents();
     }
-
-    //Temporary ArrayLists
-    private ArrayList<String> instruction = new ArrayList<String>();
-    private ArrayList<String> masterCode = new ArrayList<String>();
-
-    public static AssignmentSelector instance = null;
-
+    
+    /**
+     * Get a reference to the instance of AssignmentSelector.
+     * @return A reference to the instance of AssignmentSelector.
+     */
     public static AssignmentSelector getInstance() {
         if (instance == null) {
             instance = new AssignmentSelector();
         }
         return instance;
-    }
-
-    private TeachingMode teachingMode = TeachingMode.getInstance();
-
-    private File myFile = new File("c:\\temp2\\data.txt");
-    private AssignmentTemplateParser atp = new AssignmentTemplateParser();
-    private Assignment theAssignment;
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,10 +205,12 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void SettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsMenuItemActionPerformed
         // TODO add your handling code here:
+        settings.setVisible(true);
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
+        aboutMenu.setVisible(true);
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
     private void exitMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMainMenuButtonActionPerformed
@@ -256,12 +254,21 @@ public class AssignmentSelector extends javax.swing.JFrame {
         } else {
             myFile = new File(pathname);
             atp = new AssignmentTemplateParser();
-            atp.readFile(myFile);
-            theAssignment = atp.getAssignment();
+            try {
+                atp.readFile(myFile);
+                theAssignment = atp.getAssignment();
 
-            teachingMode.setAssignment(theAssignment);
-            teachingMode.setVisible(true);
-            this.setVisible(false);
+                teachingMode.setAssignment(theAssignment);
+                teachingMode.setVisible(true);
+                this.setVisible(false);
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(rootPane, 
+                        "Warning: File not found. Assignment will not be opened.");
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                Logger.getLogger(AssignmentSelector.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
 
     }//GEN-LAST:event_importAssignmentButtonActionPerformed
@@ -273,6 +280,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
     }//GEN-LAST:event_assignment2ButtonActionPerformed
 
     /**
+     * Main method of the AssignmentSelector class.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -324,4 +332,20 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private javax.swing.JButton importAssignmentButton;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
+
+    // User variable declaration
+    public static AssignmentSelector instance = null;
+    private TeachingMode teachingMode = TeachingMode.getInstance();
+    private About aboutMenu = About.getInstance();
+    private SettingsConfigurator settings = SettingsConfigurator.getInstance();
+
+    private File myFile = new File("c:\\temp2\\data.txt");
+    private AssignmentTemplateParser atp = new AssignmentTemplateParser();
+    private Assignment theAssignment;
+    
+    
+    //Temporary ArrayLists for testing Assignment buttons
+    private ArrayList<String> instruction = new ArrayList<String>();
+    private ArrayList<String> masterCode = new ArrayList<String>();
+
 }

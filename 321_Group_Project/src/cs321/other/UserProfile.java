@@ -1,27 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cs321.other;
-
-
-//-------------------------
 /**
+ * The UserProfile will create a user profile to identify 
+ * the status and progress of the user.
  * 
- * @author GRoup1
+ * @author Group1
+ * 04/18/16
  */
 public class UserProfile {
- //Fields:
+ /**
+  * Declared field variables that represent username, student name, password,
+  * the assignment counter, the administrator status, and settings.
+ */
 private String userName;
 private String studentName;
 private String password;
 private int assignmentCounter;
 private boolean adminstratorStatus;
 private UserSettings settings;
-    
-    //Methods:
-
+ /**
+  * Creates a user profile with general attributes 
+  * to identify a student or an administrator.
+  * @param userName
+  * @param studentName
+  * @param password
+  * @param adminstratorStatus 
+  */   
 public UserProfile(String userName, String studentName, 
                    String password, boolean adminstratorStatus)
     {
@@ -32,7 +35,7 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
+     * Returns a username
      * @return the user name
     */
     public String getUserName()
@@ -41,7 +44,7 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
+     * Sets or changes the username in userProfile.
      * @param userName The username that will be set to this userProfile
     */
     public void setUserName(String userName)
@@ -50,8 +53,8 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
-     * @return The student's name
+     * Returns the name of the student
+     * @return studentName - the student's name
     */
     public String getStudentName()
     {
@@ -59,7 +62,7 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
+     * Sets or updates the name of the student
      * @param studentName The student's name to be set.
     */
     public void setStudentName(String studentName)
@@ -68,8 +71,8 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
-     * @return The userProfile's password.
+     * Returns password.
+     * @return password - the userProfile's password.
     */
     public String getPassword()
     {
@@ -77,8 +80,8 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
-     * @return The number of assignments completed.
+     * Returns the number of assignments done.
+     * @return assignmentCounter - the number of assignments completed.
     */
     public int getAssignmentCounter()
     {
@@ -86,7 +89,7 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
+     * Sets and updates how many assignments have been completed by the user.
      * @param assignmentCounter The number of assignments the user has completed.
     */
     public void setAssignmentCounter(int assignmentCounter)
@@ -95,21 +98,25 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
-     * @return The administrator status, true if is an administrator.
+     * Returns the administrator status.
+     * @return administratorStatus, true if it's an administrator.
     */
     public boolean getAdministratorStatus()
     {
         return adminstratorStatus;
     }
     
+    /**
+     * Sets the status to an administrator setting, if it's an administrator.
+     * @param administratorStatus, true if it's an administrator.
+     */
     public void setAdministratorStatus(boolean administratorStatus)
     {
         this.adminstratorStatus = administratorStatus;
     }
     
     /**
-     * JavaDoc comment
+     * Returns the settings of the userProfile.
      * @return The userProfile's settings.
     */
     public UserSettings getSettings()
@@ -118,7 +125,7 @@ public UserProfile(String userName, String studentName,
     }
     
     /**
-     * JavaDoc comment
+     * Sets or updates the userProfile's settings.
      * @param settings The userProfile's settings.
     */
     public void setSettings(UserSettings settings)

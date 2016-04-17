@@ -18,16 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class TeachingMode extends javax.swing.JFrame {
 
-    // Class Variables
-    private ArrayList<String> instructions;
-    private ArrayList<String> typedCode;
-    private ArrayList<String> masterCode;
-    private static TeachingMode instance = null;
-    private SettingsConfigurator settings;
-    private About aboutMenu = About.getInstance();
-
-    private Assignment currentAssignment;
-
+    /**
+     * Set's this instances reference to a SettingsConfigurator instance.
+     * @param s Reference to a SettingsConfigurator instance.
+     */
     protected void setSettingsInstance(SettingsConfigurator s) {
         settings = s;
     }
@@ -39,6 +33,10 @@ public class TeachingMode extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Get a reference to the instance of TeachingMode.
+     * @return Reverence to the instance of TeachingMode.
+     */
     public static TeachingMode getInstance() {
         if (instance == null) {
             instance = new TeachingMode();
@@ -48,7 +46,6 @@ public class TeachingMode extends javax.swing.JFrame {
 
     /**
      * setAssignment will configure teachingMode with the passed in assignment.
-     *
      * @param a is an Assignment object that will be used for teachingMode.
      */
     public void setAssignment(Assignment a) {
@@ -277,15 +274,16 @@ public class TeachingMode extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         //Open Settings Menu
-        settings.DisplayWindow();
+        settings.setVisible(true);
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
-        aboutMenu.DisplayWindow();
+        aboutMenu.setVisible(true);
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
     /**
+     * The main method of the class TeachingMode.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -347,6 +345,15 @@ public class TeachingMode extends javax.swing.JFrame {
 
     }
 
+    /**
+     * setFontOptions allows the fonts to be customized in the TeachingMode window.
+     * @param font String containing the name of the font.
+     * @param fontSize String containing the value of the size to display the font.
+     * @param textColor Color object that will set the color of the text. 
+     *   <br>&nbsp;&nbsp;&nbsp;&nbsp;Possible colors are: White, Black, Red, Blue, Green, and Purple
+     * @param backgroundColor Color object that will set the color of the background.
+     *   <br>&nbsp;&nbsp;&nbsp;&nbsp;Possible colors are: White, Black, Red, Blue, Green, and Purple
+    */
     protected void setFontOptions(String font, String fontSize, Color textColor,
             Color backgroundColor) {
         String fontDecode = font + '-' + fontSize;
@@ -389,4 +396,14 @@ public class TeachingMode extends javax.swing.JFrame {
     private javax.swing.JScrollPane typedCodeScrollPane;
     private javax.swing.JTextArea typedCodeTextArea;
     // End of variables declaration//GEN-END:variables
+
+    // User Variables declaration
+    private ArrayList<String> instructions;
+    private ArrayList<String> typedCode;
+    private ArrayList<String> masterCode;
+    private static TeachingMode instance = null;
+    private SettingsConfigurator settings;
+    private About aboutMenu = About.getInstance();
+
+    private Assignment currentAssignment;
 }

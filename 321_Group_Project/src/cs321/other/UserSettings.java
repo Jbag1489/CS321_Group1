@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cs321.other;
-
 /**
- *
+ * UserSettings class will allow the user to have options to modify profile.
+ * 
  * @author Group1
+ * 04/18/16
  */
 public class UserSettings {
+    /**
+     * Declared field variables that represent font, font color, font size
+     * and the window color.
+     */
     private String font;
     private String fontColor;
     private int fontSize;
     private String windowColor;
 
     /**
-     * JavaDoc comment
      * Default constructor for UserSettings.
      */
     public UserSettings(){
@@ -26,8 +25,8 @@ public class UserSettings {
         windowColor = "White";
     }
     
-    
     /**
+     * Returns a font.
      * @return the font
      */
     public String getFont() {
@@ -35,7 +34,7 @@ public class UserSettings {
     }
 
     /**
-     * JavaDoc comment
+     * Sets or updates the font that the user selected.
      * @param font the font to set
      */
     public void setFont(String font) {
@@ -43,7 +42,7 @@ public class UserSettings {
     }
 
     /**
-     * JavaDoc comment
+     * Returns a font color.
      * @return the fontColor
      */
     public String getFontColor() {
@@ -51,7 +50,7 @@ public class UserSettings {
     }
 
     /**
-     * JavaDoc comment
+     * Sets or updates the font color that the user selected.
      * @param fontColor the fontColor to set
      */
     public void setFontColor(String fontColor) {
@@ -59,6 +58,7 @@ public class UserSettings {
     }
 
     /**
+     * Returns a font size.
      * @return the fontSize
      */
     public int getFontSize() {
@@ -66,6 +66,7 @@ public class UserSettings {
     }
 
     /**
+     * Sets or updates font size based on user's selection.
      * @param fontSize the fontSize to set
      */
     public void setFontSize(int fontSize) {
@@ -73,6 +74,8 @@ public class UserSettings {
     }
 
     /**
+     * Returns a background color of the window that the user
+     * will see when typing an assignment.
      * @return the windowColor
      */
     public String getWindowColor() {
@@ -80,6 +83,8 @@ public class UserSettings {
     }
 
     /**
+     * Sets or updates the background window color
+     * based on the user's selection.
      * @param windowColor the windowColor to set
      */
     public void setWindowColor(String windowColor) {

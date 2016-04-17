@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package cs321.ui;
+
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joshua
@@ -18,7 +20,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        mainMenu = MainMenu.getInstance();
     }
+
+    private MainMenu mainMenu = null;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,38 +118,57 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        
         // TODO add your handling code here:
         String user = userNameField.getText();
         String pwd = passwordField.getText();
-        
+
         // Check to see if username exists
-        if(pwd.contains("admin16") && user.contains("admin")){
+        if (pwd.contains("admin16") && user.contains("admin")) {
             userNameField.setText("");
             passwordField.setText("");
+
             close();
             MainMenu menu = new MainMenu();
             menu.setVisible(true);
-        } else { // If so, does password match?
-        JOptionPane.showMessageDialog(null,"Incorrect password!", "\nPlease try again!", JOptionPane.ERROR_MESSAGE);
-        passwordField.setText("");
-        userNameField.setText("");
-        }  
+        } else
+           { // If so, does password match?
+           JOptionPane.showMessageDialog(null,"Incorrect password!", 
+                                            "\nPlease try again!", JOptionPane.ERROR_MESSAGE);
+           passwordField.setText("");
+           userNameField.setText("");
+           }  
+           this.setVisible(false);
+           mainMenu.setVisible(true);
+        else { // If so, does password match?
+
+            JOptionPane.showMessageDialog(rootPane, "Incorrect Password\nPlease try again!", 
+                                            "Incorrect Password", JOptionPane.ERROR_MESSAGE);
+            passwordField.setText("");
+            userNameField.setText("");
+            }
+
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt)
+    {
         // TODO add your handling code here:
-        String profile;
+
+        //String profile;
+
         // Open CreateUser UI
         CreateUser newUserScreen = new CreateUser();
         this.setVisible(false);
         newUserScreen.setVisible(true);
-    }//GEN-LAST:event_createUserButtonActionPerformed
+    }
 
 
     /**
+     * Main class for the About class.
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* 
          *Set the Nimbus look and feel 
          */
@@ -171,12 +195,16 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new Login().setVisible(true);
             }
         });
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createUserButton;
@@ -188,9 +216,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
 
-    private void close() {
-        WindowEvent winClosing = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+    private void close() 
+    {
+        WindowEvent winClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosing);
     }
 }
-

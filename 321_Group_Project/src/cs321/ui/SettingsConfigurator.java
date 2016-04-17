@@ -25,19 +25,15 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Get a reference to the instance of SettingsConfigurator.
+     * @return Reference to the instance of SettingsConfigurator.
+     */
     public static SettingsConfigurator getInstance() {
         if (instance == null) {
             instance = new SettingsConfigurator();
         }
         return instance;
-    }
-
-    public void DisplayWindow() {
-        this.setVisible(true);
-    }
-
-    public void HideWindow() {
-        this.setVisible(false);
     }
 
     /**
@@ -312,7 +308,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         teachingMode.setFontOptions(fontList.getSelectedValue(), 
                 fontSizeList.getSelectedValue(), fontColor, backgroundColor);
         
-        this.HideWindow();
+        this.setVisible(false);
     }//GEN-LAST:event_saveExitButtonActionPerformed
 
     private void resetToDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToDefaultButtonActionPerformed
@@ -330,7 +326,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         fontColorList.setSelectedIndex(currentFontColorIndex);
         backgroundColorList.setSelectedIndex(currentBackgroundColorIndex);
         
-        this.HideWindow();
+        this.setVisible(false);
     }//GEN-LAST:event_discardChangesButtonActionPerformed
 
     /**
@@ -395,7 +391,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private javax.swing.JLabel textPreviewLabel;
     // End of variables declaration//GEN-END:variables
 
-    // More variable declaration
+    // User variable declaration
     private String fontDecode = "";
     private Color fontColor;
     private Color backgroundColor;

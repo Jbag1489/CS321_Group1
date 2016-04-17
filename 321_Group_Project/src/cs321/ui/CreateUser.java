@@ -170,10 +170,13 @@ public class CreateUser extends javax.swing.JFrame {
                 jPasswordField1.getSelectedText(), teacherButton.isSelected());
         
         // Create MainMenu using newUser
+        mainMenu.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
+     * Main method of the CreateUser class.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -223,4 +226,8 @@ public class CreateUser extends javax.swing.JFrame {
     private javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
+
+    // User variable declaration
+    private MainMenu mainMenu = MainMenu.getInstance();
+
 }

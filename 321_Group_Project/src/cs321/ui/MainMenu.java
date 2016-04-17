@@ -8,22 +8,26 @@ package cs321.ui;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * MainMenu is a class that will display the main menu of Typing as a Programmer.
  * @author Joshua
  */
 public class MainMenu extends javax.swing.JFrame {
-
     
-    // Reference to Settings Configurator
-    private SettingsConfigurator settings = SettingsConfigurator.getInstance();
-    private TeachingMode teachingMode = TeachingMode.getInstance();
-    private About aboutMenu = About.getInstance();
-    private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
+    /**
+     * Get a reference to the instance of MainMenu
+     * @return Reference to the instance of MainMenu
+     */
+    public static MainMenu getInstance() {
+        if (instance == null) {
+            instance = new MainMenu();
+        }
+        return instance;
+    }
     
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
+    private MainMenu() {
         initComponents();
         teachingMode.setSettingsInstance(settings);
     }
@@ -45,7 +49,6 @@ public class MainMenu extends javax.swing.JFrame {
         ArcadeModeButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        ExitToMainMenuMenutItem = new javax.swing.JMenuItem();
         ExitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         SettingsMenuItem = new javax.swing.JMenuItem();
@@ -123,14 +126,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         fileMenu.setText("File");
 
-        ExitToMainMenuMenutItem.setText("Exit to Main Menu");
-        ExitToMainMenuMenutItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitToMainMenuMenutItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(ExitToMainMenuMenutItem);
-
         ExitMenuItem.setText("Exit");
         ExitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +201,7 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Open Settings menu
-        settings.DisplayWindow();
+        settings.setVisible(true);
     }//GEN-LAST:event_PreferencesButtonActionPerformed
 
     private void TeachingModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeachingModeButtonActionPerformed
@@ -218,6 +213,10 @@ public class MainMenu extends javax.swing.JFrame {
         assignmentSelector.setVisible(true);
     }//GEN-LAST:event_TeachingModeButtonActionPerformed
 
+    /**
+     * Shares MainMenu's reference to SettingsConfigurator
+     * @return Reference to the instance of SettingsConfigurator
+     */
     protected SettingsConfigurator getSettingsInstance() {
             return settings;
         }
@@ -234,11 +233,6 @@ public class MainMenu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Arcade mode is coming soon!");
     }//GEN-LAST:event_ArcadeModeButtonActionPerformed
 
-    private void ExitToMainMenuMenutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitToMainMenuMenutItemActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-    }//GEN-LAST:event_ExitToMainMenuMenutItemActionPerformed
-
     private void ExitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuItemActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -248,15 +242,16 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         // Open settings page
-        settings.DisplayWindow();
+        settings.setVisible(true);
     }//GEN-LAST:event_SettingsMenuItemActionPerformed
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
-        aboutMenu.DisplayWindow();
+        aboutMenu.setVisible(true);
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
     /**
+     * Main method of MainMenu GUI
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -296,7 +291,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton ArcadeModeButton;
     private javax.swing.JButton ExitButton;
     private javax.swing.JMenuItem ExitMenuItem;
-    private javax.swing.JMenuItem ExitToMainMenuMenutItem;
     private javax.swing.JButton PracticeModeButton;
     private javax.swing.JButton PreferencesButton;
     private javax.swing.JMenuItem SettingsMenuItem;
@@ -307,4 +301,12 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    // User defined variables declaration
+    private SettingsConfigurator settings = SettingsConfigurator.getInstance();
+    private TeachingMode teachingMode = TeachingMode.getInstance();
+    private About aboutMenu = About.getInstance();
+    private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
+    private static MainMenu instance = null;
+    
 }
