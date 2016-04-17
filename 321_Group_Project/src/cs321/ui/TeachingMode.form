@@ -81,24 +81,24 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="instructionScrollPane" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" pref="156" max="-2" attributes="0"/>
-                          <Component id="typedCodeScrollPane" min="-2" pref="623" max="-2" attributes="0"/>
+                          <Component id="typedCodeScrollPane" pref="623" max="32767" attributes="0"/>
                           <Component id="SubmitButton" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="ExitMainMenuButton" min="-2" max="-2" attributes="0"/>
-                          <Component id="sampleCodeScrollPane" min="-2" pref="623" max="-2" attributes="0"/>
+                          <Component id="sampleCodeScrollPane" pref="623" max="32767" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="168" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,19 +107,21 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="instructionScrollPane" pref="174" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="typedCodeScrollPane" min="-2" pref="417" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="typedCodeScrollPane" pref="417" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="sampleCodeScrollPane" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                      <Component id="sampleCodeScrollPane" pref="417" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ExitMainMenuButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="SubmitButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>

@@ -6,6 +6,7 @@
 package cs321.ui;
 
 import cs321.other.UserProfile;
+import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.ButtonModel;
@@ -187,6 +188,7 @@ public class CreateUser extends javax.swing.JFrame {
     private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed
         // TODO add your handling code here:
         jPasswordField1.setEditable(true);
+        jPasswordField1.setBackground(Color.GRAY);
     }//GEN-LAST:event_teacherButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
