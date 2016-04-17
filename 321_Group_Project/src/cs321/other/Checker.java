@@ -67,14 +67,12 @@ public class Checker{
     */
     public void checkline()
     {
-      int check=0;
       for(int i=0; i< (checker.getUserEnteredCode().size()); i++)
       {
           String user = checker.getUserEnteredCode().get( i ).trim();
-          String master = checker.getMasterCode().get( check ).trim();
+          String master = checker.getMasterCode().get( i ).trim();
           if (! user.equals(master))
                   errorIndex.add(i); //add wrong line to the array
-          check++;
       }
     }
 
