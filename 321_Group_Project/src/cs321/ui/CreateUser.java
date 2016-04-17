@@ -188,12 +188,17 @@ public class CreateUser extends javax.swing.JFrame {
     private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed
         // TODO add your handling code here:
         jPasswordField1.setEditable(true);
+<<<<<<< Updated upstream
         jPasswordField1.setBackground(Color.GRAY);
+=======
+        jPasswordField1.setBackground(Color.WHITE);
+>>>>>>> Stashed changes
     }//GEN-LAST:event_teacherButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         // TODO add your handling code here:
         jPasswordField1.setEditable(false);
+        jPasswordField1.setBackground(Color.GRAY);
     }//GEN-LAST:event_studentButtonActionPerformed
 
     /**
@@ -206,6 +211,8 @@ public class CreateUser extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        UserProfile student = new UserProfile("dsb0007", "Dina Brown", "12345", false);
+        //UserProfile teacher = new UserProfile("sxl0012", "Stacy Lukins", "admin13", true);
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
