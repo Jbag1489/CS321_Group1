@@ -54,13 +54,11 @@ public class Checker{
       
       for(int i=0; i<checker.getUserEnteredCode().size(); i++)
       {
-          if(checker.getMasterCode().get(i) != null)
-          {
                if (! ( checker.getUserEnteredCode().get( i ).trim().equals( checker.getMasterCode().get( check ).trim() )))
-               {  errorIndex.add(i); //add wrong line to the array
+               {  
+                   errorIndex.add(i); //add wrong line to the array
                   check++;
                }
-          }
       }
     }
 
@@ -80,4 +78,4 @@ public class Checker{
    }
     
 }
-            
+         
