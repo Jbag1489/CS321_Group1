@@ -152,10 +152,17 @@ public UserProfile(String userName, String studentName,
             }
          }
          else {
-             //File newFile = new
-             
-         }
-         
+             File newFile = new File("user.txt");
+             try {
+                 PrintWriter out = new PrintWriter(fout);
+                out.append("USER:" +user + "&&&&PASS" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher + "\n");
+                out.close();
+                }
+             catch(IOException e){
+                    System.out.println("File not saved!!");
+                 }
+         } 
+     
 //         try
 //         {
 //             if(fout.exists() == false)
