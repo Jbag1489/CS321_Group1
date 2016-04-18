@@ -236,7 +236,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Assignments\\Assignment1.txt";
+        pathname = "Data\\Assignment1.txt";
         loadAssignment(pathname);
         startAssignment();
 
@@ -261,7 +261,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment2ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Assignments\\Assignment2.txt";
+        pathname = "Data\\Assignment2.txt";
         loadAssignment(pathname);
         startAssignment();
 
@@ -270,21 +270,21 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment5ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Assignments\\Assignment5.txt";
+        pathname = "Data\\Assignment5.txt";
         loadAssignment(pathname);
         startAssignment();
     }//GEN-LAST:event_assignment5ButtonActionPerformed
 
     private void assignment3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment3ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Assignments\\Assignment3.txt";
+        pathname = "Data\\Assignment3.txt";
         loadAssignment(pathname);
         startAssignment();
     }//GEN-LAST:event_assignment3ButtonActionPerformed
 
     private void assignment4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment4ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Assignments\\Assignment4.txt";
+        pathname = "Data\\Assignment4.txt";
         loadAssignment(pathname);
         startAssignment();
     }//GEN-LAST:event_assignment4ButtonActionPerformed
