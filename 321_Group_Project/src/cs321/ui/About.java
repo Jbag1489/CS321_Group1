@@ -15,52 +15,56 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * The About class will display a JFrame that will give information about the
+ * program, as well as contributing members. About will also provide the end
+ * user a way to access Google's Java style guidelines.
  *
- * @author Josh
+ * @author Group 1
  */
 public class About extends javax.swing.JFrame {
 
     /**
-     * Creates new form About
+     * Constructor for the about menu. Will initialize all components.
      */
     private About() {
         initComponents();
     }
 
-    
     class OpenUrlAction implements ActionListener {
-      @Override public void actionPerformed(ActionEvent e) {
-          URI uri = null;
-          try {
-              uri = new URI("https://google.github.io/styleguide/javaguide.html");
-          } catch (URISyntaxException ex) {
-              Logger.getLogger(About.class.getName()).log(Level.SEVERE, null, ex);
-          }
-        open(uri);
-      }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            URI uri = null;
+            try {
+                uri = new URI("https://google.github.io/styleguide/javaguide.html");
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(About.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            open(uri);
+        }
     }
-    
+
     private void open(URI uri) {
-    if (Desktop.isDesktopSupported()) {
-      try {
-        Desktop.getDesktop().browse(uri);
-      } catch (IOException e) { /* TODO: error handling */ }
-    } else { /* TODO: error handling */ }
-  }
-    
-    
-    
-    
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(uri);
+            } catch (IOException e) {
+                /* TODO: error handling */ }
+        } else {
+            /* TODO: error handling */ }
+    }
+
     /**
      * Get a reference to the instance of About.
+     *
      * @return A reference to the instance of About.
      */
-    public static About getInstance(){
-        if(instance == null) {
+    public static About getInstance() {
+        if (instance == null) {
             instance = new About();
         }
         return instance;
-        
+
     }
 
     /**
@@ -80,6 +84,9 @@ public class About extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        /**
+        * javaGuidelinesButton will open a link to Google's Java style guidelines.
+        */
         javaGuidelinesButton = new javax.swing.JButton();
 
         OKButton.setText("OK");
@@ -165,13 +172,16 @@ public class About extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_OKButtonActionPerformed
 
+    /**
+     *
+     * @param evt
+     */
     private void javaGuidelinesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaGuidelinesButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_javaGuidelinesButtonActionPerformed

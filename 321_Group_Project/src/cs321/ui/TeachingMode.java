@@ -18,13 +18,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Joshua
+ * Teaching mode is the main interaction window, it allows assignments to be completed and will then check and export the code.
+ * @author Group 1
  */
 public class TeachingMode extends javax.swing.JFrame {
 
     /**
-     * Set's this instances reference to a SettingsConfigurator instance.
+     * Sets this instances reference to a SettingsConfigurator instance.
      *
      * @param s Reference to a SettingsConfigurator instance.
      */
