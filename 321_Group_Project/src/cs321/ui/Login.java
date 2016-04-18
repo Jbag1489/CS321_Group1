@@ -10,6 +10,8 @@ import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static jdk.nashorn.internal.objects.NativeString.substring;
 
 /**
@@ -25,6 +27,15 @@ public class Login extends javax.swing.JFrame {
 
         initComponents();
         mainMenu = MainMenu.getInstance();
+        
+        File fout = new File("Data\\user.txt");
+        if(!fout.exists()) {
+            try {
+                fout.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     private MainMenu mainMenu = null;
