@@ -8,6 +8,9 @@ package cs321.ui;
 import cs321.other.*;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.event.*;
 
 /**
@@ -102,7 +105,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         });
         fontList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(fontList);
-        fontList.setSelectedIndex(4);
+        fontList.setSelectedIndex(3);
         ListenerClass listenerFont = new ListenerClass();
         fontList.addListSelectionListener(listenerFont);
 
@@ -308,6 +311,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         teachingMode.setFontOptions(fontList.getSelectedValue(), 
                 fontSizeList.getSelectedValue(), fontColor, backgroundColor);
         
+        exportSettings();
         this.setVisible(false);
     }//GEN-LAST:event_saveExitButtonActionPerformed
 
@@ -405,10 +409,10 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private int currentFontColorIndex = 1;
     private int currentBackgroundColorIndex = 0;
     
-    private int previewFontIndex;
-    private int previewFontSizeIndex;
-    private int previewFontColorIndex;
-    private int previewBackgroundColorIndex;
+    private int previewFontIndex = 3;
+    private int previewFontSizeIndex = 1;
+    private int previewFontColorIndex = 1;
+    private int previewBackgroundColorIndex = 0;
     
     private TeachingMode teachingMode = TeachingMode.getInstance();
 
@@ -484,6 +488,46 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             fontPreviewField.setBackground(backgroundColor);
 
         }
+    }
+    
+    private void exportSettings() {
+        String filename = "Data\\settings.dat";
+        try {
+            PrintWriter out = new PrintWriter(new FileWriter(filename));
+            // Print out font
+            out.println("<Font>");
+            out.println(fontField.getText());
+            
+            // Print out font size
+            out.println("<FontSize>");
+            out.println(fontSizeField.getText());
+            
+            // Print out font color
+            out.println("<FontColor>");
+            out.println(fontField.getText());
+            
+            // Print out background color
+            out.println("<BackgroundColor>");
+            out.println(backgroundColorField.getText());
+
+            out.close();
+
+        } catch (IOException e1) {
+            System.out.println("Error during file writing.");
+            e1.printStackTrace();
+        }
+        
+    }
+    
+    private void importSettings() {
+        
+        if ( /*file exists*/true) {
+            // Read settings
+            
+            teachingMode.setFontOptions(fontList.getSelectedValue(), 
+                fontSizeList.getSelectedValue(), fontColor, backgroundColor);
+        }
+        
     }
 
 }
