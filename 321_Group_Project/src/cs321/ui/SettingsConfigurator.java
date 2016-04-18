@@ -329,6 +329,10 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_discardChangesButtonActionPerformed
 
+    public static void applyUserFontSettings() {
+        
+    } 
+    
     /**
      * @param args the command line arguments
      */

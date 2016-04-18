@@ -11,6 +11,8 @@ import java.io.*;
 import java.util.ArrayList;
 import cs321.other.*;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -252,12 +254,11 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
-//        if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
-//            JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
-//            exportCode();
-//        } else {
-//             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
-//        }
+        if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
+            exportCode();
+        } else {
+             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
+        }
         
         // Send typed code back to ArrayList for typedCode
         moveTypedCodeBackToArrayList();
@@ -352,18 +353,27 @@ public class TeachingMode extends javax.swing.JFrame {
 
         // Get String containing the Class name of the code typed in.
         String filename = new String(JOptionPane.showInputDialog(
-                "Enter the name of your class. This is case sensitive!")
-                + ".java");
+                "Your code was correct!\nEnter the name of your class. This is case sensitive!"));
+        String filenamejava = filename + ".java";
 
         // Create a print writer for writing to the file
         try {
-            PrintWriter out = new PrintWriter(new FileWriter(filename));
+            PrintWriter out = new PrintWriter(new FileWriter(filenamejava));
 
             // output tpyed code to file
 //            for (String line : typedCode) {
 //                out.println(line);
 //            }
             out.println(typedCodeTextArea.getText());
+            
+            String compileCommand = "javac " + filenamejava;
+            String commandToBuild = "jar cf " + filename + ".jar " + filenamejava;
+            
+            // Compile the file
+            Process pro1 = Runtime.getRuntime().exec(compileCommand);
+            
+            Process pro2 = Runtime.getRuntime().exec(commandToBuild);
+            
 
             out.close();
 
