@@ -22,6 +22,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+
         initComponents();
         mainMenu = MainMenu.getInstance();
     }
@@ -123,8 +124,8 @@ public class Login extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
         // TODO add your handling code here:
-        String user = userNameField.getText();
-        String pwd = passwordField.getText();
+        this.user = userNameField.getText();
+        this.pwd = passwordField.getText();
         MainMenu menu = MainMenu.getInstance();
         if (pwd.contains("admin16") && user.contains("admin")) 
         {
@@ -141,18 +142,20 @@ public class Login extends javax.swing.JFrame {
         boolean log = false;
         while(line != null && log == false)
         {
-            if(line.indexOf("USER:"+user+"&&&&") != -1)
+            if(line.contains("USER:"+user+"&&&&"))
             {
-                if(line.indexOf("PASS:"+pwd+"&&&&") != -1)
+                if(line.contains("PASS:"+pwd+"&&&&"))
                 {
                 log = true;
-                line = null;
-                String name = line.substring(line.indexOf("Name:") + 5,line.indexOf("&&&&T:"));
-                boolean isTeacher = Boolean.valueOf( line.substring(line.indexOf("T:")+2));
+                this.name = line.substring( line.indexOf("&&&&NAME:") + 9,line.indexOf("&&&&T"));
+                this.isTeacher = Boolean.valueOf( line.substring(line.indexOf("T:")+2));
                 this.setVisible(false);
                 menu.setVisible(true);
-                UserProfile newUser = new UserProfile(user,pwd,name,isTeacher);
-                JOptionPane.showMessageDialog(null, user+","+pwd+","+name+","+isTeacher);
+                 
+                if(isTeacher)
+                JOptionPane.showMessageDialog(null, "Welcome! Teacher   "+name+"!");
+                else
+                JOptionPane.showMessageDialog(null, "Welcome! Student   "+name+"!");   
                 }
             }
             line = reader.readLine();
@@ -162,7 +165,6 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Incorrect username or password!", 
                                             "Please try again!", JOptionPane.ERROR_MESSAGE);
            passwordField.setText("");
-           userNameField.setText("");
            this.setVisible(true);
            mainMenu.setVisible(false);
         }
@@ -239,10 +241,21 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
-
+    private String name;
+    private boolean isTeacher;
+    private String pwd;
+    private String user;
+    
     private void close() 
     {
         WindowEvent winClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosing);
     }
+        public UserProfile getCurrentUser()
+{
+        UserProfile newUser = new UserProfile(user,pwd,name,isTeacher);
+        return newUser;
 }
+        
+}
+

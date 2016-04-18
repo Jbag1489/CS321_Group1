@@ -245,17 +245,19 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
         // TODO add your handling code here:
-        
+        Login logger = new Login();
+        if(logger.getCurrentUser().getAdministratorStatus())
+        {
         pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
-        if (pathname == null) {
+        if (pathname == null)
             JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
-        } else if (pathname.isEmpty()) {
+          else if (pathname.isEmpty())
             JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
-        } else {
-
+          else
             loadAssignment(pathname);
-
         }
+        else
+            JOptionPane.showMessageDialog(null,"Only teacher can import assignment!");
 
     }//GEN-LAST:event_importAssignmentButtonActionPerformed
 

@@ -179,29 +179,42 @@ public class CreateUser extends javax.swing.JFrame {
         // Create a new UserProfile instance with the values stored in 
             //nameField, passwordField, userNameField, and the selection from
             //buttonGroup
-        if(userNameField.getText().length()>=6 && passwordField.getText().length()>=6
-                && userNameField.getText().length()>0 && !jPasswordField1.getText().equals("UAH321"))
+            boolean isTeacher = false;
+        if(userNameField.getText().length()>=4 && passwordField.getText().length()>=4
+                && userNameField.getText().length()>0)
         {
-
-         UserProfile newUser = new UserProfile(userNameField.getText(), nameField.getText(),
-                passwordField.getText(), teacherButton.isSelected());
-        newUser.outputUser(nameField.getText(), userNameField.getText(), passwordField.getText(), teacherButton.isSelected());
-        // Create MainMenu using newUser
-        mainMenu.setVisible(true);
-        this.setVisible(false);
+            if(teacherButton.isSelected() && jPasswordField1.getText().equals("UAH321"))
+                isTeacher = true;
+            
+            UserProfile newUser = new UserProfile(userNameField.getText(), nameField.getText(),
+                passwordField.getText(), isTeacher);
+           if(newUser.outputUser(nameField.getText(), userNameField.getText(), passwordField.getText(), isTeacher))// success output user
+           {
+              JOptionPane.showMessageDialog(null, "Welcome! "+nameField.getText());
+             // Create MainMenu using newUser
+             mainMenu.setVisible(true);
+             this.setVisible(false);
+           }
+           else // 
+           {
+               newUser = null;
+               JOptionPane.showMessageDialog(null,"This username is already been used!\n");
+                userNameField.setText("");
+                 passwordField.setText("");
+                jPasswordField1.setText("");
+                 mainMenu.setVisible(false);
+                 this.setVisible(true);
+           }
         }
         else
         {
-        JOptionPane.showMessageDialog(null,"Invalid information.",
-             "\nPlease try again!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Invalid information.\nPlease try again!");
         userNameField.setText("");
         passwordField.setText("");
         jPasswordField1.setText("");
         mainMenu.setVisible(false);
         this.setVisible(true);
         }
-       
-        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed
@@ -219,7 +232,6 @@ public class CreateUser extends javax.swing.JFrame {
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**

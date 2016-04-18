@@ -137,44 +137,46 @@ public UserProfile(String userName, String studentName,
         this.settings = settings;
     }
     
-    public void outputUser(String name, String user, String pw, boolean isTeacher)
+    public boolean outputUser(String name, String user, String pw, boolean isTeacher)
      {
+         boolean isDone = false;
          File fout = new File("user.txt");
          if(fout.exists())
          {
-         String output = "USER:" +user + "&&&&PASS" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher + "\n";
-         try {
-             Files.write(Paths.get("user.txt"), output.getBytes(), StandardOpenOption.APPEND);
-             
-         }
-         catch(IOException e){
+          try {
+             FileInputStream read = new FileInputStream("user.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(read));
+             String line = reader.readLine();
+             while (line != null)
+             {
+                 String u1 = line.substring(5,line.indexOf("&&&&PASS:"));
+                 if(u1.equals(user))
+                     return false; //Avoid repeat user
+                 line = reader.readLine();
+             }
+             //write file
+             FileWriter fstream = new FileWriter("user.txt",true);
+             BufferedWriter fbw= new BufferedWriter(fstream);
+             fbw.write("USER:" +user + "&&&&PASS:" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher);
+             fbw.newLine();
+             fbw.close();
+             isDone = true;
+         } catch(IOException e){
             System.out.println("File not saved!!");
             }
          }
          else {
-             File newFile = new File("user.txt");
              try {
-                 PrintWriter out = new PrintWriter(fout);
-                out.append("USER:" +user + "&&&&PASS" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher + "\n");
+                 PrintWriter out = new PrintWriter("user.txt");
+                out.write("USER:" +user + "&&&&PASS:" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher +"\n");
                 out.close();
+                isDone = true;
                 }
              catch(IOException e){
                     System.out.println("File not saved!!");
                  }
          } 
-     
-//         try
-//         {
-//             if(fout.exists() == false)
-//             fout.createNewFile();
-//             else
-//             {
-//             PrintWriter out = new PrintWriter(fout);
-//             out.append("USER:" +user + "&&&&PASS" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher + "\n");
-//             out.close();
-//             }
-//         }catch(IOException e){
-//        System.out.println("File not saved!!");
-       // }
+         
+         return isDone;
      }
 }
