@@ -19,6 +19,7 @@ public class AssignmentTemplateParser {
 
     /**
      * Read a file in to create an Assignment object.
+     *
      * @param f File that will be parsed to create Assignment object.
      * @throws IOException
      */
@@ -26,78 +27,60 @@ public class AssignmentTemplateParser {
         Instruction = new ArrayList<String>();
         masterCode = new ArrayList<String>();
 
-        try{
+        try {
 
-        FileInputStream read = new FileInputStream(f);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(read));
-        String line = reader.readLine();
+            FileInputStream read = new FileInputStream(f);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(read));
+            String line = reader.readLine();
 
-        if (line.equals("@Instruction@")) {
-            boolean done = false;
-            int i = 0;
-            while (!done) {
-                line = reader.readLine();
-                if (line.equals("@InstructionEnd@")) {
-                    done = true;
-                } else {
-                    if (i != 0) {
-                        Instruction.add("\n");
+            if (line.equals("@Instruction@")) {
+                boolean done = false;
+                int i = 0;
+                while (!done) {
+                    line = reader.readLine();
+                    if (line.equals("@InstructionEnd@")) {
+                        done = true;
+                    } else {
+                        if (i != 0) {
+                            Instruction.add("\n");
+                        }
+                        Instruction.add(line);
+                        i++;
                     }
-                    Instruction.add(line);
-                    i++;
-                }
 
+                }
             }
-        }
-        
-        // Grab next line to see if next section.
-        while (!line.equals("@Master@")) {
-            line = reader.readLine();
-        }
-        
-        if (line.equals("@Master@")) {
-            boolean done = false;
-            int i = 0;
-            while (!done) {
+
+            // Grab next line to see if next section.
+            while (!line.equals("@Master@")) {
                 line = reader.readLine();
-                if (line.equals("@MasterEnd@")) {
-                    done = true;
-                } else {
-                    if (i != 0) {
-                        masterCode.add("\n");
-                    }
-                    masterCode.add(line);
-                    i++;
-                }
-
             }
+
+            if (line.equals("@Master@")) {
+                boolean done = false;
+                int i = 0;
+                while (!done) {
+                    line = reader.readLine();
+                    if (line.equals("@MasterEnd@")) {
+                        done = true;
+                    } else {
+                        if (i != 0) {
+                            masterCode.add("\n");
+                        }
+                        masterCode.add(line);
+                        i++;
+                    }
+
+                }
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            System.err.println("Unable to read from file");
         }
 
-//        while (!line.equals("@Instruction@"))
-//            line = reader.readLine(); //until it reads @Instruction@
-//        line = reader.readLine();
-//        while(!line.equals("@InstructionEnd@")) //until it reaches @InstructionEnd@
-//        {
-//           Instruction.add(line);
-//           line = reader.readLine();
-//        }
-//        while (!line.equals("@Master@")) {
-//            line = reader.readLine();
-//        }
-//        while (!line.equals("@MasterEnd@")) {
-//            masterCode.add(line);
-//            line = reader.readLine();
-//        }
-        reader.close();
     }
 
-
-    catch (IOException e){
-        System.err.println("Unable to read from file");
-    }
-
-    }
- 
     /**
      * JavaDoc comment
      *

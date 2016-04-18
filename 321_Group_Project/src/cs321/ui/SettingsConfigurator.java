@@ -8,9 +8,14 @@ package cs321.ui;
 import cs321.other.*;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 import javax.swing.event.*;
 
 /**
@@ -26,10 +31,12 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
     private SettingsConfigurator() {
         initComponents();
+        importSettings();
     }
 
     /**
      * Get a reference to the instance of SettingsConfigurator.
+     *
      * @return Reference to the instance of SettingsConfigurator.
      */
     public static SettingsConfigurator getInstance() {
@@ -307,10 +314,10 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         currentFontSizeIndex = previewFontSizeIndex;
         currentFontColorIndex = previewFontColorIndex;
         currentBackgroundColorIndex = previewBackgroundColorIndex;
-        
-        teachingMode.setFontOptions(fontList.getSelectedValue(), 
+
+        teachingMode.setFontOptions(fontList.getSelectedValue(),
                 fontSizeList.getSelectedValue(), fontColor, backgroundColor);
-        
+
         exportSettings();
         this.setVisible(false);
     }//GEN-LAST:event_saveExitButtonActionPerformed
@@ -329,14 +336,14 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         fontSizeList.setSelectedIndex(currentFontSizeIndex);
         fontColorList.setSelectedIndex(currentFontColorIndex);
         backgroundColorList.setSelectedIndex(currentBackgroundColorIndex);
-        
+
         this.setVisible(false);
     }//GEN-LAST:event_discardChangesButtonActionPerformed
 
     public static void applyUserFontSettings() {
-        
-    } 
-    
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -403,17 +410,17 @@ public class SettingsConfigurator extends javax.swing.JFrame {
     private String fontDecode = "";
     private Color fontColor;
     private Color backgroundColor;
-    
+
     private int currentFontIndex = 3;
     private int currentFontSizeIndex = 1;
     private int currentFontColorIndex = 1;
     private int currentBackgroundColorIndex = 0;
-    
+
     private int previewFontIndex = 3;
     private int previewFontSizeIndex = 1;
     private int previewFontColorIndex = 1;
     private int previewBackgroundColorIndex = 0;
-    
+
     private TeachingMode teachingMode = TeachingMode.getInstance();
 
     private void setFontColorFromList() {
@@ -468,16 +475,16 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         public void valueChanged(ListSelectionEvent e) {
             fontField.setText(fontList.getSelectedValue());
             previewFontIndex = fontList.getSelectedIndex();
-            
+
             fontSizeField.setText(fontSizeList.getSelectedValue());
             previewFontSizeIndex = fontSizeList.getSelectedIndex();
-            
+
             fontColorField.setText(fontColorList.getSelectedValue());
             previewFontColorIndex = fontColorList.getSelectedIndex();
-            
+
             backgroundColorField.setText(backgroundColorList.getSelectedValue());
             previewBackgroundColorIndex = backgroundColorList.getSelectedIndex();
-            
+
             fontDecode = fontField.getText() + '-' + fontSizeField.getText();
 
             setFontColorFromList();
@@ -489,26 +496,23 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
         }
     }
-    
+
     private void exportSettings() {
         String filename = "Data\\settings.dat";
         try {
             PrintWriter out = new PrintWriter(new FileWriter(filename));
-            // Print out font
-            out.println("<Font>");
-            out.println(fontField.getText());
-            
-            // Print out font size
-            out.println("<FontSize>");
-            out.println(fontSizeField.getText());
-            
-            // Print out font color
-            out.println("<FontColor>");
-            out.println(fontField.getText());
-            
-            // Print out background color
-            out.println("<BackgroundColor>");
-            out.println(backgroundColorField.getText());
+
+            // Output font index
+            out.println(currentFontIndex);
+
+            // Output font size index
+            out.println(currentFontSizeIndex);
+
+            // Output font color index
+            out.println(currentFontColorIndex);
+
+            // Output background color index
+            out.println(currentBackgroundColorIndex);
 
             out.close();
 
@@ -516,18 +520,38 @@ public class SettingsConfigurator extends javax.swing.JFrame {
             System.out.println("Error during file writing.");
             e1.printStackTrace();
         }
-        
+
     }
-    
+
     private void importSettings() {
-        
-        if ( /*file exists*/true) {
-            // Read settings
-            
-            teachingMode.setFontOptions(fontList.getSelectedValue(), 
-                fontSizeList.getSelectedValue(), fontColor, backgroundColor);
+
+        try {
+
+            File f = new File("Data\\settings.dat");
+            if (f.exists()) {
+
+                FileInputStream read = new FileInputStream(f);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(read));
+
+                previewFontIndex = currentFontIndex = Integer.parseInt(reader.readLine());
+                fontList.setSelectedIndex(currentFontIndex);
+                previewFontSizeIndex = currentFontSizeIndex = Integer.parseInt(reader.readLine());
+                fontSizeList.setSelectedIndex(currentFontSizeIndex);
+                previewFontColorIndex = currentFontColorIndex = Integer.parseInt(reader.readLine());
+                fontColorList.setSelectedIndex(currentFontColorIndex);
+                previewBackgroundColorIndex = currentBackgroundColorIndex = Integer.parseInt(reader.readLine());
+                backgroundColorList.setSelectedIndex(currentBackgroundColorIndex);
+                
+                reader.close();
+
+            }
+
+        } catch (IOException e) {
+            System.err.println("Unable to read from file");
         }
-        
+
+        teachingMode.setFontOptions(fontList.getSelectedValue(),
+                fontSizeList.getSelectedValue(), fontColor, backgroundColor);
     }
 
 }
