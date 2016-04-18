@@ -252,12 +252,12 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
-        if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
-            JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
-            exportCode();
-        } else {
-             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
-        }
+//        if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
+//            JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
+//            exportCode();
+//        } else {
+//             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
+//        }
         
         // Send typed code back to ArrayList for typedCode
         moveTypedCodeBackToArrayList();
@@ -332,11 +332,17 @@ public class TeachingMode extends javax.swing.JFrame {
     }
 
     private void moveTypedCodeBackToArrayList() {
-        String s[] = typedCodeTextArea.getText().split("\\r?\\n");
+        String s[] = typedCodeTextArea.getText().split("\\n");
         for(int i = 0; i < s.length-1; i++) {
-            s[i] = s[i] + "\n";
+           s[i] = s[i] + "\n";
         }
         currentAssignment.setUserEnteredCode(new ArrayList<>(Arrays.asList(s)));
+        
+        s = sampleCodeTextArea.getText().split("\\n");
+        for(int i = 0; i < s.length-1; i++) {
+           s[i] = s[i] + "\n";
+        }
+        currentAssignment.setMasterCode(new ArrayList<>(Arrays.asList(s)));
 //        System.out.println(arrList);
 //        System.out.println(currentAssignment.getMasterCode());
     }

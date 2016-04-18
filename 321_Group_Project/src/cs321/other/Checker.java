@@ -81,18 +81,16 @@ public class Checker {
     public void checkAndHighlight(JTextArea masterCode) {
         masterCode.setText("");
         Highlighter h = masterCode.getHighlighter();
-        
+        h.removeAllHighlights();
         int prevLength = 0;
         for (int i = 0; i < theAssignment.getMasterCode().size(); i++) {
             if (theAssignment.getUserEnteredCode().get(i).equals(theAssignment.getMasterCode().get(i))) {
                 masterCode.append(theAssignment.getMasterCode().get(i));
             } else {
-               
+                masterCode.append(theAssignment.getMasterCode().get(i));
                 try {
-                    // h.addHighlight(prevLength, prevLength + theAssignment.getMasterCode().get(i).length(), DefaultHighlighter.DefaultPainter);
-                    h.addHighlight(0, 10, DefaultHighlighter.DefaultPainter);
-                    masterCode.append(theAssignment.getMasterCode().get(i));
-                    
+                    h.addHighlight(prevLength, prevLength + theAssignment.getMasterCode().get(i).length()-1, DefaultHighlighter.DefaultPainter);
+                    //h.addHighlight(40, 50, DefaultHighlighter.DefaultPainter);
                 } catch (BadLocationException ex) {
                     ex.printStackTrace();
                 }
