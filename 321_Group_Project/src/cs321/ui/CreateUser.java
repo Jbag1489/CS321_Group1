@@ -8,6 +8,7 @@ package cs321.ui;
 import cs321.other.UserProfile;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Group1
@@ -124,6 +125,9 @@ public class CreateUser extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        jPasswordField1.setBackground(Color.GRAY);
+        jPasswordField1.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,45 +179,48 @@ public class CreateUser extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
-        
+
         // Create a new UserProfile instance with the values stored in 
-            //nameField, passwordField, userNameField, and the selection from
-            //buttonGroup
-            boolean isTeacher = false;
-        if(userNameField.getText().length()>=4 && passwordField.getText().length()>=4
-                && userNameField.getText().length()>0)
-        {
-            if(teacherButton.isSelected() && jPasswordField1.getText().equals("UAH321"))
+        //nameField, passwordField, userNameField, and the selection from
+        //buttonGroup
+        boolean isTeacher = false;
+        if (userNameField.getText().length() >= 4 && 
+                passwordField.getText().length() >= 4 && userNameField.getText().length() > 0) {
+            if (teacherButton.isSelected() && jPasswordField1.getText().equals("UAH321")) {
                 isTeacher = true;
-            
+            } else if (teacherButton.isSelected()) {
+                JOptionPane.showMessageDialog(this, "Incorrect Teacher Password. "
+                        + "Account created as student.", "Incorrect Password", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
             UserProfile newUser = new UserProfile(userNameField.getText(), nameField.getText(),
-                passwordField.getText(), isTeacher);
-           if(newUser.outputUser(nameField.getText(), userNameField.getText(), passwordField.getText(), isTeacher))// success output user
-           {
-              JOptionPane.showMessageDialog(null, "Welcome! "+nameField.getText());
-             // Create MainMenu using newUser
-             mainMenu.setVisible(true);
-             this.setVisible(false);
-           }
-           else // 
-           {
-               newUser = null;
-               JOptionPane.showMessageDialog(null,"This username is already been used!\n");
+                    passwordField.getText(), isTeacher);
+            assignmentSelector.setAdminStatus(isTeacher);
+            if (newUser.outputUser(nameField.getText(), userNameField.getText(), 
+                    passwordField.getText(), isTeacher))// success output user
+            {
+                JOptionPane.showMessageDialog(null, "Welcome! " + nameField.getText());
+                // Create MainMenu using newUser
+                mainMenu.setVisible(true);
+                this.setVisible(false);
+            } else // 
+            {
+                newUser = null;
+                JOptionPane.showMessageDialog(null, "This username is already been used!\n");
                 userNameField.setText("");
-                 passwordField.setText("");
+                passwordField.setText("");
                 jPasswordField1.setText("");
-                 mainMenu.setVisible(false);
-                 this.setVisible(true);
-           }
-        }
-        else
-        {
-        JOptionPane.showMessageDialog(null,"Invalid information.\nPlease try again!");
-        userNameField.setText("");
-        passwordField.setText("");
-        jPasswordField1.setText("");
-        mainMenu.setVisible(false);
-        this.setVisible(true);
+                mainMenu.setVisible(false);
+                this.setVisible(true);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid information.\nPlease try again!");
+            userNameField.setText("");
+            passwordField.setText("");
+            jPasswordField1.setText("");
+            mainMenu.setVisible(false);
+            this.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
@@ -252,5 +259,6 @@ public class CreateUser extends javax.swing.JFrame {
 
     // User variable declaration
     private MainMenu mainMenu = MainMenu.getInstance();
+    private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
 
 }

@@ -236,34 +236,31 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment1ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Data\\Assignment1.txt";
+        pathname = "Data" + File.separator + "Assignment1.txt";
         loadAssignment(pathname);
         startAssignment();
-
-
     }//GEN-LAST:event_assignment1ButtonActionPerformed
 
     private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
         // TODO add your handling code here:
-        Login logger = new Login();
-        if(logger.getCurrentUser().getAdministratorStatus())
-        {
-        pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
-        if (pathname == null)
-            JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
-          else if (pathname.isEmpty())
-            JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
-          else
-            loadAssignment(pathname);
+        if (administratorStatus) {
+            pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
+            if (pathname == null) {
+                JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
+            } else if (pathname.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "You did not enter a filename.");
+            } else {
+                loadAssignment(pathname);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Only teacher can import assignment!");
         }
-        else
-            JOptionPane.showMessageDialog(null,"Only teacher can import assignment!");
 
     }//GEN-LAST:event_importAssignmentButtonActionPerformed
 
     private void assignment2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment2ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Data\\Assignment2.txt";
+        pathname = "Data" + File.separator + "Assignment2.txt";
         loadAssignment(pathname);
         startAssignment();
 
@@ -272,14 +269,14 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment5ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Data\\Assignment5.txt";
+        pathname = "Data" + File.separator + "Assignment5.txt";
         loadAssignment(pathname);
         startAssignment();
     }//GEN-LAST:event_assignment5ButtonActionPerformed
 
     private void assignment3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment3ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Data\\Assignment3.txt";
+        pathname = "Data" + File.separator + "Assignment3.txt";
         loadAssignment(pathname);
         startAssignment();
     }//GEN-LAST:event_assignment3ButtonActionPerformed
@@ -315,6 +312,10 @@ public class AssignmentSelector extends javax.swing.JFrame {
         this.setVisible(false);
     }
 
+    public void setAdminStatus(boolean status) {
+        administratorStatus = status;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutMenuItem;
     private javax.swing.JMenuItem ExitMenuItem;
@@ -339,9 +340,11 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private About aboutMenu = About.getInstance();
     private SettingsConfigurator settings = SettingsConfigurator.getInstance();
 
-    private File myFile = new File("c:\\temp2\\data.txt");
+    private File myFile = new File("data.txt");
     private AssignmentTemplateParser atp = new AssignmentTemplateParser();
     private Assignment theAssignment;
+
+    private boolean administratorStatus;
 
     String pathname = null;
 

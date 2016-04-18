@@ -25,6 +25,15 @@ public class Login extends javax.swing.JFrame {
 
         initComponents();
         mainMenu = MainMenu.getInstance();
+        
+        File fout = new File("Data\\user.txt");
+        if(!fout.exists()) {
+            try {
+                fout.createNewFile();
+            } catch (IOException ex) {
+                System.err.println("Unable to create file");
+            }
+        }
     }
 
     private MainMenu mainMenu = null;
@@ -46,7 +55,7 @@ public class Login extends javax.swing.JFrame {
         createUserButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         userNameLabel.setText("User Name:");
 
@@ -122,66 +131,59 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
+
         // TODO add your handling code here:
         this.user = userNameField.getText();
         this.pwd = passwordField.getText();
         MainMenu menu = MainMenu.getInstance();
-        if (pwd.contains("admin16") && user.contains("admin")) 
-        {
+        if (pwd.contains("admin16") && user.contains("admin")) {
             userNameField.setText("");
             passwordField.setText("");
             close();
             menu.setVisible(true);
-        }
-        else{
-        try{
-        FileInputStream read = new FileInputStream("user.txt");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(read));
-        String line = reader.readLine();
-        boolean log = false;
-        while(line != null && log == false)
-        {
-            if(line.contains("USER:"+user+"&&&&"))
-            {
-                if(line.contains("PASS:"+pwd+"&&&&"))
-                {
-                log = true;
-                this.name = line.substring( line.indexOf("&&&&NAME:") + 9,line.indexOf("&&&&T"));
-                this.isTeacher = Boolean.valueOf( line.substring(line.indexOf("T:")+2));
-                this.setVisible(false);
-                menu.setVisible(true);
-                 
-                if(isTeacher)
-                JOptionPane.showMessageDialog(null, "Welcome! Teacher   "+name+"!");
-                else
-                JOptionPane.showMessageDialog(null, "Welcome! Student   "+name+"!");   
+        } else {
+            try {
+                FileInputStream read = new FileInputStream("Data" + File.separator + "user.txt");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(read));
+                String line = reader.readLine();
+                boolean log = false;
+                while (line != null && log == false) {
+                    if (line.contains("USER:" + user + "&&&&")) {
+                        if (line.contains("PASS:" + pwd + "&&&&")) {
+                            log = true;
+                            this.name = line.substring(line.indexOf("&&&&NAME:") + 9, line.indexOf("&&&&T"));
+                            this.isTeacher = Boolean.valueOf(line.substring(line.indexOf("T:") + 2));
+                            this.setVisible(false);
+                            menu.setVisible(true);
+
+                            if (isTeacher) {
+                                JOptionPane.showMessageDialog(null, "Welcome! Teacher   " + name + "!");
+                                assignmentSelector.setAdminStatus(isTeacher);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Welcome! Student   " + name + "!");
+                            }
+                        }
+                    }
+                    line = reader.readLine();
                 }
+                if (log == false) {
+                    JOptionPane.showMessageDialog(null, "Incorrect username or password!",
+                            "Please try again!", JOptionPane.ERROR_MESSAGE);
+                    passwordField.setText("");
+                    this.setVisible(true);
+                    mainMenu.setVisible(false);
+                }
+                read.close();
+            } catch (IOException e) {
+                System.err.println("Unable to read from file");
             }
-            line = reader.readLine();
-        }
-        if(log == false)
-        {
-            JOptionPane.showMessageDialog(null,"Incorrect username or password!", 
-                                            "Please try again!", JOptionPane.ERROR_MESSAGE);
-           passwordField.setText("");
-           this.setVisible(true);
-           mainMenu.setVisible(false);
-        }
-        read.close();
-        }
-        catch (IOException e){
-        System.err.println("Unable to read from file");
-    }
     }//GEN-LAST:event_loginButtonActionPerformed
     }
 
-        private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt)
-    {
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
         //String profile;
-
         // Open CreateUser UI
         CreateUser newUserScreen = new CreateUser();
         this.setVisible(false);
@@ -201,23 +203,24 @@ public class Login extends javax.swing.JFrame {
     private boolean isTeacher;
     private String pwd;
     private String user;
-    
-    private void close() 
-    {
+    private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
+
+    private void close() {
         WindowEvent winClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosing);
     }
-        public UserProfile getCurrentUser()
-{
-        UserProfile newUser = new UserProfile(user,pwd,name,isTeacher);
+
+    public UserProfile getCurrentUser() {
+        UserProfile newUser = new UserProfile(user, pwd, name, isTeacher);
         return newUser;
-}
-           /**
+    }
+
+    /**
      * Main class for the About class.
+     *
      * @param args the command line arguments
      */
-    public static void main(String args[]) 
-    {
+    public static void main(String args[]) {
         /* 
          *Set the Nimbus look and feel 
          */
@@ -244,13 +247,10 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() 
-        {
-            public void run() 
-            {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 new Login().setVisible(true);
             }
         });
     }
 }
-

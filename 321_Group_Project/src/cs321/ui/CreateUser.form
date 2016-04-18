@@ -196,6 +196,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordField1ActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jPasswordField1.setBackground(Color.GRAY);&#xa;jPasswordField1.setEditable(false);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
