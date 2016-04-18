@@ -5,9 +5,12 @@
  */
 package cs321.ui;
 
+import cs321.other.UserProfile;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+import java.io.*;
+import static jdk.nashorn.internal.objects.NativeString.substring;
 
 /**
  *
@@ -122,28 +125,56 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String user = userNameField.getText();
         String pwd = passwordField.getText();
-
-        // Check to see if username exists
-        if (pwd.contains("admin16") && user.contains("admin")) {
+        MainMenu menu = MainMenu.getInstance();
+        if (pwd.contains("admin16") && user.contains("admin")) 
+        {
             userNameField.setText("");
             passwordField.setText("");
-
             close();
-            MainMenu menu = MainMenu.getInstance();
             menu.setVisible(true);
-        } else
-           { // If so, does password match?
-           JOptionPane.showMessageDialog(null,"Incorrect password!", 
-                                            "\nPlease try again!", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+        try{
+        FileInputStream read = new FileInputStream("user.txt");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(read));
+        String line = reader.readLine();
+        boolean log = false;
+        while(line != null && log == false)
+        {
+            if(line.indexOf("USER:"+user+"&&&&") != -1)
+            {
+                if(line.indexOf("PASS:"+pwd+"&&&&") != -1)
+                {
+                log = true;
+                line = null;
+                String name = line.substring(line.indexOf("Name:") + 5,line.indexOf("&&&&T:"));
+                boolean isTeacher = Boolean.valueOf( line.substring(line.indexOf("T:")+2));
+                this.setVisible(false);
+                menu.setVisible(true);
+                UserProfile newUser = new UserProfile(user,pwd,name,isTeacher);
+                JOptionPane.showMessageDialog(null, user+","+pwd+","+name+","+isTeacher);
+                }
+            }
+            line = reader.readLine();
+        }
+        if(log == false)
+        {
+            JOptionPane.showMessageDialog(null,"Incorrect username or password!", 
+                                            "Please try again!", JOptionPane.ERROR_MESSAGE);
            passwordField.setText("");
            userNameField.setText("");
-           }  
-           this.setVisible(false);
-           mainMenu.setVisible(true);
-
+           this.setVisible(true);
+           mainMenu.setVisible(false);
+        }
+        read.close();
+        }
+        catch (IOException e){
+        System.err.println("Unable to read from file");
+    }
     }//GEN-LAST:event_loginButtonActionPerformed
+    }
 
-    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt)
+        private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt)
     {
         // TODO add your handling code here:
 

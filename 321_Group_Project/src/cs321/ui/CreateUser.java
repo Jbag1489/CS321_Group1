@@ -7,10 +7,7 @@ package cs321.ui;
 
 import cs321.other.UserProfile;
 import java.awt.Color;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import javax.swing.ButtonModel;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author Group1
@@ -88,6 +85,12 @@ public class CreateUser extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Teacher Code:");
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -176,23 +179,38 @@ public class CreateUser extends javax.swing.JFrame {
         // Create a new UserProfile instance with the values stored in 
             //nameField, passwordField, userNameField, and the selection from
             //buttonGroup
-        UserProfile newUser = new UserProfile(userNameField.getText(), nameField.getText(),
-                jPasswordField1.getSelectedText(), teacherButton.isSelected());
-        
+        if(userNameField.getText().length()>=6 && passwordField.getText().length()>=6
+                && userNameField.getText().length()>0 && !jPasswordField1.getText().equals("UAH321"))
+        {
+
+         UserProfile newUser = new UserProfile(userNameField.getText(), nameField.getText(),
+                passwordField.getText(), teacherButton.isSelected());
+        newUser.outputUser(nameField.getText(), userNameField.getText(), passwordField.getText(), teacherButton.isSelected());
         // Create MainMenu using newUser
         mainMenu.setVisible(true);
         this.setVisible(false);
+        }
+        else
+        {
+        JOptionPane.showMessageDialog(null,"Invalid information.",
+             "\nPlease try again!", JOptionPane.ERROR_MESSAGE);
+        userNameField.setText("");
+        passwordField.setText("");
+        jPasswordField1.setText("");
+        mainMenu.setVisible(false);
+        this.setVisible(true);
+        }
+       
         
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed
         // TODO add your handling code here:
         jPasswordField1.setEditable(true);
-<<<<<<< Updated upstream
-        jPasswordField1.setBackground(Color.GRAY);
-=======
         jPasswordField1.setBackground(Color.WHITE);
->>>>>>> Stashed changes
+        
+        //if()
+
     }//GEN-LAST:event_teacherButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
@@ -200,6 +218,11 @@ public class CreateUser extends javax.swing.JFrame {
         jPasswordField1.setEditable(false);
         jPasswordField1.setBackground(Color.GRAY);
     }//GEN-LAST:event_studentButtonActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * Main method of the CreateUser class.
@@ -211,8 +234,7 @@ public class CreateUser extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        UserProfile student = new UserProfile("dsb0007", "Dina Brown", "12345", false);
-        //UserProfile teacher = new UserProfile("sxl0012", "Stacy Lukins", "admin13", true);
+        
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

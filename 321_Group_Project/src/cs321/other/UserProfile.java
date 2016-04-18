@@ -1,4 +1,8 @@
 package cs321.other;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 /**
  * The UserProfile will create a user profile to identify 
  * the status and progress of the user.
@@ -132,4 +136,38 @@ public UserProfile(String userName, String studentName,
     {
         this.settings = settings;
     }
+    
+    public void outputUser(String name, String user, String pw, boolean isTeacher)
+     {
+         File fout = new File("user.txt");
+         if(fout.exists())
+         {
+         String output = "USER:" +user + "&&&&PASS" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher + "\n";
+         try {
+             Files.write(Paths.get("user.txt"), output.getBytes(), StandardOpenOption.APPEND);
+             
+         }
+         catch(IOException e){
+            System.out.println("File not saved!!");
+            }
+         }
+         else {
+             //File newFile = new
+             
+         }
+         
+//         try
+//         {
+//             if(fout.exists() == false)
+//             fout.createNewFile();
+//             else
+//             {
+//             PrintWriter out = new PrintWriter(fout);
+//             out.append("USER:" +user + "&&&&PASS" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher + "\n");
+//             out.close();
+//             }
+//         }catch(IOException e){
+//        System.out.println("File not saved!!");
+       // }
+     }
 }
