@@ -368,17 +368,19 @@ public class TeachingMode extends javax.swing.JFrame {
             out.println(typedCodeTextArea.getText());
 
             String compileCommand = "javac " + filenamejava;
-            String commandToBuild = "jar cf " + filename + ".jar " + filenamejava;
 
+            JOptionPane.showMessageDialog(this, "We have taken care of compiling "
+                    + "your program for you.\n To run your program, when the "
+                    + "command prompt appears,\n you will need to enter the "
+                    + "following command:\njava " + filename);
+            
             // Compile the file
             Process pro1 = Runtime.getRuntime().exec(compileCommand);
-
-            Process pro2 = Runtime.getRuntime().exec(commandToBuild);
 
             // Get relative path
             Path currentRelativePath = Paths.get("");
             String newDir = currentRelativePath.toAbsolutePath().toString();
-
+            
             //Open command window to working directory
             Runtime rt = Runtime.getRuntime();
             rt.exec("cmd.exe /c start", null, new File(newDir));
