@@ -188,7 +188,7 @@ public class CreateUser extends javax.swing.JFrame {
         {
             if(teacherButton.isSelected() && jPasswordField1.getText().equals("UAH321")){
                 isTeacher = true;
-            } else if (teacherButton.isSelected()) {
+            } else {
                 JOptionPane.showMessageDialog(this, "Incorrect Teacher Password. Account created as student.", "Incorrect Password", JOptionPane.ERROR_MESSAGE);
             }
             
