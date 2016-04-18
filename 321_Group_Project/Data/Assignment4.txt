@@ -16,7 +16,7 @@ public class IfStatementDemonstration {
 		/* Define some simple variables */
 		int x = 8;
 		int y = 2;
-		int z = 6
+		int z = 6;
 		
 		/* Construct simple if statements to demonstrate how they work */
 		if (x + y == 10) {
