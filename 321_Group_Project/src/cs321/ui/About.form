@@ -138,7 +138,6 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="javaGuidelinesButton.addActionListener(new OpenUrlAction());"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="/**&#xa; * javaGuidelinesButton will open a link to Google&apos;s Java style guidelines.&#xa; */"/>
       </AuxValues>
     </Component>
   </SubComponents>
