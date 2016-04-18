@@ -252,19 +252,22 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
-        if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
-            JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
-            exportCode();
-        } else {
-             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
-        }
+//        if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
+//            JOptionPane.showMessageDialog(rootPane, "Your typed code is correct!");
+//            exportCode();
+//        } else {
+//             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
+//        }
         
         // Send typed code back to ArrayList for typedCode
         moveTypedCodeBackToArrayList();
         
         // Check assignment with checker
         Checker aChecker = new Checker(currentAssignment);
-        aChecker.checkline();
+       // aChecker.checkline();
+        aChecker.checkAndHighlight(sampleCodeTextArea);
+        this.repaint();
+        
 
         
     }//GEN-LAST:event_SubmitButtonActionPerformed
@@ -329,11 +332,17 @@ public class TeachingMode extends javax.swing.JFrame {
     }
 
     private void moveTypedCodeBackToArrayList() {
-        String s[] = typedCodeTextArea.getText().split("\\r?\\n");
+        String s[] = typedCodeTextArea.getText().split("\\n");
         for(int i = 0; i < s.length-1; i++) {
-            s[i] = s[i] + "\n";
+           s[i] = s[i] + "\n";
         }
-        ArrayList<String> arrList = new ArrayList<>(Arrays.asList(s));
+        currentAssignment.setUserEnteredCode(new ArrayList<>(Arrays.asList(s)));
+        
+        s = sampleCodeTextArea.getText().split("\\n");
+        for(int i = 0; i < s.length-1; i++) {
+           s[i] = s[i] + "\n";
+        }
+        currentAssignment.setMasterCode(new ArrayList<>(Arrays.asList(s)));
 //        System.out.println(arrList);
 //        System.out.println(currentAssignment.getMasterCode());
     }
@@ -343,7 +352,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
         // Get String containing the Class name of the code typed in.
         String filename = new String(JOptionPane.showInputDialog(
-                "Enter the name of your classe. This is case sensitive!")
+                "Enter the name of your class. This is case sensitive!")
                 + ".java");
 
         // Create a print writer for writing to the file

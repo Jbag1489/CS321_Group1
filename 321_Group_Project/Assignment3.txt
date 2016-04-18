@@ -24,22 +24,22 @@ public class OperationsDemonstration {
 		double decimal2 = 2.45;
 		
 		/* Define variables to hold results of operations */
-		int sum;        // Will hold the result of an addition (+) operation
-		int difference; // Will hold the result of a suctraction (-) operation
-		int product;    // Will hold the result of a multiplication (*) operation
-		int quotient;   // Will hold the result of a division (/) operation
+		int sum;		// Will hold the result of an addition (+) operation
+		int difference;	// Will hold the result of a suctraction (-) operation
+		int product;	// Will hold the result of a multiplication (*) operation
+		int quotient;	// Will hold the result of a division (/) operation
 		
 		/* Perform the 4 operations and store the result in the variables above */
-		sum = number1 + number2;          // Add 16 and 8 and store in variable sum     
-		difference = decimal1 - decimal2; // Subtract 9.94 from 2.45 and store in variable difference
-		product = decimal1 * decimal2;    // Multiply 9.94 and 2.45 and store in variable product
-		quotient = number1 / number2;     // Divide 8 into 16 and store in variable quotient
+		sum = number1 + number2;			// Add 16 and 8 and store in variable sum     
+		difference = decimal1 - decimal2;	// Subtract 9.94 from 2.45 and store in variable difference
+		product = decimal1 * decimal2;		// Multiply 9.94 and 2.45 and store in variable product
+		quotient = number1 / number2;		// Divide 8 into 16 and store in variable quotient
 		
 		/* Print the variables to show that the operations worked correctly */
-		System.out.println("Sum of number1 and number2: " + sum);                      // Prints "24"
-		System.out.println("Difference between decimal1 and decimal2: " + difference); // Prints "-7.49"
-		System.out.println("Product of decimal1 and decimal2: " + product);            // Prints "24.353"
-		System.out.println("Quotient of number2 into number1: " + quotient);           // Prints "2"
+		System.out.println("Sum of number1 and number2: " + sum);						// Prints "24"
+		System.out.println("Difference between decimal1 and decimal2: " + difference); 	// Prints "-7.49"
+		System.out.println("Product of decimal1 and decimal2: " + product);				// Prints "24.353"
+		System.out.println("Quotient of number2 into number1: " + quotient);			// Prints "2"
 	}
 }
 @MasterEnd@
