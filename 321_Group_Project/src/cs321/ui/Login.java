@@ -136,7 +136,7 @@ public class Login extends javax.swing.JFrame {
         }
         else{
         try{
-        FileInputStream read = new FileInputStream("user.txt");
+        FileInputStream read = new FileInputStream("Data\\user.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(read));
         String line = reader.readLine();
         boolean log = false;

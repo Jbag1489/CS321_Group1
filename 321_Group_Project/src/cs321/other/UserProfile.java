@@ -140,11 +140,11 @@ public UserProfile(String userName, String studentName,
     public boolean outputUser(String name, String user, String pw, boolean isTeacher)
      {
          boolean isDone = false;
-         File fout = new File("user.txt");
+         File fout = new File("Data\\user.txt");
          if(fout.exists())
          {
           try {
-             FileInputStream read = new FileInputStream("user.txt");
+             FileInputStream read = new FileInputStream("Data\\user.txt");
              BufferedReader reader = new BufferedReader(new InputStreamReader(read));
              String line = reader.readLine();
              while (line != null)
@@ -155,7 +155,7 @@ public UserProfile(String userName, String studentName,
                  line = reader.readLine();
              }
              //write file
-             FileWriter fstream = new FileWriter("user.txt",true);
+             FileWriter fstream = new FileWriter("Data\\user.txt",true);
              BufferedWriter fbw= new BufferedWriter(fstream);
              fbw.write("USER:" +user + "&&&&PASS:" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher);
              fbw.newLine();
@@ -167,7 +167,7 @@ public UserProfile(String userName, String studentName,
          }
          else {
              try {
-                 PrintWriter out = new PrintWriter("user.txt");
+                 PrintWriter out = new PrintWriter("Data\\user.txt");
                 out.write("USER:" +user + "&&&&PASS:" + pw + "&&&&NAME:" +  name + "&&&&T:" + isTeacher +"\n");
                 out.close();
                 isDone = true;
