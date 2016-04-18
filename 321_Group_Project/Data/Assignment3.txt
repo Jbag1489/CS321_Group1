@@ -18,7 +18,7 @@ This assignment will demonstrate how to use the 4 simple operations.
 public class OperationsDemonstration {
 	public static void main(String[] args) {
 		/* Define some basic integer and double variables */
-		int number = 16;
+		int number1 = 16;
 		int number2 = 8;
 		double decimal1 = 9.94;
 		double decimal2 = 2.45;
