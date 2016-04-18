@@ -26,7 +26,7 @@ public class OperationsDemonstration {
 		/* Define variables to hold results of operations */
 		int sum;		// Will hold the result of an addition (+) operation
 		double difference;	// Will hold the result of a suctraction (-) operation
-		int product;	// Will hold the result of a multiplication (*) operation
+		double product;	// Will hold the result of a multiplication (*) operation
 		int quotient;	// Will hold the result of a division (/) operation
 		
 		/* Perform the 4 operations and store the result in the variables above */
