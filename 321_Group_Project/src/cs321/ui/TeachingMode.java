@@ -10,6 +10,8 @@ import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
 import cs321.other.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -257,20 +259,19 @@ public class TeachingMode extends javax.swing.JFrame {
         if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
             exportCode();
         } else {
-             JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
+            JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
         }
-        
+
         // Send typed code back to ArrayList for typedCode
         moveTypedCodeBackToArrayList();
-        
+
         // Check assignment with checker
         Checker aChecker = new Checker(currentAssignment);
-       // aChecker.checkline();
+        // aChecker.checkline();
         aChecker.checkAndHighlight(sampleCodeTextArea);
         this.repaint();
-        
 
-        
+
     }//GEN-LAST:event_SubmitButtonActionPerformed
 
     private void ExitToMainMenuMenutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitToMainMenuMenutItemActionPerformed
@@ -334,14 +335,14 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void moveTypedCodeBackToArrayList() {
         String s[] = typedCodeTextArea.getText().split("\\n");
-        for(int i = 0; i < s.length-1; i++) {
-           s[i] = s[i] + "\n";
+        for (int i = 0; i < s.length - 1; i++) {
+            s[i] = s[i] + "\n";
         }
         currentAssignment.setUserEnteredCode(new ArrayList<>(Arrays.asList(s)));
-        
+
         s = sampleCodeTextArea.getText().split("\\n");
-        for(int i = 0; i < s.length-1; i++) {
-           s[i] = s[i] + "\n";
+        for (int i = 0; i < s.length - 1; i++) {
+            s[i] = s[i] + "\n";
         }
         currentAssignment.setMasterCode(new ArrayList<>(Arrays.asList(s)));
 //        System.out.println(arrList);
@@ -365,15 +366,22 @@ public class TeachingMode extends javax.swing.JFrame {
 //                out.println(line);
 //            }
             out.println(typedCodeTextArea.getText());
-            
+
             String compileCommand = "javac " + filenamejava;
             String commandToBuild = "jar cf " + filename + ".jar " + filenamejava;
-            
+
             // Compile the file
             Process pro1 = Runtime.getRuntime().exec(compileCommand);
-            
+
             Process pro2 = Runtime.getRuntime().exec(commandToBuild);
-            
+
+            // Get relative path
+            Path currentRelativePath = Paths.get("");
+            String newDir = currentRelativePath.toAbsolutePath().toString();
+
+            //Open command window to working directory
+            Runtime rt = Runtime.getRuntime();
+            rt.exec("cmd.exe /c start", null, new File(newDir));
 
             out.close();
 
