@@ -248,10 +248,7 @@ public class TeachingMode extends javax.swing.JFrame {
 
     private void ExitMainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMainMenuButtonActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
-
-
     }//GEN-LAST:event_ExitMainMenuButtonActionPerformed
 
     private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
@@ -296,43 +293,6 @@ public class TeachingMode extends javax.swing.JFrame {
         aboutMenu.setVisible(true);
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
-    /**
-     * The main method of the class TeachingMode.
-     *
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TeachingMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TeachingMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TeachingMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TeachingMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TeachingMode().setVisible(true);
-            }
-        });
-    }
-
     private void moveTypedCodeBackToArrayList() {
         String s[] = typedCodeTextArea.getText().split("\\n");
         for (int i = 0; i < s.length - 1; i++) {
@@ -368,17 +328,19 @@ public class TeachingMode extends javax.swing.JFrame {
             out.println(typedCodeTextArea.getText());
 
             String compileCommand = "javac " + filenamejava;
-            String commandToBuild = "jar cf " + filename + ".jar " + filenamejava;
 
+            JOptionPane.showMessageDialog(this, "We have taken care of compiling "
+                    + "your program for you.\n To run your program, when the "
+                    + "command prompt appears,\n you will need to enter the "
+                    + "following command:\njava " + filename);
+            
             // Compile the file
             Process pro1 = Runtime.getRuntime().exec(compileCommand);
-
-            Process pro2 = Runtime.getRuntime().exec(commandToBuild);
 
             // Get relative path
             Path currentRelativePath = Paths.get("");
             String newDir = currentRelativePath.toAbsolutePath().toString();
-
+            
             //Open command window to working directory
             Runtime rt = Runtime.getRuntime();
             rt.exec("cmd.exe /c start", null, new File(newDir));
