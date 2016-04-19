@@ -1,3 +1,0 @@
-USER:jbag1489&&&&PASS:123456&&&&NAME:Josh&&&&T:false
-USER:jbag2&&&&PASS:123456&&&&NAME:Josh&&&&T:true
-USER:ffff&&&&PASS:xxxx&&&&NAME:fasx&&&&T:false
