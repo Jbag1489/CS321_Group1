@@ -15,7 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * About is a GUI that provides basic information about Typing as a Programmer, 
+ *  and also has a reference to Google's Java Style Guide.
  * @author Josh
  */
 public class About extends javax.swing.JFrame {
@@ -27,7 +28,10 @@ public class About extends javax.swing.JFrame {
         initComponents();
     }
 
-    
+    /**
+     * OpenUrlAction is an action listener that is attached to javaGuidelinesButton. 
+     * The URL that is opened links to Google's Java style guide.
+     */
     class OpenUrlAction implements ActionListener {
       @Override public void actionPerformed(ActionEvent e) {
           URI uri = null;
@@ -40,6 +44,11 @@ public class About extends javax.swing.JFrame {
       }
     }
     
+    /**
+     * open will take a URI object and browse to it using the default internet
+     * browser.
+     * @param uri A URI object containing the web address to be opened.
+     */
     private void open(URI uri) {
     if (Desktop.isDesktopSupported()) {
       try {
@@ -52,7 +61,7 @@ public class About extends javax.swing.JFrame {
     
     
     /**
-     * Get a reference to the instance of About.
+     * Returns a reference to the instance of About.
      * @return A reference to the instance of About.
      */
     public static About getInstance(){
@@ -169,9 +178,14 @@ public class About extends javax.swing.JFrame {
     
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.setVisible(false); // Sets this window to be invisible again.
     }//GEN-LAST:event_OKButtonActionPerformed
 
+    /**
+     * javaGuidelinesButtonActionPerformed has a listener attached to it; when pressed
+     *      the listener will take care of all operations.
+     * @param evt 
+     */
     private void javaGuidelinesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaGuidelinesButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_javaGuidelinesButtonActionPerformed
@@ -189,5 +203,8 @@ public class About extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     // User variable definitions
+    /**
+     * instance is the reference to the instantiation of About.
+     */
     private static About instance = null;
 }

@@ -78,29 +78,38 @@ public class Checker {
         }
     }
 
+    /**
+     * checkAndHighlight will compare the UserEnteredCode to the MasterCode of the
+     *  current assignment, and highlight any incorrect lines on the MasterCode
+     *  JTextArea.
+     * @param masterCode The JTextArea the contains the MasterCode to be highlighted.
+     */
     public void checkAndHighlight(JTextArea masterCode) {
         masterCode.setText("");
-        //masterCode.setSelectionColor(Color.YELLOW);
         Highlighter h = masterCode.getHighlighter();
-        HighlightPainter highLightPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.YELLOW);
+        HighlightPainter highLightPainter = 
+                new DefaultHighlighter.DefaultHighlightPainter(Color.YELLOW);
         h.removeAllHighlights();
         int prevLength = 0;
         for (int i = 0; i < theAssignment.getMasterCode().size(); i++) {
             if (theAssignment.getUserEnteredCode().size()-1 < i) {
                 masterCode.append(theAssignment.getMasterCode().get(i));
                 try {
-                    h.addHighlight(prevLength, prevLength + theAssignment.getMasterCode().get(i).length() - 1, highLightPainter);
+                    h.addHighlight(prevLength, prevLength + 
+                            theAssignment.getMasterCode().get(i).length() - 1, highLightPainter);
                 } catch (BadLocationException ex) {
                     ex.printStackTrace();
                 } 
             } else {
-                if (theAssignment.getUserEnteredCode().get(i).equals(theAssignment.getMasterCode().get(i))) {
+                if (theAssignment.getUserEnteredCode().get(i).equals(
+                        theAssignment.getMasterCode().get(i))) {
                     masterCode.append(theAssignment.getMasterCode().get(i));
                 } else {
                     masterCode.append(theAssignment.getMasterCode().get(i));
                     try {
-                        h.addHighlight(prevLength, prevLength + theAssignment.getMasterCode().get(i).length() - 1, highLightPainter);
-                        //h.addHighlight(40, 50, DefaultHighlighter.DefaultPainter);
+                        h.addHighlight(prevLength, prevLength + 
+                                theAssignment.getMasterCode().get(i).length() 
+                                - 1, highLightPainter);
                     } catch (BadLocationException ex) {
                         ex.printStackTrace();
                     }

@@ -15,8 +15,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Joshua
+ * AssignmentSelector is a Swing GUI that will display a series of buttons that will
+ *  load an assignment into the instance of TeachingMode.
+ * @author Group1
  */
 public class AssignmentSelector extends javax.swing.JFrame {
 
@@ -28,8 +29,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
     }
 
     /**
-     * Get a reference to the instance of AssignmentSelector.
-     *
+     * Returns a reference to the instance of AssignmentSelector.
      * @return A reference to the instance of AssignmentSelector.
      */
     public static AssignmentSelector getInstance() {
@@ -243,6 +243,8 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void importAssignmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAssignmentButtonActionPerformed
         // TODO add your handling code here:
+        
+        // If the user has administrator status, allow a file to be imported.
         if (administratorStatus) {
             pathname = JOptionPane.showInputDialog(rootPane, "Enter a filename to import.");
             if (pathname == null) {
@@ -283,12 +285,21 @@ public class AssignmentSelector extends javax.swing.JFrame {
 
     private void assignment4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignment4ButtonActionPerformed
         // TODO add your handling code here:
-        pathname = "Data\\Assignment4.txt";
+        pathname = "Data" + File.separator + "Assignment4.txt";
         loadAssignment(pathname);
         startAssignment();
     }//GEN-LAST:event_assignment4ButtonActionPerformed
 
+    /**
+     * loadAssignment will open an assignment file, use an instance of 
+     *  AssignmentTemplateParser to create an assignment object, storing the assignment 
+     *  in the instance variable theAssignment, and then initialize TeachingMode with 
+     *  this assignment.
+     * @param filename A string containing the filename or file path of the
+     *      assignment to load.
+     */
     private void loadAssignment(String filename) {
+        
         myFile = new File(filename);
         atp = new AssignmentTemplateParser();
         try {
@@ -306,12 +317,22 @@ public class AssignmentSelector extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * startAssignment will use the instance variable theAssignment to initialize 
+     *  TeachingMode, display the TeachingMode window, and hide the AssignmentSelector
+     *  window.
+     */
     private void startAssignment() {
         teachingMode.setAssignment(theAssignment);
         teachingMode.setVisible(true);
         this.setVisible(false);
     }
 
+    /**
+     * setAdminStatus allows the flag controlling if custom assignments are able to be
+     *  opened to be set.
+     * @param status A boolean value, true if the user is able to import a custom assignment.
+     */
     public void setAdminStatus(boolean status) {
         administratorStatus = status;
     }
@@ -340,7 +361,7 @@ public class AssignmentSelector extends javax.swing.JFrame {
     private About aboutMenu = About.getInstance();
     private SettingsConfigurator settings = SettingsConfigurator.getInstance();
 
-    private File myFile = new File("data.txt");
+    private File myFile = new File("");
     private AssignmentTemplateParser atp = new AssignmentTemplateParser();
     private Assignment theAssignment;
 

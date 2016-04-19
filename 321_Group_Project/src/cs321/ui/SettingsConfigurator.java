@@ -19,24 +19,23 @@ import javax.swing.JOptionPane;
 import javax.swing.event.*;
 
 /**
- *
+ * SettingsConfigurator is a GUI that allows the end user to change the font properties of
+ *  JTextAreas that appear in Typing As A Programmer. 
  * @author Joshua
  */
 public class SettingsConfigurator extends javax.swing.JFrame {
 
     /**
-     * Creates new form SettingsConfigurator
+     * Creates new form SettingsConfigurator and will import previous font settings,
+     *  if they exist.
      */
-    private static SettingsConfigurator instance = null;
-
     private SettingsConfigurator() {
         initComponents();
         importSettings();
     }
 
     /**
-     * Get a reference to the instance of SettingsConfigurator.
-     *
+     * Returns a reference to the instance of SettingsConfigurator.
      * @return Reference to the instance of SettingsConfigurator.
      */
     public static SettingsConfigurator getInstance() {
@@ -315,6 +314,7 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         currentFontColorIndex = previewFontColorIndex;
         currentBackgroundColorIndex = previewBackgroundColorIndex;
 
+        // Set the font properties in TeachingMode
         teachingMode.setFontOptions(fontList.getSelectedValue(),
                 fontSizeList.getSelectedValue(), fontColor, backgroundColor);
 
@@ -322,6 +322,11 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_saveExitButtonActionPerformed
 
+    /**
+     * Resets the font options to the default, but does not save the settings; settings must
+     *  be saved after.
+     * @param evt 
+     */
     private void resetToDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToDefaultButtonActionPerformed
         // TODO add your handling code here:
         fontList.setSelectedIndex(3);
@@ -330,8 +335,14 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         backgroundColorList.setSelectedIndex(0);
     }//GEN-LAST:event_resetToDefaultButtonActionPerformed
 
+    /**
+     * Will discard any changes made to the font properties since the last time 
+     *  the properties were saved, and then close the window.
+     * @param evt 
+     */
     private void discardChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardChangesButtonActionPerformed
         // TODO add your handling code here:
+
         fontList.setSelectedIndex(currentFontIndex);
         fontSizeList.setSelectedIndex(currentFontSizeIndex);
         fontColorList.setSelectedIndex(currentFontColorIndex);
@@ -340,50 +351,10 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_discardChangesButtonActionPerformed
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField backgroundColorField;
-    private javax.swing.JList<String> backgroundColorList;
-    private javax.swing.JButton discardChangesButton;
-    private javax.swing.JTextField fontColorField;
-    private javax.swing.JList<String> fontColorList;
-    private javax.swing.JTextField fontField;
-    private javax.swing.JList<String> fontList;
-    private javax.swing.JTextField fontPreviewField;
-    private javax.swing.JTextField fontSizeField;
-    private javax.swing.JList<String> fontSizeList;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JButton resetToDefaultButton;
-    private javax.swing.JButton saveExitButton;
-    private javax.swing.JLabel textPreviewLabel;
-    // End of variables declaration//GEN-END:variables
-
-    // User variable declaration
-    private String fontDecode = "";
-    private Color fontColor;
-    private Color backgroundColor;
-
-    private int currentFontIndex = 3;
-    private int currentFontSizeIndex = 1;
-    private int currentFontColorIndex = 1;
-    private int currentBackgroundColorIndex = 0;
-
-    private int previewFontIndex = 3;
-    private int previewFontSizeIndex = 1;
-    private int previewFontColorIndex = 1;
-    private int previewBackgroundColorIndex = 0;
-
-    private TeachingMode teachingMode = TeachingMode.getInstance();
-
+    /**
+     * Will take the text from the fontColorField and convert into a Color
+     *  object to be applied to the text.
+     */
     private void setFontColorFromList() {
         switch (fontColorField.getText()) {
             case "White":
@@ -407,6 +378,10 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Will take the text from the backgroundColorField and convert into a Color
+     *  object to be applied to the text background area.
+     */
     private void setBackgroundColorFromList() {
         switch (backgroundColorField.getText()) {
             case "White":
@@ -430,6 +405,12 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * ListenerClass is a list selection listener. Whenever a list has a new selection,
+     *  ListenerClass will get the selected value from all font option lists, update 
+     *  the text in the text fields displaying font options, and then apply those 
+     *  settings to the font preview window.
+     */
     private class ListenerClass implements ListSelectionListener {
 
         @Override
@@ -458,8 +439,12 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * exportSettings will take the selected font options and write them out to a file
+     *  that is loaded the next time the program is run.
+     */
     private void exportSettings() {
-        String filename = "Data\\settings.dat";
+        String filename = "Data" + File.separator + "settings.dat";
         try {
             PrintWriter out = new PrintWriter(new FileWriter(filename));
 
@@ -484,11 +469,15 @@ public class SettingsConfigurator extends javax.swing.JFrame {
 
     }
 
+    /**
+     * importSettings will locate the settings file, and if it exists, will
+     *  read in and apply the settings from the last time the application was run.
+     */
     private void importSettings() {
 
         try {
 
-            File f = new File("Data\\settings.dat");
+            File f = new File("Data" + File.separator + "settings.dat");
             if (f.exists()) {
 
                 FileInputStream read = new FileInputStream(f);
@@ -514,5 +503,51 @@ public class SettingsConfigurator extends javax.swing.JFrame {
         teachingMode.setFontOptions(fontList.getSelectedValue(),
                 fontSizeList.getSelectedValue(), fontColor, backgroundColor);
     }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField backgroundColorField;
+    private javax.swing.JList<String> backgroundColorList;
+    private javax.swing.JButton discardChangesButton;
+    private javax.swing.JTextField fontColorField;
+    private javax.swing.JList<String> fontColorList;
+    private javax.swing.JTextField fontField;
+    private javax.swing.JList<String> fontList;
+    private javax.swing.JTextField fontPreviewField;
+    private javax.swing.JTextField fontSizeField;
+    private javax.swing.JList<String> fontSizeList;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JButton resetToDefaultButton;
+    private javax.swing.JButton saveExitButton;
+    private javax.swing.JLabel textPreviewLabel;
+    // End of variables declaration//GEN-END:variables
+
+    // User variable declaration
+    private static SettingsConfigurator instance = null;
+    
+    private String fontDecode = "";
+    private Color fontColor;
+    private Color backgroundColor;
+
+    private int currentFontIndex = 3;
+    private int currentFontSizeIndex = 1;
+    private int currentFontColorIndex = 1;
+    private int currentBackgroundColorIndex = 0;
+
+    private int previewFontIndex = 3;
+    private int previewFontSizeIndex = 1;
+    private int previewFontColorIndex = 1;
+    private int previewBackgroundColorIndex = 0;
+
+    private TeachingMode teachingMode = TeachingMode.getInstance();
 
 }

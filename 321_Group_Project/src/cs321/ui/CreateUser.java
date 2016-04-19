@@ -10,7 +10,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * CreateUser is a GUI that allows a new UserProfile to be created at runtime.
  * @author Group1
  */
 public class CreateUser extends javax.swing.JFrame {

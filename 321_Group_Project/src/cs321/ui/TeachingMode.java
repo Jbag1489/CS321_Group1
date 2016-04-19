@@ -18,14 +18,14 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Joshua
+ * TeachingMode is the GUI that will display an assignment, as well as let the 
+ *  user complete the assignment. 
+ * @author Group 1
  */
 public class TeachingMode extends javax.swing.JFrame {
 
     /**
-     * Set's this instances reference to a SettingsConfigurator instance.
-     *
+     * Sets TeachingMode's reference to a SettingsConfigurator instance.
      * @param s Reference to a SettingsConfigurator instance.
      */
     protected void setSettingsInstance(SettingsConfigurator s) {
@@ -40,9 +40,8 @@ public class TeachingMode extends javax.swing.JFrame {
     }
 
     /**
-     * Get a reference to the instance of TeachingMode.
-     *
-     * @return Reverence to the instance of TeachingMode.
+     * Returns a reference to the instance of TeachingMode.
+     * @return Reference to the instance of TeachingMode.
      */
     public static TeachingMode getInstance() {
         if (instance == null) {
@@ -52,8 +51,7 @@ public class TeachingMode extends javax.swing.JFrame {
     }
 
     /**
-     * setAssignment will configure teachingMode with the passed in assignment.
-     *
+     * setAssignment will configure TeachingMode with the passed in assignment.
      * @param a is an Assignment object that will be used for teachingMode.
      */
     public void setAssignment(Assignment a) {
@@ -256,7 +254,8 @@ public class TeachingMode extends javax.swing.JFrame {
         if (typedCodeTextArea.getText().equals(sampleCodeTextArea.getText())) {
             exportCode();
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. Please try again.");
+            JOptionPane.showMessageDialog(rootPane, "Your typed code is incorrect. "
+                    + "Please try again.");
         }
 
         // Send typed code back to ArrayList for typedCode
@@ -293,6 +292,11 @@ public class TeachingMode extends javax.swing.JFrame {
         aboutMenu.setVisible(true);
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
+    /**
+     * moveTypedCodeBackToArray list will take the code the user has entered, as well
+     *  as the assignment's template code, and copy from the respective JTextAreas into
+     *  the ArrayLists that are in the assignment instance.
+     */
     private void moveTypedCodeBackToArrayList() {
         String s[] = typedCodeTextArea.getText().split("\\n");
         for (int i = 0; i < s.length - 1; i++) {
@@ -305,10 +309,12 @@ public class TeachingMode extends javax.swing.JFrame {
             s[i] = s[i] + "\n";
         }
         currentAssignment.setMasterCode(new ArrayList<>(Arrays.asList(s)));
-//        System.out.println(arrList);
-//        System.out.println(currentAssignment.getMasterCode());
     }
 
+    /**
+     * exportCode will take the code in typedCodeTextArea, and output it to a
+     *  java code file that is ready to be compiled.
+     */
     private void exportCode() {
         // Export the code
 
@@ -321,10 +327,6 @@ public class TeachingMode extends javax.swing.JFrame {
         try {
             PrintWriter out = new PrintWriter(new FileWriter(filenamejava));
 
-            // output tpyed code to file
-//            for (String line : typedCode) {
-//                out.println(line);
-//            }
             out.println(typedCodeTextArea.getText());
 
             String compileCommand = "javac " + filenamejava;
@@ -348,7 +350,7 @@ public class TeachingMode extends javax.swing.JFrame {
             out.close();
 
         } catch (IOException e1) {
-            System.out.println("Error during file writing.");
+            System.err.println("Error during file writing.");
             e1.printStackTrace();
         }
 

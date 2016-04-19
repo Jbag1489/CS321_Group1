@@ -8,13 +8,13 @@ package cs321.ui;
 import javax.swing.JOptionPane;
 
 /**
- * MainMenu is a class that will display the main menu of Typing as a Programmer.
- * @author Joshua
+ * MainMenu is a GUI that will display the main menu of Typing as a Programmer.
+ * @author Group 1
  */
 public class MainMenu extends javax.swing.JFrame {
     
     /**
-     * Get a reference to the instance of MainMenu
+     * Returns a reference to the instance of MainMenu
      * @return Reference to the instance of MainMenu
      */
     public static MainMenu getInstance() {
@@ -207,14 +207,15 @@ public class MainMenu extends javax.swing.JFrame {
     private void TeachingModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeachingModeButtonActionPerformed
         // TODO add your handling code here:
         
-        //Run Teaching Mode
-        //teachingMode.setVisible(true);
-        
+        // Open assignmentSelector, which will load the assignment 
+            // TeachingMode will use.
         assignmentSelector.setVisible(true);
     }//GEN-LAST:event_TeachingModeButtonActionPerformed
 
     /**
-     * Shares MainMenu's reference to SettingsConfigurator
+     * Shares MainMenu's reference to SettingsConfigurator, this is so TeachingMode
+     *  is able to access SettingsConfigurator without creating a loop that causes
+     *  TeachingMode and SettingsConfigurator to rely on each other at creation.
      * @return Reference to the instance of SettingsConfigurator
      */
     protected SettingsConfigurator getSettingsInstance() {
@@ -223,13 +224,11 @@ public class MainMenu extends javax.swing.JFrame {
     
     private void PracticeModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PracticeModeButtonActionPerformed
         // TODO add your handling code here:
-        
         JOptionPane.showMessageDialog(rootPane, "Practice mode is coming soon!");
     }//GEN-LAST:event_PracticeModeButtonActionPerformed
 
     private void ArcadeModeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArcadeModeButtonActionPerformed
         // TODO add your handling code here:
-        
         JOptionPane.showMessageDialog(rootPane, "Arcade mode is coming soon!");
     }//GEN-LAST:event_ArcadeModeButtonActionPerformed
 
@@ -247,44 +246,9 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         // TODO add your handling code here:
+        // Display the about GUI
         aboutMenu.setVisible(true);
     }//GEN-LAST:event_AboutMenuItemActionPerformed
-
-    /**
-     * Main method of MainMenu GUI
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainMenu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AboutMenuItem;

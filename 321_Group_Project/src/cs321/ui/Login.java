@@ -13,8 +13,9 @@ import java.io.*;
 import static jdk.nashorn.internal.objects.NativeString.substring;
 
 /**
- *
- * @author Joshua
+ * Login is a GUI that allows the end user to use a previously created UserProfile
+ *  and log into the application a second time.
+ * @author Group1
  */
 public class Login extends javax.swing.JFrame {
 
@@ -26,7 +27,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         mainMenu = MainMenu.getInstance();
         
-        File fout = new File("Data\\user.txt");
+        // If the data file containing existing user profiles does not exist, create it.
+        File fout = new File("Data" + File.separator + "user.txt");
         if(!fout.exists()) {
             try {
                 fout.createNewFile();
@@ -36,7 +38,6 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
-    private MainMenu mainMenu = null;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,16 +152,20 @@ public class Login extends javax.swing.JFrame {
                     if (line.contains("USER:" + user + "&&&&")) {
                         if (line.contains("PASS:" + pwd + "&&&&")) {
                             log = true;
-                            this.name = line.substring(line.indexOf("&&&&NAME:") + 9, line.indexOf("&&&&T"));
-                            this.isTeacher = Boolean.valueOf(line.substring(line.indexOf("T:") + 2));
+                            this.name = line.substring(line.indexOf("&&&&NAME:") + 
+                                    9, line.indexOf("&&&&T"));
+                            this.isTeacher = Boolean.valueOf(line.substring(line.indexOf("T:")
+                                    + 2));
                             this.setVisible(false);
                             menu.setVisible(true);
 
                             if (isTeacher) {
-                                JOptionPane.showMessageDialog(null, "Welcome! Teacher   " + name + "!");
+                                JOptionPane.showMessageDialog(null, "Welcome! Teacher   " 
+                                        + name + "!");
                                 assignmentSelector.setAdminStatus(isTeacher);
                             } else {
-                                JOptionPane.showMessageDialog(null, "Welcome! Student   " + name + "!");
+                                JOptionPane.showMessageDialog(null, "Welcome! Student   " 
+                                        + name + "!");
                             }
                         }
                     }
@@ -183,41 +188,29 @@ public class Login extends javax.swing.JFrame {
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
-        //String profile;
         // Open CreateUser UI
         CreateUser newUserScreen = new CreateUser();
         this.setVisible(false);
         newUserScreen.setVisible(true);
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createUserButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton loginButton;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JLabel passwordLabel;
-    private javax.swing.JTextField userNameField;
-    private javax.swing.JLabel userNameLabel;
-    // End of variables declaration//GEN-END:variables
-    private String name;
-    private boolean isTeacher;
-    private String pwd;
-    private String user;
-    private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
-
+    
     private void close() {
         WindowEvent winClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosing);
     }
 
+    /**
+     * Creates a UserProfile instance with the current name, password, username, 
+     *  and teacher status and returns the new UserProfile instance.
+     * @return A UserProfile instance with the data the user entered.
+     */
     public UserProfile getCurrentUser() {
         UserProfile newUser = new UserProfile(user, pwd, name, isTeacher);
         return newUser;
     }
 
     /**
-     * Main class for the About class.
-     *
+     * Main class that starts off the running of Typing as a Programmer.
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -253,4 +246,21 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createUserButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextField userNameField;
+    private javax.swing.JLabel userNameLabel;
+    // End of variables declaration//GEN-END:variables
+    private String name;
+    private boolean isTeacher;
+    private String pwd;
+    private String user;
+    private AssignmentSelector assignmentSelector = AssignmentSelector.getInstance();
+    private MainMenu mainMenu = null;
+    
 }
