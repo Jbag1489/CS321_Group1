@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cs321.other;
-
 import java.util.ArrayList;
 import java.awt.Color;
 import java.util.logging.Level;
@@ -14,7 +8,6 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
-
 /**
  * The Checker class will implement a theAssignment with high-lighter component
  * to check the correctness of selected assignment. This class will also display
@@ -23,6 +16,7 @@ import javax.swing.text.Highlighter.HighlightPainter;
  * @author Group1
  * @version 04/18/16
  */
+
 public class Checker {
 
     /**

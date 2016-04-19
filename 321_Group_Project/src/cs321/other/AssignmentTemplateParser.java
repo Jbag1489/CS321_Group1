@@ -1,18 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cs321.other;
-
 import java.io.*;
 import java.util.ArrayList;
-
 /**
- *
- * @author Group 1
+ * The Assignment class will implement the assignment template parser.
+ * Assignment template parser will read selected assignment .txt file into 
+ * two String ArrayList Instruction and masterCode in order to create Assignment
+ * object.
+ * 
+ * @author Group1
+ * @version 04/18/16
  */
+
 public class AssignmentTemplateParser {
+     /**
+     * Declared field variables that represent String type ArrayList of Instruction
+     * and master code.
+     */
 
     private ArrayList<String> Instruction;
     private ArrayList<String> masterCode;
@@ -26,7 +29,7 @@ public class AssignmentTemplateParser {
     public void readFile(File f) throws IOException {
         Instruction = new ArrayList<String>();
         masterCode = new ArrayList<String>();
-
+        
         try {
 
             FileInputStream read = new FileInputStream(f);
@@ -82,8 +85,7 @@ public class AssignmentTemplateParser {
     }
 
     /**
-     * JavaDoc comment
-     *
+     * Returns instructions
      * @return Instruction of type ArrayList string
      */
     public ArrayList<String> getInstruction() {
@@ -91,8 +93,7 @@ public class AssignmentTemplateParser {
     }
 
     /**
-     * JavaDoc comment
-     *
+     * Returns master code
      * @return masterCode of type ArrayList string
      */
     public ArrayList<String> getMasterCode() {
@@ -100,8 +101,7 @@ public class AssignmentTemplateParser {
     }
 
     /**
-     * JavaDoc comment
-     *
+     * Returns the assignment object with selected template
      * @return template the Assignment Object
      */
     public Assignment getAssignment() {
