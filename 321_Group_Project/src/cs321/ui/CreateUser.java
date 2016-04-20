@@ -196,6 +196,7 @@ public class CreateUser extends javax.swing.JFrame {
 
             UserProfile newUser = new UserProfile(userNameField.getText(), nameField.getText(),
                     passwordField.getText(), isTeacher);
+            
             assignmentSelector.setAdminStatus(isTeacher);
             if (newUser.outputUser(nameField.getText(), userNameField.getText(), 
                     passwordField.getText(), isTeacher))// success output user

@@ -144,7 +144,7 @@ public UserProfile(String userName, String studentName,
              FileInputStream read = new FileInputStream("Data" + File.separator + "user.txt");
              BufferedReader reader = new BufferedReader(new InputStreamReader(read));
              String line = reader.readLine();
-             while (line != null)
+             while (!line.equals(""))
              {
                  String u1 = line.substring(5,line.indexOf("&&&&PASS:"));
                  if(u1.equals(user))
